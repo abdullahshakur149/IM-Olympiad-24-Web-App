@@ -1,0 +1,19 @@
+{
+  "name": "im-olympiad-2024",
+  "version": "1.0.0",
+  "description": "web app for event",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "nodemon": "^3.0.3",
+    "Router": "^2.1.0"
+  }
+}
