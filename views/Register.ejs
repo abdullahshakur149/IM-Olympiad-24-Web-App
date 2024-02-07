@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Portal</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"/>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .testimonial {
+            color: #ffffff;
+            background: linear-gradient(45deg, #ff0000, #ffffff);
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .testimonial img {
+            width: 70%;
+            margin-top: 20px;
+            border-radius: 50%;
+        }
+
+        .testimonial h2 {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .testimonial p {
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+
+        .border {
+            background-color: #ffffff;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+        }
+
+        .options {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .options a {
+            display: inline-block;
+            margin: 10px;
+            padding: 15px 30px;
+            background-color: red;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .options a:hover {
+            background-color: #2ecc71;
+        }
+    </style>
+</head>
+<body>
+
+    <section class="testimonial py-5" id="testimonial">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 py-5 text-white text-center">
+                    <div class="">
+                        <div class="card-body">
+                            <img src="http://www.ansonika.com/mavia/img/registration_bg.svg" alt="Registration Image">
+                            <h2 class="py-3">Registration</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 py-5 border">
+                    <h4 class="pb-4 text-center">Welcome to our registration Portal</h4>
+
+                    <div><h3 style="color: #333; text-align: center;">Please select the option below</h3></div>
+                    <div class="options">
+                        <a href="/imsregister">Are you an IM Sciences student? Click here</a>
+                        <a href="outsiderregister">Are you an Outsider? Click here</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

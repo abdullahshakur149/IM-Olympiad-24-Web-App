@@ -21,7 +21,8 @@ const aboutRoute = require('./routes/about');
 const programRoute = require('./routes/program');
 const venueRoute = require('./routes/venue');
 const contactRoute = require('./routes/contact');
-const registerRoute = require('./routes/register');
+const imStudentRegister = require('./routes/imsStudentRegister')
+const OutsiderRegister = require('./routes/OutsiderRegister')
 
 
 app.use('/', indexRoute);
@@ -30,8 +31,8 @@ app.use('/about', aboutRoute);
 app.use('/program', programRoute);
 app.use('/venue', venueRoute);
 app.use('/contact', contactRoute);
-app.use('/register', registerRoute);
-
+app.use('/imsregister', imStudentRegister);
+app.use('/outsiderregister', OutsiderRegister);
 
 // Error handling
 //handle internal errors e.g Database, missing file etc
@@ -47,7 +48,6 @@ app.use((req, res, next) => {
     res.status(404);
     res.render('404');
 })
-
 
 const PORT = process.env.PORT || 3000;
 
