@@ -1,9 +1,16 @@
 const express = require('express');
 const colors = require('colors');
+const connectDB = require('./database/connection');
+require('dotenv').config(); //to access environment variables
+
 const app = express();
+
+//mongodb connection
+// connectDB();
 
 // middlewares
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
@@ -14,10 +21,8 @@ const aboutRoute = require('./routes/about');
 const programRoute = require('./routes/program');
 const venueRoute = require('./routes/venue');
 const contactRoute = require('./routes/contact');
-const registerRoute = require('./routes/register');
 const imStudentRegister = require('./routes/imsStudentRegister')
 const OutsiderRegister = require('./routes/OutsiderRegister')
-
 
 
 app.use('/', indexRoute);
@@ -26,14 +31,27 @@ app.use('/about', aboutRoute);
 app.use('/program', programRoute);
 app.use('/venue', venueRoute);
 app.use('/contact', contactRoute);
-app.use('/register', registerRoute);
 app.use('/imsregister', imStudentRegister);
 app.use('/outsiderregister', OutsiderRegister);
 
+// Error handling
+//handle internal errors e.g Database, missing file etc
+app.use((err, req, res, next) => {
+    console.log(err);
+    res.status(500);
+    res.render('internalerror')
+})
 
+// 404
+//handle requests to non-existent pages
+app.use((req, res, next) => {
+    res.status(404);
+    res.render('404');
+})
 
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
     console.log(`Your Server listening on PORT ${PORT}`.bold.red);
+    console.log('Server url:', `http://localhost:${PORT}`.green);
 });
