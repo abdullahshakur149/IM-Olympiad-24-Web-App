@@ -1,12 +1,10 @@
 const express = require('express');
 const colors = require('colors');
 const connectDB = require('./database/connection');
-require('dotenv').config(); //to access environment variables
-
+require('dotenv').config(); 
 const app = express();
 
-//mongodb connection
-// connectDB();
+connectDB();
 
 // middlewares
 app.use(express.urlencoded({ extended: true }));
@@ -22,7 +20,6 @@ const programRoute = require('./routes/program');
 const venueRoute = require('./routes/venue');
 const contactRoute = require('./routes/contact');
 const imStudentRegister = require('./routes/imsStudentRegister')
-const OutsiderRegister = require('./routes/OutsiderRegister')
 
 
 app.use('/', indexRoute);
@@ -32,7 +29,6 @@ app.use('/program', programRoute);
 app.use('/venue', venueRoute);
 app.use('/contact', contactRoute);
 app.use('/imsregister', imStudentRegister);
-app.use('/outsiderregister', OutsiderRegister);
 
 // Error handling
 //handle internal errors e.g Database, missing file etc
