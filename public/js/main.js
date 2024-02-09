@@ -202,7 +202,6 @@ $(document).ready(function(){
   function calculateTotalPrice() {
     var totalPrice = 0;
     var socialEvents = 2500;
-    var finalTotal = 0;
 
     if ($('#RegisterAsObserver').is(':checked')) {
         totalPrice = 3000;
@@ -217,14 +216,13 @@ $(document).ready(function(){
 
         // Add social events price if "Participant + Social Event" is selected
         if ($('#RegisterAsParticipantAndSocialEvent').is(':checked')) {
-            finalTotal += totalPrice + socialEvents;
-            $('#finaltotalprice').text('RS. ' + finalTotal);
+            totalPrice += socialEvents;
         }
     }
 
     // Update the total price display
     $('#finaltotalprice').text('RS. ' + totalPrice);
-  
+
     // Update the observer and sports total price displays
     if ($('#RegisterAsObserver').is(':checked')) {
         $('#observertotalprice').text('RS. ' + totalPrice);
@@ -232,7 +230,7 @@ $(document).ready(function(){
         $('#socialeventstotalprice').text('-');
     } else if ($('#RegisterAsParticipantAndSocialEvent').is(':checked')) {
         $('#observertotalprice').text('-');
-        $('#sportstotalprice').text('RS. ' + totalPrice);
+        $('#sportstotalprice').text('RS. ' + (totalPrice - socialEvents));
         $('#socialeventstotalprice').text('RS. ' + socialEvents);
     } else {
         $('#observertotalprice').text('-');
@@ -240,6 +238,7 @@ $(document).ready(function(){
         $('#socialeventstotalprice').text('-');
     }
 }
+
 
   function toggleTotalPriceDiv() {
     var hasCheckedSport = $('input[type="checkbox"]:checked').length > 0;
