@@ -12,6 +12,320 @@ $(window).on('scroll', function () {
 	}
 });
 
+<<<<<<< Updated upstream
+=======
+ // Toggle student Type input
+ $(document).ready(function(){
+  $('input[name="studentType"]').change(function(){
+    
+      if($(this).val() === "yes"){
+          $("#studentIdInput").fadeIn();
+      }
+      else{
+          $("#studentIdInput").fadeOut();
+      }
+  });
+});
+
+// Toggle Register As input
+$(document).ready(function(){
+  $('input[name="RegisterAs"]').change(function(){
+    
+      if($(this).val() === "participant" || $(this).val() === "participantAndSocialEvent"){
+          $("#sports").fadeIn();
+      }
+      else{
+          $("#sports").fadeOut();
+      }
+  });
+});
+
+// Futsal Team Players toggle
+$(document).ready(function(){
+  $('input[name="FutsalPlayers"]').on('input', function(){
+    var value = parseInt($(this).val());
+    var errorMessage = '';
+
+    if (isNaN(value)) {
+      errorMessage = 'Please enter a valid number.';
+    } else if (value < 5) {
+      errorMessage = 'Minimum number of players is 5.';
+    } else if (value > 8) {
+      errorMessage = 'Maximum number of players is 8.';
+    }
+
+    // Show or hide the error message based on the condition
+    if (errorMessage) {
+      $('#FutsalPlayersError').text(errorMessage).show();
+    } else {
+      $('#FutsalPlayersError').hide();
+    }
+  });
+
+  // Show the input field when Futsal is checked
+  $('input[name="Futsal"]').change(function(){
+    if ($(this).prop('checked')) {
+      $("#FutsalPlayersDiv").fadeIn();
+      $('input[name="FutsalPlayers"]').prop("disabled", false);
+    } else {
+      $("#FutsalPlayersDiv").fadeOut();
+      $('input[name="FutsalPlayers"]').prop("disabled", true);
+      // Hide the error message when the input field is hidden
+      $('#FutsalPlayersError').hide();
+    }
+  });
+});
+
+
+
+
+
+
+// Basketball Team Players toggle
+$(document).ready(function(){
+  $('input[name="BasketballPlayers"]').on('input', function(){
+    var value = parseInt($(this).val());
+    var errorMessage = '';
+
+    if (isNaN(value)) {
+      errorMessage = 'Please enter a valid number.';
+    } else if (value < 5) {
+      errorMessage = 'Minimum number of players is 5.';
+    } else if (value > 8) {
+      errorMessage = 'Maximum number of players is 8.';
+    }
+
+    // Show or hide the error message based on the condition
+    if (errorMessage) {
+      $('#BasketballPlayersError').text(errorMessage).show();
+    } else {
+      $('#BasketballPlayersError').hide();
+    }
+  });
+
+  // Show the input field when Futsal is checked
+  $('input[name="Basketball"]').change(function(){
+    if ($(this).prop('checked')) {
+      $("#BasketballPlayersDiv").fadeIn();
+      $('input[name="BasketballPlayers"]').prop("disabled", false);
+    } else {
+      $("#BasketballPlayersDiv").fadeOut();
+      $('input[name="BasketballPlayers"]').prop("disabled", true);
+      // Hide the error message when the input field is hidden
+      $('#BasketballPlayersError').hide();
+    }
+  });
+});
+
+
+
+
+//Badminton Type Toggle
+$(document).ready(function(){
+  $('input[name="Badminton"]').change(function(){
+      if($(this).is(":checked")){
+          $("#BadmintonTypeDiv").fadeIn();
+          $('input[name="matchType"]').prop("disabled", false);
+      }
+      else{
+          $("#BadmintonTypeDiv").fadeOut();
+          $('input[name="matchType"]').prop("disabled", true);
+      }
+  });
+});
+
+
+
+//Board Games Type Toggle
+$(document).ready(function(){
+  $('input[name="BoardGames"]').change(function(){
+      if($(this).is(":checked")){
+          $("#BoardGamesDiv").fadeIn();
+      }
+      else{
+          $("#BoardGamesDiv").fadeOut();
+          $("#BoardGamesDiv input[type='checkbox']").prop('checked', false);
+      }
+  });
+});
+
+
+//E-Gaming Type Toggle
+$(document).ready(function(){
+  $('input[name="EGaming"]').change(function(){
+      if($(this).is(":checked")){
+          $("#EGamingDiv").fadeIn();
+      }
+      else{
+          $("#EGamingDiv").fadeOut();
+          $("#EGamingDiv input[type='checkbox']").prop('checked', false);
+      }
+  });
+});
+
+
+// Toggle parliamentary summit div
+
+$('input[name="ParliamentarySummit"]').change(function(){
+  if ($(this).prop('checked')) {
+    $("#ParliamarySummitDiv").fadeIn();
+    $('input[name="experience"]').prop("disabled", false);
+  } else {
+    $("#ParliamarySummitDiv").fadeOut();
+    $('input[name="experience"]').prop("disabled", true);
+    $("#ParliamarySummitDiv input[type='radio']").prop('checked', false);
+  }
+});
+
+
+// Calculate Total Price
+$(document).ready(function(){
+  // Event listener for changes in sport checkboxes
+  $('input[type="checkbox"]').change(function() {
+      calculateTotalPrice();
+      toggleTotalPriceDiv();
+  });
+
+  // Event listener for changes in match type radio buttons
+  $('input[name="matchType"]').change(function() {
+      calculateTotalPrice();
+      toggleTotalPriceDiv();
+  });
+
+  // Event listener for changes in the number of players for Futsal
+  $('#FutsalPlayers').on('input', function() {
+      calculateTotalPrice();
+  });
+
+  // Event listener for changes in the number of players for Basketball
+  $('#BasketballPlayers').on('input', function() {
+      calculateTotalPrice();
+  });
+
+  // Event listener for changes in "RegisterAs" radio buttons
+  $('input[name="RegisterAs"]').change(function() {
+    calculateTotalPrice();
+    toggleTotalPriceDiv(); // Show/hide the TotalPriceDiv based on the current selection
+  });
+
+  // Function to calculate the total price
+  function calculateTotalPrice() {
+    var totalPrice = 0;
+    var socialEvents = 2500;
+
+    if ($('#RegisterAsObserver').is(':checked')) {
+        totalPrice = 3000;
+    } else {
+        // Loop through each checked checkbox
+        $('input[type="checkbox"]:checked').each(function() {
+            var sportName = $(this).attr('name');
+            var matchType = getMatchType(sportName);
+            var pricePerPlayer = getPricePerPlayer(sportName, matchType);
+            totalPrice += pricePerPlayer;
+        });
+
+        // Add social events price if "Participant + Social Event" is selected
+        if ($('#RegisterAsParticipantAndSocialEvent').is(':checked')) {
+            totalPrice += socialEvents;
+        }
+    }
+
+    // Update the total price display
+    $('#finaltotalprice').text('RS. ' + totalPrice);
+
+    // Update the observer and sports total price displays
+    if ($('#RegisterAsObserver').is(':checked')) {
+        $('#observertotalprice').text('RS. ' + totalPrice);
+        $('#sportstotalprice').text('-');
+        $('#socialeventstotalprice').text('-');
+    } else if ($('#RegisterAsParticipantAndSocialEvent').is(':checked')) {
+        $('#observertotalprice').text('-');
+        $('#sportstotalprice').text('RS. ' + (totalPrice - socialEvents));
+        $('#socialeventstotalprice').text('RS. ' + socialEvents);
+    } else {
+        $('#observertotalprice').text('-');
+        $('#sportstotalprice').text('RS. ' + totalPrice);
+        $('#socialeventstotalprice').text('-');
+    }
+}
+
+
+  function toggleTotalPriceDiv() {
+    var hasCheckedSport = $('input[type="checkbox"]:checked').length > 0;
+    if ($('#RegisterAsObserver').is(':checked') || hasCheckedSport) {
+        $('#TotalPriceDiv').show();
+    } else {
+        $('#TotalPriceDiv').hide(); // Hide the div if RegisterAs Observer is not selected and there are no checked sports
+    }
+  }
+
+  // Function to get the match type based on the sport name
+  function getMatchType(sportName) {
+      switch(sportName) {
+          case 'Badminton':
+              return $('input[name="matchType"]:checked').val();
+          default:
+              return null;
+      }
+  }
+
+  // Function to get the price per player based on the sport name and match type
+  function getPricePerPlayer(sportName, matchType) {
+      switch(sportName) {
+          case 'Futsal':
+          case 'Basketball':
+              // Get the number of players for Futsal or Basketball
+              var numPlayers = 0;
+              if (sportName === 'Futsal') {
+                  numPlayers = parseInt($('#FutsalPlayers').val());
+              } else if (sportName === 'Basketball') {
+                  numPlayers = parseInt($('#BasketballPlayers').val());
+              }
+              // Check if the number of players is within the valid range
+              if (numPlayers < 5 || numPlayers > 8) {
+                  return calculateTotalPrice(); // Return 0 if the number of players is invalid
+              }
+              // Return the price per player multiplied by the number of players
+              return numPlayers * 1000;
+          case 'TableTennis':
+          case 'Ludo':
+          case 'Chess':
+          case 'Carrom':
+          case 'Tekken':
+          case 'Fifa':
+          case 'ParliamentarySummit':
+              return 1000;
+          case 'Badminton':
+              if (matchType === 'single') {
+                  return 1000;
+              } else if (matchType === 'double') {
+                  return 2000;
+              }
+              return 0;
+          default:
+              return 0;
+      }
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> Stashed changes
 
 
 

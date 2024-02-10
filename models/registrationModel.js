@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const userRegistrationSchema = new mongoose.Schema({
+const registrationSchema = new mongoose.Schema({
   name: {
     type: String
   },
@@ -16,34 +16,33 @@ const userRegistrationSchema = new mongoose.Schema({
   cnic: {
     type: String
   },
-  institute: {
+  is_ims_student: {
     type: String
   },
-  is_ims_student: {
-    type: Boolean,
-    default : false
+  institute: {
+    type: String
   },
   student_id_no: {
     type: String
   },
-  registering_as: {
-    type: String,
-    enum: ['observer', 'participant', 'participant and socialevents']
-  },
-  sport_registered_in: {
+  register_as: {
     type: String
   },
+  sport_registered_in: [{
+    type: Object
+  }],
   total_amount: {
     type: Number
   },
   ambassador_name: {
-    type: String
+    type: String,
+    default : ""
   }
 },
 {
   timestamps : true
 });
 
-const UserRegistration = mongoose.model('UserRegistration', userRegistrationSchema);
+const Registration = mongoose.model('Registration', registrationSchema);
 
-module.exports = UserRegistration;
+module.exports = Registration;
