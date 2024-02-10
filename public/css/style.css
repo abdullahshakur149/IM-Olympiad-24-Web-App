@@ -5769,4 +5769,57 @@ h6 {
   font-size: 12px;
 }
 
+.RegisterForm label{
+  font-size: 16px;
+  color: #131313;
+  font-weight: bold;
+}
+.RegisterForm .SubmitBtn{
+  background-color: #28AE61;
+  color: #FFFFFF;
+}
+.RegisterForm .PriceBoard{
+  width: 50%;
+  background-color: #E7E7E7;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+@media (max-width: 767px) {
+  .RegisterForm .PriceBoard {
+    width: 100%;
+  }
+}
+.PriceBoard #TotalPrice{
+  font-size: 30px;
+  color: #28AE61;
+  font-weight: bold;
+}
+
+.PriceBoard .checkoutlabel{
+  color: #131313;
+  font-weight: 800;
+  font-size: 17px;
+}
+.PriceBoard .finalTotal{
+  border-top: 1px solid #999999;
+}
+.PriceBoard .finaltotallabel{
+  color: #131313;
+  font-weight: 800;
+  font-size: 24px;
+}
+#observertotalprice, #sportstotalprice, #socialeventstotalprice, #finaltotalprice{
+  color: #131313;
+}
+#observertotalprice, #sportstotalprice, #socialeventstotalprice{
+  font-size: 17px;
+}
+#finaltotalprice{
+  font-size: 24px;
+}
+
+#TotalPriceDiv{
+  display: none;
+}
 /*# sourceMappingURL=style.css.map */

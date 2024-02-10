@@ -7,8 +7,7 @@ const session = require('express-session')
 const connectDB = require('./database/connection');
 const app = express();
 
-//mongodb connection
-// connectDB();
+connectDB();
 
 // middlewares
 app.use(express.urlencoded({ extended: true }));
@@ -30,6 +29,7 @@ const contactRoute = require('./routes/contact');
 const registerRoute = require('./routes/register')
 
 
+
 app.use('/', indexRoute);
 app.use('/performers', performerRoute);
 app.use('/about', aboutRoute);
@@ -37,6 +37,7 @@ app.use('/program', programRoute);
 app.use('/venue', venueRoute);
 app.use('/contact', contactRoute);
 app.use('/register', registerRoute);
+
 
 // Error handling
 //handle internal errors e.g Database, missing file etc

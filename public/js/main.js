@@ -12,8 +12,7 @@ $(window).on('scroll', function () {
 	}
 });
 
-<<<<<<< Updated upstream
-=======
+
  // Toggle student Type input
  $(document).ready(function(){
   $('input[name="studentType"]').change(function(){
@@ -32,6 +31,7 @@ $(document).ready(function(){
   $('input[name="RegisterAs"]').change(function(){
     
       if($(this).val() === "participant" || $(this).val() === "participantAndSocialEvent"){
+
           $("#sports").fadeIn();
       }
       else{
@@ -70,6 +70,7 @@ $(document).ready(function(){
     } else {
       $("#FutsalPlayersDiv").fadeOut();
       $('input[name="FutsalPlayers"]').prop("disabled", true);
+
       // Hide the error message when the input field is hidden
       $('#FutsalPlayersError').hide();
     }
@@ -111,6 +112,7 @@ $(document).ready(function(){
     } else {
       $("#BasketballPlayersDiv").fadeOut();
       $('input[name="BasketballPlayers"]').prop("disabled", true);
+
       // Hide the error message when the input field is hidden
       $('#BasketballPlayersError').hide();
     }
@@ -325,7 +327,6 @@ $(document).ready(function(){
 
 
 
->>>>>>> Stashed changes
 
 
 
@@ -676,5 +677,8 @@ mailChimp();
       cursor.style.left = x + 'px';
       cursor.style.top = y + 'px';
       })
+
+
+     
 
 })(jQuery);	
