@@ -2,12 +2,11 @@ require('dotenv').config();
 
 const express = require('express');
 const colors = require('colors');
-const flash = require('connect-flash')
-const session = require('express-session')
 const connectDB = require('./database/connection');
+require('dotenv').config(); 
 const app = express();
 
-connectDB();
+//connectDB();
 
 // middlewares
 app.use(express.urlencoded({ extended: true }));
