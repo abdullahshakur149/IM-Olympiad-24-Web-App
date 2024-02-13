@@ -1,10 +1,10 @@
 const express = require('express');
 const colors = require('colors');
-const connectDB = require('./database/connection');
+//const connectDB = require('./database/connection');
 require('dotenv').config(); 
 const app = express();
 
-connectDB();
+//connectDB();
 
 // middlewares
 app.use(express.urlencoded({ extended: true }));
