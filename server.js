@@ -1,10 +1,13 @@
 require('dotenv').config();
-
 const express = require('express');
 const colors = require('colors');
 const connectDB = require('./database/connection');
-require('dotenv').config(); 
+require('dotenv').config();
+const session = require('express-session');
+const flash = require('connect-flash')
 const app = express();
+
+
 
 //connectDB();
 
