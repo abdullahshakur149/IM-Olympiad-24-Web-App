@@ -5809,17 +5809,18 @@ h6 {
   font-weight: 800;
   font-size: 24px;
 }
-#observertotalprice, #sportstotalprice, #socialeventstotalprice, #finaltotalprice{
+#observertotalprice, #sportstotalprice, #socialeventstotalprice, #finaltotalprice, #dicountPrice{
   color: #131313;
 }
-#observertotalprice, #sportstotalprice, #socialeventstotalprice{
+#observertotalprice, #sportstotalprice, #socialeventstotalprice, #dicountPrice{
   font-size: 17px;
 }
 #finaltotalprice{
   font-size: 24px;
 }
 
-#TotalPriceDiv{
+#TotalPriceDiv, #discountDiv{
   display: none;
 }
+
 /*# sourceMappingURL=style.css.map */
