@@ -415,28 +415,76 @@ $(document).ready(function(){
       calculateTotalPrice();
   });
 
+  // Event listener for changes in student type
+  $('input[name="studentType"]').change(function() {
+    calculateTotalPrice();
+  });
+
+  // Event listener for changes in Futsal Player type
+  $('[id^="playerType"]').each(function(index) {
+    $(this).change(function() {
+        calculateTotalPrice();
+    });
+});
+
+  // Event listener for changes in Basketball Player type
+  $('[id^="basketballPlayerType"]').each(function(index) {
+    $(this).change(function() {
+        calculateTotalPrice();
+    });
+});
+
+  // Event listener for changes in Badminton Second PLayer type
+  $('input[name="badmintonSecondPlayerType"]').change(function() {
+    calculateTotalPrice();
+  });
+  
+
   // Function to calculate the total price
   function calculateTotalPrice() {
     var sportsPrice = 0;
     var observerPrice = 3000;
-    var socialEventPrice = 2500;
+    var socialEventPrice = 1500;
     var totalPrice = 0;
+    var discount = 500;
+    var totalDiscount = 0;
     var futsalSocialEventAttendeesCount = $('[id^="playerAttendSocialEventYes"]:checked').length;
     var basketballSocialEventAttendeesCount = $('[id^="BasketballplayerAttendSocialEventYes"]:checked').length;
     var badmintonSocialEventAttendeesCount = $('[id^="badmintonSecondPlayerAttendSocialEventYes"]:checked').length;
     var totalSocialAttendees = futsalSocialEventAttendeesCount + basketballSocialEventAttendeesCount + badmintonSocialEventAttendeesCount;
+
+    // Check if the student is from IMSciences and apply discount if yes
+    var isIMSciencesStudent = $('#studentTypeYes').is(':checked');
+    var isSecondBadmintonPlayerIMSciencesStudent = $('#badmintonSecondPlayerTypeYes').is(':checked');
+
+
+    
 
     // Calculate the price for selected sports
     $('input[type="checkbox"]:checked').each(function() {
         var sportName = $(this).attr('name');
         var matchType = getMatchType(sportName);
         var pricePerPlayer = getPricePerPlayer(sportName, matchType);
+        if (pricePerPlayer > 0) {
+          totalDiscount += discount;
+      }
         sportsPrice += pricePerPlayer;
+
+        
     });
 
+  
     // Calculate the total price based on selected options
     if ($('#RegisterAsObserver').is(':checked')) {
       totalPrice = observerPrice;
+      if (isIMSciencesStudent) {
+        totalPrice = observerPrice - discount; // Apply the discount
+        $('#dicountPrice').text('RS. ' + discount);
+    }
+    else{
+      $('#dicountPrice').text('-');
+    }
+      
   } else {
       totalPrice = sportsPrice;
       // Add social events price if "Participant + Social Event" is selected
@@ -444,16 +492,61 @@ $(document).ready(function(){
           // Check if any additional social event attendees are selected
           if (totalSocialAttendees > 1) {
               totalPrice += socialEventPrice + (socialEventPrice * totalSocialAttendees); // Add social event price for additional attendees
+              
           }
           else if(totalSocialAttendees == 0){
             totalPrice += socialEventPrice;
           }
           else{
-            totalPrice += socialEventPrice + 2500;
+            totalPrice += socialEventPrice + 1500;
           }
+          if (isIMSciencesStudent) {
+            totalPrice -= totalDiscount; // Apply the discount
+          }
+            if (isSecondBadmintonPlayerIMSciencesStudent) {
+              totalPrice -= discount;
+              totalDiscount += discount;
+            }
+            $('[id^="basketballPlayerType"]').each(function(index) {
+              if ($(this).is(':checked') && $(this).val() === 'yes') {
+                totalPrice -= discount;
+                totalDiscount += discount;
+              }
+          });
+            $('[id^="playerType"]').each(function(index) {
+              if ($(this).is(':checked') && $(this).val() === 'yes') {
+                totalPrice -= discount;
+                totalDiscount += discount;
+              }
+          });
+            $('#dicountPrice').text('RS. ' + totalDiscount);
 
       } else if ($('#RegisterAsParticipant').is(':checked')) {
           totalPrice += socialEventPrice * totalSocialAttendees; // Add social event price for all attendees
+          if (isIMSciencesStudent) {
+            totalPrice -= totalDiscount; // Apply the discount
+          
+            if (isSecondBadmintonPlayerIMSciencesStudent) {
+              totalPrice -= discount;
+              totalDiscount += discount;
+            }
+            $('[id^="basketballPlayerType"]').each(function(index) {
+              if ($(this).is(':checked') && $(this).val() === 'yes') {
+                totalPrice -= discount;
+                totalDiscount += discount;
+              }
+          });
+            $('[id^="playerType"]').each(function(index) {
+              if ($(this).is(':checked') && $(this).val() === 'yes') {
+                totalPrice -= discount;
+                totalDiscount += discount;
+              }
+          });
+            $('#dicountPrice').text('RS. ' + totalDiscount);
+          }
+        else{
+          $('#dicountPrice').text('-');
+        }
       }
   }
 
@@ -475,7 +568,7 @@ $(document).ready(function(){
           $('#socialeventstotalprice').text('RS. ' + socialEventPrice); 
         }
         else{
-          $('#socialeventstotalprice').text('RS. ' + (socialEventPrice + 2500));
+          $('#socialeventstotalprice').text('RS. ' + (socialEventPrice + 1500));
         }
       } else {
         $('#observertotalprice').text('-');
@@ -526,7 +619,7 @@ $(document).ready(function(){
                   return 0;
               }
               // Return the price per player multiplied by the number of players
-              return numPlayers * 1000;
+              return numPlayers * 1500;
           case 'TableTennis':
           case 'Ludo':
           case 'Chess':
@@ -534,10 +627,10 @@ $(document).ready(function(){
           case 'Tekken':
           case 'Fifa':
           case 'ParliamentarySummit':
-              return 1000;
+              return 1500;
           case 'Badminton':
               if (matchType === 'single') {
-                  return 1000;
+                  return 1500;
               } else if (matchType === 'double') {
                   return 2000;
               }
