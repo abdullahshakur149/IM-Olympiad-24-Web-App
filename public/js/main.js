@@ -13,6 +13,84 @@ $(window).on('scroll', function () {
 });
 
 
+// Input file size check
+function checkFileSize(input) {
+  if (input.files && input.files[0]) {
+      var fileSize = input.files[0].size; 
+      var maxSize = 5 * 1024 * 1024; // 5 MB
+
+      if (fileSize > maxSize) {
+          alert("File size exceeds 5MB. Please select a smaller file.");
+          input.value = ''; 
+      }
+  }
+}
+
+// Event listener for Student Id Image input change
+$('#studentIdImage').on('change', function() {
+  checkFileSize(this);
+});
+
+// Event listener for Student Image input change
+$('#studentImage').on('change', function() {
+  checkFileSize(this);
+});
+
+// Event listener for CNIC input change
+$('#cnicImage').on('change', function() {
+  checkFileSize(this);
+});
+
+// Event listener for a Futsal Player ID input change
+$(document).on('change', 'input[name^="playerID"]', function() {
+  checkFileSize(this);
+});
+
+// Event listener for a Futsal Player Image input change
+$(document).on('change', 'input[name^="playerImage"]', function() {
+  checkFileSize(this);
+});
+
+// Event listener for a Futsal Player CNIC input change
+$(document).on('change', 'input[name^="playerCnicImg"]', function() {
+  checkFileSize(this);
+});
+
+// Event listener for a Basketball Player Id input change
+$(document).on('change', 'input[name^="basketballPlayerID"]', function() {
+  checkFileSize(this);
+});
+
+
+// Event listener for a Basketball Player Image input change
+$(document).on('change', 'input[name^="basketballPlayerImage"]', function() {
+  checkFileSize(this);
+});
+
+
+// Event listener for a Basketball Player CNIC input change
+$(document).on('change', 'input[name^="basketballPlayerCnicImg"]', function() {
+  checkFileSize(this);
+});
+
+// Event listener for a Badminton Player ID input change
+$('#badmintonSecondPlayerId').on('change', function() {
+  checkFileSize(this);
+});
+
+// Event listener for a Badminton Player Image input change
+$('#badmintonSecondPlayerImage').on('change', function() {
+  checkFileSize(this);
+});
+
+// Event listener for a Badminton Player CNIC input change
+$('#badmintonSecondPlayerCnicImage').on('change', function() {
+  checkFileSize(this);
+});
+
+
+
+
  // Toggle student Type input
  $(document).ready(function(){
   $('input[name="studentType"]').change(function(){
@@ -52,9 +130,24 @@ $(document).ready(function(){
       if($(this).val() === "participant" || $(this).val() === "participantAndSocialEvent"){
 
           $("#sports").fadeIn();
+          $('input[name^="Futsal"]').prop("disabled", false);
+          $('input[name^="Basketball"]').prop("disabled", false);
+          $('input[name^="Badminton"]').prop("disabled", false);
+          $('input[name^="TableTennis"]').prop("disabled", false);
+          $('input[name^="BoardGames"]').prop("disabled", false);
+          $('input[name^="EGaming"]').prop("disabled", false);
+          $('input[name^="ParliamentarySummit"]').prop("disabled", false);
       }
       else{
           $("#sports").fadeOut();
+          $('input[name^="Futsal"]').prop("disabled", true).prop("checked", false);
+          $('input[name^="Basketball"]').prop("disabled", true).prop("checked", false);
+          $('input[name^="Badminton"]').prop("disabled", true).prop("checked", false);
+          $('input[name^="TableTennis"]').prop("disabled", true).prop("checked", false);
+          $('input[name^="BoardGames"]').prop("disabled", true).prop("checked", false);
+          $('input[name^="EGaming"]').prop("disabled", true).prop("checked", false);
+          $('input[name^="ParliamentarySummit"]').prop("disabled", true).prop("checked", false);
+
       }
   });
 });
@@ -85,10 +178,30 @@ $(document).ready(function(){
   $('input[name="Futsal"]').change(function(){
     if ($(this).prop('checked')) {
       $("#FutsalPlayersDiv").fadeIn();
-      $('input[name="FutsalPlayers"]').prop("disabled", false);
+      $('input[name^="FutsalPlayers"]').prop("disabled", false)
+      $('input[name^="playerType"]').prop("disabled", false);
+      $('input[name^="playerImage"]').prop("disabled", false);
+      $('input[name^="playerID"]').prop("disabled", false);
+      $('input[name^="playerName"]').prop("disabled", false);
+      $('input[name^="playerFatherName"]').prop("disabled", false);
+      $('input[name^="playerContact"]').prop("disabled", false);
+      $('input[name^="playerEmail"]').prop("disabled", false);
+      $('input[name^="playerCnic"]').prop("disabled", false);
+      $('input[name^="playerCnicImg"]').prop("disabled", false);
+      $('input[name^="playerAttendSocialEvent"]').prop("disabled", false);
     } else {
       $("#FutsalPlayersDiv").fadeOut();
-      $('input[name="FutsalPlayers"]').prop("disabled", true);
+      $('input[name^="FutsalPlayers"]').prop("disabled", true).val(5);
+      $('input[name^="playerType"]').prop("disabled", true).prop("checked", false);
+      $('input[name^="playerImage"]').prop("disabled", true).val("");
+      $('input[name^="playerID"]').prop("disabled", true).val("");
+      $('input[name^="playerName"]').prop("disabled", true).val("");
+      $('input[name^="playerFatherName"]').prop("disabled", true).val("");
+      $('input[name^="playerContact"]').prop("disabled", true).val("");
+      $('input[name^="playerEmail"]').prop("disabled", true).val("");
+      $('input[name^="playerCnic"]').prop("disabled", true).val("");
+      $('input[name^="playerCnicImg"]').prop("disabled", true).val("");
+      $('input[name^="playerAttendSocialEvent"]').prop("disabled", true).prop("checked", false);
 
       // Hide the error message when the input field is hidden
       $('#FutsalPlayersError').hide();
@@ -127,10 +240,31 @@ $(document).ready(function(){
   $('input[name="Basketball"]').change(function(){
     if ($(this).prop('checked')) {
       $("#BasketballPlayersDiv").fadeIn();
-      $('input[name="BasketballPlayers"]').prop("disabled", false);
+      $('input[name^="BasketballPlayers"]').prop("disabled", false)
+      $('input[name^="basketballPlayerType"]').prop("disabled", false);
+      $('input[name^="basketballPlayerImage"]').prop("disabled", false);
+      $('input[name^="basketballPlayerID"]').prop("disabled", false);
+      $('input[name^="basketballPlayerName"]').prop("disabled", false);
+      $('input[name^="basketballPlayerFatherName"]').prop("disabled", false);
+      $('input[name^="basketballPlayerContact"]').prop("disabled", false);
+      $('input[name^="basketballPlayerEmail"]').prop("disabled", false);
+      $('input[name^="basketballPlayerCnic"]').prop("disabled", false);
+      $('input[name^="basketballPlayerCnicImg"]').prop("disabled", false);
+      $('input[name^="BasketballplayerAttendSocialEvent"]').prop("disabled", false);
     } else {
+    
       $("#BasketballPlayersDiv").fadeOut();
-      $('input[name="BasketballPlayers"]').prop("disabled", true);
+      $('input[name^="BasketballPlayers"]').prop("disabled", true).val(5);
+      $('input[name^="basketballPlayerType"]').prop("disabled", true).prop("checked", false);
+      $('input[name^="basketballPlayerImage"]').prop("disabled", true).val("");
+      $('input[name^="basketballPlayerID"]').prop("disabled", true).val("");
+      $('input[name^="basketballPlayerName"]').prop("disabled", true).val("");
+      $('input[name^="basketballPlayerFatherName"]').prop("disabled", true).val("");
+      $('input[name^="basketballPlayerContact"]').prop("disabled", true).val("");
+      $('input[name^="basketballPlayerEmail"]').prop("disabled", true).val("");
+      $('input[name^="basketballPlayerCnic"]').prop("disabled", true).val("");
+      $('input[name^="basketballPlayerCnicImg"]').prop("disabled", true).val("");
+      $('input[name^="BasketballplayerAttendSocialEvent"]').prop("disabled", true).prop("checked", false);
 
       // Hide the error message when the input field is hidden
       $('#BasketballPlayersError').hide();
@@ -147,10 +281,30 @@ $(document).ready(function(){
       if($(this).is(":checked")){
           $("#BadmintonTypeDiv").fadeIn();
           $('input[name="matchType"]').prop("disabled", false);
+          $('input[name^="badmintonSecondPlayerType"]').prop("disabled", false);
+          $('input[name^="badmintonSecondPlayerImage"]').prop("disabled", false);
+          $('input[name^="badmintonSecondPlayerId"]').prop("disabled", false);
+          $('input[name^="badmintonSecondPlayerName"]').prop("disabled", false);
+          $('input[name^="badmintonSecondPlayerFatherName"]').prop("disabled", false);
+          $('input[name^="badmintonSecondPlayerContact"]').prop("disabled", false);
+          $('input[name^="badmintonSecondPlayerEmail"]').prop("disabled", false);
+          $('input[name^="badmintonSecondPlayerCnic"]').prop("disabled", false);
+          $('input[name^="badmintonSecondPlayerCnicImage"]').prop("disabled", false);
+          $('input[name^="badmintonSecondPlayerAttendSocialEvent"]').prop("disabled", false);
       }
       else{
           $("#BadmintonTypeDiv").fadeOut();
-          $('input[name="matchType"]').prop("disabled", true);
+          $('input[name="matchType"]').prop("disabled", true).prop("checked", false);
+          $('input[name^="badmintonSecondPlayerType"]').prop("disabled", true).prop("checked", false);
+          $('input[name^="badmintonSecondPlayerImage"]').prop("disabled", true).val("");
+          $('input[name^="badmintonSecondPlayerId"]').prop("disabled", true).val("");
+          $('input[name^="badmintonSecondPlayerName"]').prop("disabled", true).val("");
+          $('input[name^="badmintonSecondPlayerFatherName"]').prop("disabled", true).val("");
+          $('input[name^="badmintonSecondPlayerContact"]').prop("disabled", true).val("");
+          $('input[name^="badmintonSecondPlayerEmail"]').prop("disabled", true).val("");
+          $('input[name^="badmintonSecondPlayerCnic"]').prop("disabled", true).val("");
+          $('input[name^="badmintonSecondPlayerCnicImage"]').prop("disabled", true).val("");
+          $('input[name^="badmintonSecondPlayerAttendSocialEvent"]').prop("disabled", true).prop("checked", false);
       }
   });
 });
@@ -282,14 +436,26 @@ $(document).ready(function(){
 
     // Calculate the total price based on selected options
     if ($('#RegisterAsObserver').is(':checked')) {
-        totalPrice = observerPrice;
-    } else {
-        totalPrice = sportsPrice;
-        // Add social events price if "Participant + Social Event" is selected
-        if ($('#RegisterAsParticipantAndSocialEvent').is(':checked')) {
-            totalPrice += socialEventPrice * totalSocialAttendees;
-        }
-    }
+      totalPrice = observerPrice;
+  } else {
+      totalPrice = sportsPrice;
+      // Add social events price if "Participant + Social Event" is selected
+      if ($('#RegisterAsParticipantAndSocialEvent').is(':checked')) {
+          // Check if any additional social event attendees are selected
+          if (totalSocialAttendees > 1) {
+              totalPrice += socialEventPrice + (socialEventPrice * totalSocialAttendees); // Add social event price for additional attendees
+          }
+          else if(totalSocialAttendees == 0){
+            totalPrice += socialEventPrice;
+          }
+          else{
+            totalPrice += socialEventPrice + 2500;
+          }
+
+      } else if ($('#RegisterAsParticipant').is(':checked')) {
+          totalPrice += socialEventPrice * totalSocialAttendees; // Add social event price for all attendees
+      }
+  }
 
     // Update the total price display
     $('#finaltotalprice').text('RS. ' + totalPrice);
@@ -302,11 +468,24 @@ $(document).ready(function(){
     } else if ($('#RegisterAsParticipantAndSocialEvent').is(':checked')) {
         $('#observertotalprice').text('-');
         $('#sportstotalprice').text('RS. ' + sportsPrice);
-        $('#socialeventstotalprice').text('RS. ' + (socialEventPrice * totalSocialAttendees));
-    } else {
+        if(totalSocialAttendees > 1){
+          $('#socialeventstotalprice').text('RS. ' + (socialEventPrice + (socialEventPrice * totalSocialAttendees)));
+        }
+        else if(totalSocialAttendees == 0){
+          $('#socialeventstotalprice').text('RS. ' + socialEventPrice); 
+        }
+        else{
+          $('#socialeventstotalprice').text('RS. ' + (socialEventPrice + 2500));
+        }
+      } else {
         $('#observertotalprice').text('-');
         $('#sportstotalprice').text('RS. ' + sportsPrice);
-        $('#socialeventstotalprice').text('-');
+        if(totalSocialAttendees > 0){
+          $('#socialeventstotalprice').text('RS. ' + (socialEventPrice * totalSocialAttendees));
+        }
+        else{
+          $('#socialeventstotalprice').text('-');
+        }
     }
   }
 
@@ -415,25 +594,19 @@ function generatePlayerInputs(numPlayers) {
               <label for="playerName${i}" class="form-label">Name</label>
               <input type="text" class="form-control" name="playerName${i}" id="playerName${i}" placeholder="Enter Player Name" />
           </div>
-          <div class="mb-2">
-              <label for="playerFatherName${i}" class="form-label">Father Name</label>
-              <input type="text" class="form-control" name="playerFatherName${i}" id="playerFatherName${i}" placeholder="Enter Player Father Name" />
-          </div>
+          
           <div class="mb-2">
               <label for="playerContact${i}" class="form-label">Contact Number</label>
               <input type="number" class="form-control" name="playerContact${i}" id="playerContact${i}" placeholder="Enter Player Contact Number" />
           </div>
-          <div class="mb-2">
-              <label for="playerEmail${i}" class="form-label">Email</label>
-              <input type="email" class="form-control" name="playerEmail${i}" id="playerEmail${i}" placeholder="Enter Player Email" />
-          </div>
+          
           <div class="mb-2">
               <label for="playerCnic${i}" class="form-label">CNIC</label>
               <input type="text" class="form-control" name="playerCnic${i}" id="playerCnic${i}" placeholder="Enter Player CNIC" />
           </div>
-          <div class="mb-2" id='playerCnicImg${i}'>
+          <div class="mb-2" id='playerCnicImgDiv${i}' style='display:none;'>
               <label for="playerCnicImg${i}" class="form-label">Player CNIC</label>
-              <input type="file" class="form-control" name="playerCnicImg${i}" accept="image/png, image/jpeg"/>
+              <input type="file" class="form-control" name="playerCnicImg${i}" id="playerCnicImg${i}" accept="image/png, image/jpeg" />
           </div>
           <div id='playerSocialEventDiv${i}' >
               <label for='playerAttendSocialEvent${i}' class='form-label'>Does the player wish to attend the social event?</label>
@@ -467,11 +640,11 @@ $(document).on("change", ".playerType", function() {
   const playerId = $(this).attr("name").match(/\d+/)[0];
   if ($(this).val() === "yes") {
       $(`#playerTypeDiv${playerId}`).fadeIn();
-      $(`#playerCnicImg${playerId}`).fadeOut();
+      $(`#playerCnicImgDiv${playerId}`).fadeOut();
       $(`#playerStudentId${playerId}`).fadeIn();
   } else {
       $(`#playerTypeDiv${playerId}`).fadeOut();
-      $(`#playerCnicImg${playerId}`).fadeIn();
+      $(`#playerCnicImgDiv${playerId}`).fadeIn();
       $(`#playerStudentId${playerId}`).fadeOut();
   }
 });
@@ -523,24 +696,18 @@ function generateBasketballPlayerInputs(numPlayers) {
                   <label for="basketballPlayerName${i}" class="form-label">Name</label>
                   <input type="text" class="form-control" name="basketballPlayerName${i}" id="basketballPlayerName${i}" placeholder="Enter Player Name" />
               </div>
-              <div class="mb-2">
-                  <label for="basketballPlayerFatherName${i}" class="form-label">Father Name</label>
-                  <input type="text" class="form-control" name="basketballPlayerFatherName${i}" id="basketballPlayerFatherName${i}" placeholder="Enter Player Father Name" />
-              </div>
+             
               <div class="mb-2">
                   <label for="basketballPlayerContact${i}" class="form-label">Contact Number</label>
                   <input type="number" class="form-control" name="basketballPlayerContact${i}" id="basketballPlayerContact${i}" placeholder="Enter Player Contact Number" />
               </div>
-              <div class="mb-2">
-                  <label for="basketballPlayerEmail${i}" class="form-label">Email</label>
-                  <input type="email" class="form-control" name="basketballPlayerEmail${i}" id="basketballPlayerEmail${i}" placeholder="Enter Player Email" />
-              </div>
+             
               <div class="mb-2">
                   <label for="basketballPlayerCnic${i}" class="form-label">CNIC</label>
                   <input type="email" class="form-control" name="basketballPlayerCnic${i}" id="basketballPlayerCnic${i}" placeholder="Enter Player CNIC" />
               </div>
               
-              <div class="mb-2" id='basketballPlayerCnicImg${i}'>
+              <div class="mb-2" id='basketballPlayerCnicImgDiv${i}'>
                   <label for="basketballPlayerCnicImg${i}" class="form-label">Player CNIC</label>
                   <input type="file" class="form-control" name="basketballPlayerCnicImg${i}" id="basketballPlayerCnicImg${i}" accept="image/png, image/jpeg"/>
               </div>
@@ -575,10 +742,10 @@ $(document).on("change", ".basketballPlayerType", function() {
   const playerId = $(this).attr("name").match(/\d+/)[0];
   if($(this).val() === "yes") {
     $(`#basketballPlayerTypeDiv${playerId}`).fadeIn();
-    $(`#basketballPlayerCnicImg${playerId}`).fadeOut();
+    $(`#basketballPlayerCnicImgDiv${playerId}`).fadeOut();
   } else {
     $(`#basketballPlayerTypeDiv${playerId}`).fadeOut();
-    $(`#basketballPlayerCnicImg${playerId}`).fadeIn();
+    $(`#basketballPlayerCnicImgDiv${playerId}`).fadeIn();
   }
 });
 

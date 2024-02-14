@@ -25,7 +25,7 @@
                 </div>
                 <div class="mb-3" id="studentIdInput" style="display: none;">
                     <label for="studentIdImage" class="form-label">Upload student ID card</label>
-                    <input type="file" class="form-control" id="studentIdImage" name="studentIdImage" />
+                    <input type="file" class="form-control" id="studentIdImage" name="studentIdImage" accept="image/png, image/jpeg" />
                 </div>
                 <div class="mb-3">
                     <label for="studentImage" class="form-label">Upload Your Picture</label>
@@ -115,7 +115,7 @@
                     <div class="mb-3 mt-2 ms-4 border-start ps-2" id="BasketballPlayersDiv" style="display: none;">
                         <label for="BasketballPlayers" class="form-label">Total Players</label>
 
-                        <input type="number" class="form-control" id="BasketballPlayers" name="BasketballPlayers" disabled min="5" max="8" value="5" placeholder="Enter Total Team Players (5-8)"/>
+                        <input type="number" class="form-control" id="BasketballPlayers" name="BasketballPlayers" min="5" max="8" value="5" placeholder="Enter Total Team Players (5-8)"/>
 
                         <div id="BasketballPlayersError" class="text-danger" style="display: none;"></div>
                         <div id="basketballplayersDetailsDiv">
@@ -170,18 +170,12 @@
                                 <label for="badmintonSecondPlayerName" class="form-label">Name</label>
                                 <input type="text" class="form-control" name="badmintonSecondPlayerName" id="badmintonSecondPlayerName" placeholder="Enter Player Name" />
                             </div>
-                            <div class="mb-2">
-                                <label for="badmintonSecondPlayerFatherName" class="form-label">Father Name</label>
-                                <input type="text" class="form-control" name="badmintonSecondPlayerFatherName" id="badmintonSecondPlayerFatherName" placeholder="Enter Player Father Name" />
-                            </div>
+                            
                             <div class="mb-2">
                                 <label for="badmintonSecondPlayerContact" class="form-label">Contact Number</label>
                                 <input type="number" class="form-control" name="badmintonSecondPlayerContact" id="badmintonSecondPlayerContact" placeholder="Enter Player Contact Number" />
                             </div>
-                            <div class="mb-2">
-                                <label for="badmintonSecondPlayerEmail" class="form-label">Email</label>
-                                <input type="email" class="form-control" name="badmintonSecondPlayerEmail" id="badmintonSecondPlayerEmail" placeholder="Enter Player Email" />
-                            </div>
+                            
                             <div class="mb-2">
                                 <label for="badmintonSecondPlayerCnic" class="form-label">CNIC</label>
                                 <input type="email" class="form-control" name="badmintonSecondPlayerCnic" id="badmintonSecondPlayerCnic" placeholder="Enter Player CNIC" />
