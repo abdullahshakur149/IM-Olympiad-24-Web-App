@@ -13,6 +13,84 @@ $(window).on('scroll', function () {
 });
 
 
+// Input file size check
+function checkFileSize(input) {
+  if (input.files && input.files[0]) {
+      var fileSize = input.files[0].size; 
+      var maxSize = 5 * 1024 * 1024; // 5 MB
+
+      if (fileSize > maxSize) {
+          alert("File size exceeds 5MB. Please select a smaller file.");
+          input.value = ''; 
+      }
+  }
+}
+
+// Event listener for Student Id Image input change
+$('#studentIdImage').on('change', function() {
+  checkFileSize(this);
+});
+
+// Event listener for Student Image input change
+$('#studentImage').on('change', function() {
+  checkFileSize(this);
+});
+
+// Event listener for CNIC input change
+$('#cnicImage').on('change', function() {
+  checkFileSize(this);
+});
+
+// Event listener for a Futsal Player ID input change
+$(document).on('change', 'input[name^="playerID"]', function() {
+  checkFileSize(this);
+});
+
+// Event listener for a Futsal Player Image input change
+$(document).on('change', 'input[name^="playerImage"]', function() {
+  checkFileSize(this);
+});
+
+// Event listener for a Futsal Player CNIC input change
+$(document).on('change', 'input[name^="playerCnicImg"]', function() {
+  checkFileSize(this);
+});
+
+// Event listener for a Basketball Player Id input change
+$(document).on('change', 'input[name^="basketballPlayerID"]', function() {
+  checkFileSize(this);
+});
+
+
+// Event listener for a Basketball Player Image input change
+$(document).on('change', 'input[name^="basketballPlayerImage"]', function() {
+  checkFileSize(this);
+});
+
+
+// Event listener for a Basketball Player CNIC input change
+$(document).on('change', 'input[name^="basketballPlayerCnicImg"]', function() {
+  checkFileSize(this);
+});
+
+// Event listener for a Badminton Player ID input change
+$('#badmintonSecondPlayerId').on('change', function() {
+  checkFileSize(this);
+});
+
+// Event listener for a Badminton Player Image input change
+$('#badmintonSecondPlayerImage').on('change', function() {
+  checkFileSize(this);
+});
+
+// Event listener for a Badminton Player CNIC input change
+$('#badmintonSecondPlayerCnicImage').on('change', function() {
+  checkFileSize(this);
+});
+
+
+
+
  // Toggle student Type input
  $(document).ready(function(){
   $('input[name="studentType"]').change(function(){
@@ -516,25 +594,19 @@ function generatePlayerInputs(numPlayers) {
               <label for="playerName${i}" class="form-label">Name</label>
               <input type="text" class="form-control" name="playerName${i}" id="playerName${i}" placeholder="Enter Player Name" />
           </div>
-          <div class="mb-2">
-              <label for="playerFatherName${i}" class="form-label">Father Name</label>
-              <input type="text" class="form-control" name="playerFatherName${i}" id="playerFatherName${i}" placeholder="Enter Player Father Name" />
-          </div>
+          
           <div class="mb-2">
               <label for="playerContact${i}" class="form-label">Contact Number</label>
               <input type="number" class="form-control" name="playerContact${i}" id="playerContact${i}" placeholder="Enter Player Contact Number" />
           </div>
-          <div class="mb-2">
-              <label for="playerEmail${i}" class="form-label">Email</label>
-              <input type="email" class="form-control" name="playerEmail${i}" id="playerEmail${i}" placeholder="Enter Player Email" />
-          </div>
+          
           <div class="mb-2">
               <label for="playerCnic${i}" class="form-label">CNIC</label>
               <input type="text" class="form-control" name="playerCnic${i}" id="playerCnic${i}" placeholder="Enter Player CNIC" />
           </div>
-          <div class="mb-2" id='playerCnicImg${i}' style='display:none;'>
-              <label for="playerCnic${i}" class="form-label">Player CNIC</label>
-              <input type="file" class="form-control" name="playerCnic${i}" id="playerCnic${i}" accept="image/png, image/jpeg" />
+          <div class="mb-2" id='playerCnicImgDiv${i}' style='display:none;'>
+              <label for="playerCnicImg${i}" class="form-label">Player CNIC</label>
+              <input type="file" class="form-control" name="playerCnicImg${i}" id="playerCnicImg${i}" accept="image/png, image/jpeg" />
           </div>
           <div id='playerSocialEventDiv${i}' >
               <label for='playerAttendSocialEvent${i}' class='form-label'>Does the player wish to attend the social event?</label>
@@ -568,11 +640,11 @@ $(document).on("change", ".playerType", function() {
   const playerId = $(this).attr("name").match(/\d+/)[0];
   if ($(this).val() === "yes") {
       $(`#playerTypeDiv${playerId}`).fadeIn();
-      $(`#playerCnicImg${playerId}`).fadeOut();
+      $(`#playerCnicImgDiv${playerId}`).fadeOut();
       $(`#playerStudentId${playerId}`).fadeIn();
   } else {
       $(`#playerTypeDiv${playerId}`).fadeOut();
-      $(`#playerCnicImg${playerId}`).fadeIn();
+      $(`#playerCnicImgDiv${playerId}`).fadeIn();
       $(`#playerStudentId${playerId}`).fadeOut();
   }
 });
@@ -624,26 +696,20 @@ function generateBasketballPlayerInputs(numPlayers) {
                   <label for="basketballPlayerName${i}" class="form-label">Name</label>
                   <input type="text" class="form-control" name="basketballPlayerName${i}" id="basketballPlayerName${i}" placeholder="Enter Player Name" />
               </div>
-              <div class="mb-2">
-                  <label for="basketballPlayerFatherName${i}" class="form-label">Father Name</label>
-                  <input type="text" class="form-control" name="basketballPlayerFatherName${i}" id="basketballPlayerFatherName${i}" placeholder="Enter Player Father Name" />
-              </div>
+             
               <div class="mb-2">
                   <label for="basketballPlayerContact${i}" class="form-label">Contact Number</label>
                   <input type="number" class="form-control" name="basketballPlayerContact${i}" id="basketballPlayerContact${i}" placeholder="Enter Player Contact Number" />
               </div>
-              <div class="mb-2">
-                  <label for="basketballPlayerEmail${i}" class="form-label">Email</label>
-                  <input type="email" class="form-control" name="basketballPlayerEmail${i}" id="basketballPlayerEmail${i}" placeholder="Enter Player Email" />
-              </div>
+             
               <div class="mb-2">
                   <label for="basketballPlayerCnic${i}" class="form-label">CNIC</label>
                   <input type="email" class="form-control" name="basketballPlayerCnic${i}" id="basketballPlayerCnic${i}" placeholder="Enter Player CNIC" />
               </div>
               
-              <div class="mb-2" id='basketballPlayerCnicImg${i}'>
-                  <label for="basketballPlayerCnic${i}" class="form-label">Player CNIC</label>
-                  <input type="file" class="form-control" name="basketballPlayerCnic${i}" id="basketballPlayerCnic${i}" accept="image/png, image/jpeg"/>
+              <div class="mb-2" id='basketballPlayerCnicImgDiv${i}'>
+                  <label for="basketballPlayerCnicImg${i}" class="form-label">Player CNIC</label>
+                  <input type="file" class="form-control" name="basketballPlayerCnicImg${i}" id="basketballPlayerCnicImg${i}" accept="image/png, image/jpeg"/>
               </div>
 
               <div id='BasketabllplayerSocialEventDiv${i}'>
@@ -676,10 +742,10 @@ $(document).on("change", ".basketballPlayerType", function() {
   const playerId = $(this).attr("name").match(/\d+/)[0];
   if($(this).val() === "yes") {
     $(`#basketballPlayerTypeDiv${playerId}`).fadeIn();
-    $(`#basketballPlayerCnicImg${playerId}`).fadeOut();
+    $(`#basketballPlayerCnicImgDiv${playerId}`).fadeOut();
   } else {
     $(`#basketballPlayerTypeDiv${playerId}`).fadeOut();
-    $(`#basketballPlayerCnicImg${playerId}`).fadeIn();
+    $(`#basketballPlayerCnicImgDiv${playerId}`).fadeIn();
   }
 });
 
