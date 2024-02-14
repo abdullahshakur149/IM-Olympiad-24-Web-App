@@ -12,6 +12,7 @@ $(window).on('scroll', function () {
 	}
 });
 
+
  // Toggle student Type input
  $(document).ready(function(){
   $('input[name="studentType"]').change(function(){
@@ -48,11 +49,27 @@ $("input[name='RegisterAs']").change(function() {
 $(document).ready(function(){
   $('input[name="RegisterAs"]').change(function(){
     
-      if($(this).val() === "participant" || $(this).val() === "ParticipantAndSocialEvent"){
+      if($(this).val() === "participant" || $(this).val() === "participantAndSocialEvent"){
+
           $("#sports").fadeIn();
+          $('input[name^="Futsal"]').prop("disabled", false);
+          $('input[name^="Basketball"]').prop("disabled", false);
+          $('input[name^="Badminton"]').prop("disabled", false);
+          $('input[name^="TableTennis"]').prop("disabled", false);
+          $('input[name^="BoardGames"]').prop("disabled", false);
+          $('input[name^="EGaming"]').prop("disabled", false);
+          $('input[name^="ParliamentarySummit"]').prop("disabled", false);
       }
       else{
           $("#sports").fadeOut();
+          $('input[name^="Futsal"]').prop("disabled", true).prop("checked", false);
+          $('input[name^="Basketball"]').prop("disabled", true).prop("checked", false);
+          $('input[name^="Badminton"]').prop("disabled", true).prop("checked", false);
+          $('input[name^="TableTennis"]').prop("disabled", true).prop("checked", false);
+          $('input[name^="BoardGames"]').prop("disabled", true).prop("checked", false);
+          $('input[name^="EGaming"]').prop("disabled", true).prop("checked", false);
+          $('input[name^="ParliamentarySummit"]').prop("disabled", true).prop("checked", false);
+
       }
   });
 });
@@ -83,8 +100,31 @@ $(document).ready(function(){
   $('input[name="Futsal"]').change(function(){
     if ($(this).prop('checked')) {
       $("#FutsalPlayersDiv").fadeIn();
+      $('input[name^="FutsalPlayers"]').prop("disabled", false)
+      $('input[name^="playerType"]').prop("disabled", false);
+      $('input[name^="playerImage"]').prop("disabled", false);
+      $('input[name^="playerID"]').prop("disabled", false);
+      $('input[name^="playerName"]').prop("disabled", false);
+      $('input[name^="playerFatherName"]').prop("disabled", false);
+      $('input[name^="playerContact"]').prop("disabled", false);
+      $('input[name^="playerEmail"]').prop("disabled", false);
+      $('input[name^="playerCnic"]').prop("disabled", false);
+      $('input[name^="playerCnicImg"]').prop("disabled", false);
+      $('input[name^="playerAttendSocialEvent"]').prop("disabled", false);
     } else {
       $("#FutsalPlayersDiv").fadeOut();
+      $('input[name^="FutsalPlayers"]').prop("disabled", true).val(5);
+      $('input[name^="playerType"]').prop("disabled", true).prop("checked", false);
+      $('input[name^="playerImage"]').prop("disabled", true).val("");
+      $('input[name^="playerID"]').prop("disabled", true).val("");
+      $('input[name^="playerName"]').prop("disabled", true).val("");
+      $('input[name^="playerFatherName"]').prop("disabled", true).val("");
+      $('input[name^="playerContact"]').prop("disabled", true).val("");
+      $('input[name^="playerEmail"]').prop("disabled", true).val("");
+      $('input[name^="playerCnic"]').prop("disabled", true).val("");
+      $('input[name^="playerCnicImg"]').prop("disabled", true).val("");
+      $('input[name^="playerAttendSocialEvent"]').prop("disabled", true).prop("checked", false);
+
       // Hide the error message when the input field is hidden
       $('#FutsalPlayersError').hide();
     }
@@ -122,8 +162,32 @@ $(document).ready(function(){
   $('input[name="Basketball"]').change(function(){
     if ($(this).prop('checked')) {
       $("#BasketballPlayersDiv").fadeIn();
+      $('input[name^="BasketballPlayers"]').prop("disabled", false)
+      $('input[name^="basketballPlayerType"]').prop("disabled", false);
+      $('input[name^="basketballPlayerImage"]').prop("disabled", false);
+      $('input[name^="basketballPlayerID"]').prop("disabled", false);
+      $('input[name^="basketballPlayerName"]').prop("disabled", false);
+      $('input[name^="basketballPlayerFatherName"]').prop("disabled", false);
+      $('input[name^="basketballPlayerContact"]').prop("disabled", false);
+      $('input[name^="basketballPlayerEmail"]').prop("disabled", false);
+      $('input[name^="basketballPlayerCnic"]').prop("disabled", false);
+      $('input[name^="basketballPlayerCnicImg"]').prop("disabled", false);
+      $('input[name^="BasketballplayerAttendSocialEvent"]').prop("disabled", false);
     } else {
+    
       $("#BasketballPlayersDiv").fadeOut();
+      $('input[name^="BasketballPlayers"]').prop("disabled", true).val(5);
+      $('input[name^="basketballPlayerType"]').prop("disabled", true).prop("checked", false);
+      $('input[name^="basketballPlayerImage"]').prop("disabled", true).val("");
+      $('input[name^="basketballPlayerID"]').prop("disabled", true).val("");
+      $('input[name^="basketballPlayerName"]').prop("disabled", true).val("");
+      $('input[name^="basketballPlayerFatherName"]').prop("disabled", true).val("");
+      $('input[name^="basketballPlayerContact"]').prop("disabled", true).val("");
+      $('input[name^="basketballPlayerEmail"]').prop("disabled", true).val("");
+      $('input[name^="basketballPlayerCnic"]').prop("disabled", true).val("");
+      $('input[name^="basketballPlayerCnicImg"]').prop("disabled", true).val("");
+      $('input[name^="BasketballplayerAttendSocialEvent"]').prop("disabled", true).prop("checked", false);
+
       // Hide the error message when the input field is hidden
       $('#BasketballPlayersError').hide();
     }
@@ -138,9 +202,31 @@ $(document).ready(function(){
   $('input[name="Badminton"]').change(function(){
       if($(this).is(":checked")){
           $("#BadmintonTypeDiv").fadeIn();
+          $('input[name="matchType"]').prop("disabled", false);
+          $('input[name^="badmintonSecondPlayerType"]').prop("disabled", false);
+          $('input[name^="badmintonSecondPlayerImage"]').prop("disabled", false);
+          $('input[name^="badmintonSecondPlayerId"]').prop("disabled", false);
+          $('input[name^="badmintonSecondPlayerName"]').prop("disabled", false);
+          $('input[name^="badmintonSecondPlayerFatherName"]').prop("disabled", false);
+          $('input[name^="badmintonSecondPlayerContact"]').prop("disabled", false);
+          $('input[name^="badmintonSecondPlayerEmail"]').prop("disabled", false);
+          $('input[name^="badmintonSecondPlayerCnic"]').prop("disabled", false);
+          $('input[name^="badmintonSecondPlayerCnicImage"]').prop("disabled", false);
+          $('input[name^="badmintonSecondPlayerAttendSocialEvent"]').prop("disabled", false);
       }
       else{
           $("#BadmintonTypeDiv").fadeOut();
+          $('input[name="matchType"]').prop("disabled", true).prop("checked", false);
+          $('input[name^="badmintonSecondPlayerType"]').prop("disabled", true).prop("checked", false);
+          $('input[name^="badmintonSecondPlayerImage"]').prop("disabled", true).val("");
+          $('input[name^="badmintonSecondPlayerId"]').prop("disabled", true).val("");
+          $('input[name^="badmintonSecondPlayerName"]').prop("disabled", true).val("");
+          $('input[name^="badmintonSecondPlayerFatherName"]').prop("disabled", true).val("");
+          $('input[name^="badmintonSecondPlayerContact"]').prop("disabled", true).val("");
+          $('input[name^="badmintonSecondPlayerEmail"]').prop("disabled", true).val("");
+          $('input[name^="badmintonSecondPlayerCnic"]').prop("disabled", true).val("");
+          $('input[name^="badmintonSecondPlayerCnicImage"]').prop("disabled", true).val("");
+          $('input[name^="badmintonSecondPlayerAttendSocialEvent"]').prop("disabled", true).prop("checked", false);
       }
   });
 });
@@ -197,9 +283,11 @@ $(document).ready(function(){
 $('input[name="ParliamentarySummit"]').change(function(){
   if ($(this).prop('checked')) {
     $("#ParliamarySummitDiv").fadeIn();
+    $('input[name="experience"]').prop("disabled", false);
   } else {
     $("#ParliamarySummitDiv").fadeOut();
-   
+    $('input[name="experience"]').prop("disabled", true);
+    $("#ParliamarySummitDiv input[type='radio']").prop('checked', false);
   }
 });
 
@@ -270,14 +358,26 @@ $(document).ready(function(){
 
     // Calculate the total price based on selected options
     if ($('#RegisterAsObserver').is(':checked')) {
-        totalPrice = observerPrice;
-    } else {
-        totalPrice = sportsPrice;
-        // Add social events price if "Participant + Social Event" is selected
-        if ($('#RegisterAsParticipantAndSocialEvent').is(':checked')) {
-            totalPrice += socialEventPrice * totalSocialAttendees;
-        }
-    }
+      totalPrice = observerPrice;
+  } else {
+      totalPrice = sportsPrice;
+      // Add social events price if "Participant + Social Event" is selected
+      if ($('#RegisterAsParticipantAndSocialEvent').is(':checked')) {
+          // Check if any additional social event attendees are selected
+          if (totalSocialAttendees > 1) {
+              totalPrice += socialEventPrice + (socialEventPrice * totalSocialAttendees); // Add social event price for additional attendees
+          }
+          else if(totalSocialAttendees == 0){
+            totalPrice += socialEventPrice;
+          }
+          else{
+            totalPrice += socialEventPrice + 2500;
+          }
+
+      } else if ($('#RegisterAsParticipant').is(':checked')) {
+          totalPrice += socialEventPrice * totalSocialAttendees; // Add social event price for all attendees
+      }
+  }
 
     // Update the total price display
     $('#finaltotalprice').text('RS. ' + totalPrice);
@@ -290,11 +390,24 @@ $(document).ready(function(){
     } else if ($('#RegisterAsParticipantAndSocialEvent').is(':checked')) {
         $('#observertotalprice').text('-');
         $('#sportstotalprice').text('RS. ' + sportsPrice);
-        $('#socialeventstotalprice').text('RS. ' + (socialEventPrice * totalSocialAttendees));
-    } else {
+        if(totalSocialAttendees > 1){
+          $('#socialeventstotalprice').text('RS. ' + (socialEventPrice + (socialEventPrice * totalSocialAttendees)));
+        }
+        else if(totalSocialAttendees == 0){
+          $('#socialeventstotalprice').text('RS. ' + socialEventPrice); 
+        }
+        else{
+          $('#socialeventstotalprice').text('RS. ' + (socialEventPrice + 2500));
+        }
+      } else {
         $('#observertotalprice').text('-');
         $('#sportstotalprice').text('RS. ' + sportsPrice);
-        $('#socialeventstotalprice').text('-');
+        if(totalSocialAttendees > 0){
+          $('#socialeventstotalprice').text('RS. ' + (socialEventPrice * totalSocialAttendees));
+        }
+        else{
+          $('#socialeventstotalprice').text('-');
+        }
     }
   }
 

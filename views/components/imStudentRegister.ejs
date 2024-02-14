@@ -2,7 +2,9 @@
 
 
 <div class="container">
-    <form class="RegisterForm">
+
+    <form class="RegisterForm" action="/register/new-registration" method="post">
+
         <div class="row">
 
             <!-- PERSONAL DETAILS -->
@@ -40,7 +42,9 @@
                 </div>
                 <div class="mb-3">
                     <label for="ContactNumber" class="form-label">Contact Number</label>
-                    <input type="number" class="form-control" name="ContactNumber" id="ContactNumber"
+
+                    <input type="tel" inputmode="numeric" class="form-control" name="ContactNumber" id="ContactNumber"
+
                         placeholder="Enter Contact Number">
                 </div>
                 <div class="mb-3">
@@ -76,7 +80,9 @@
                         <label class="form-check-label" for="RegisterAsParticipant">Participant</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="RegisterAs" value="ParticipantAndSocialEvent" id="RegisterAsParticipantAndSocialEvent">
+
+                        <input class="form-check-input" type="radio" name="RegisterAs" value="participantAndSocialEvent" id="RegisterAsParticipantAndSocialEvent">
+
                         <label class="form-check-label" for="RegisterAsParticipantAndSocialEvent">Participant + Social Event</label>
                     </div>
                 </div>
@@ -92,7 +98,7 @@
                     </div>
                     <div class="mb-3 mt-2 ms-4 border-start ps-2" id="FutsalPlayersDiv" style="display: none;">
                         <label for="FutsalPlayers" class="form-label">Total Players</label>
-                        <input type="number" class="form-control" id="FutsalPlayers" name="FutsalPlayers" min="5" max="8" value="5" placeholder="Enter Total Team Players (5-8)" />
+                        <input type="number" class="form-control" id="FutsalPlayers" name="FutsalPlayers" min="5" max="8" value="5" placeholder="Enter Total Team Players (5-8)"/>
                         <div id="FutsalPlayersError" class="text-danger" style="display: none;"></div>
                         <div id="playersDetailsDiv">
                             <!-- Player details will be dynamically added here -->
@@ -108,7 +114,9 @@
                     </div>
                     <div class="mb-3 mt-2 ms-4 border-start ps-2" id="BasketballPlayersDiv" style="display: none;">
                         <label for="BasketballPlayers" class="form-label">Total Players</label>
+
                         <input type="number" class="form-control" id="BasketballPlayers" name="BasketballPlayers" min="5" max="8" value="5" placeholder="Enter Total Team Players (5-8)"/>
+
                         <div id="BasketballPlayersError" class="text-danger" style="display: none;"></div>
                         <div id="basketballplayersDetailsDiv">
                             <!-- Player details will be dynamically added here -->
@@ -125,7 +133,9 @@
                     <div class="mb-3 mt-2 ms-4 border-start ps-2" id="BadmintonTypeDiv" style="display: none;">
                         <label for="BadmintonType" class="form-label">Match Type</label>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="matchType" value="single" id="single" checked>
+
+                            <input class="form-check-input" type="radio" name="matchType" disabled value="single" id="single" checked>
+
                             <label class="form-check-label" for="single">Single</label>
                         </div>
                         <div class="form-check">
@@ -269,7 +279,9 @@
                     <div id="ParliamarySummitDiv" class="mb-3 ms-4 border-start ps-2" style="display: none;">
                         <div class="mb-3 mt-2">
                             <label for="experience" class="form-label">Previous MUN/PNA Experience</label>
-                            <input type="number" class="form-control" id="experience" name="experience"/>
+
+                            <input type="number" class="form-control" id="experience" disabled name="experience"/>
+
                         </div>
                         <div class="mb-3 mt-2">
                             <label for="LeaderOfHouse" class="form-label">Are you expecting to be leader of the house?</label>
@@ -316,6 +328,9 @@
         </div> 
         <div class="mb-4 mt-4">
             <button type="submit" class="btn btn-lg SubmitBtn">Submit</button>
+
+            <h4><%=response_msg%></h4>
+
         </div>
     </form>
 </div>
