@@ -37,6 +37,9 @@ const registrationSchema = new mongoose.Schema({
   ambassador_name: {
     type: String,
     default : ""
+  },
+  images_directory: {
+    type: String
   }
 },
 {
