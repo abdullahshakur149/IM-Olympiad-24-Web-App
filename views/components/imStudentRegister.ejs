@@ -299,31 +299,34 @@
         <div class="mb-4 mt-4" id="TotalPriceDiv">
             <label class="form-label">Checkout</label>
             <div class="PriceBoard">
-               <div id="ObserverTotalDiv" class="obseverTotal d-flex justify-content-between align-items-center">
-                <div><p class="checkoutlabel">Observer:</p></div>
-                <div><p id="observertotalprice"></p></div>
-               </div>
-
-               <div id="SportsTotalDiv" class="sportsTotal d-flex justify-content-between align-items-center">
-                <div><p class="checkoutlabel">Sports:</p></div>
-                <div><p id="sportstotalprice"></p></div>
-               </div>
-
-               <div id="SocialEventsTotalDiv" class="socialeventsTotal d-flex justify-content-between align-items-center">
-                <div><p class="checkoutlabel">Social Events:</p></div>
-                <div><p id="socialeventstotalprice"></p></div>
-               </div>
-
-               <div id="discountDiv" class="discountTotal d-flex justify-content-between align-items-center">
-                <p class="checkoutlabel text-success">Discount:</p>
-                <p id="dicountPrice" class="text-success"></p>
-               </div>
-
-               <div class="finalTotal mt-3 pt-2 d-flex justify-content-between align-items-center">
-                <div><p class="finaltotallabel">Total:</p></div>
-                <div><p id="finaltotalprice"></p></div>
-               </div>
+                <div id="ObserverTotalDiv" class="obseverTotal d-flex justify-content-between align-items-center">
+                    <div><p class="checkoutlabel">Observer:</p></div>
+                    <div><p id="observertotalprice"></p></div>
+                </div>
+        
+                <div id="SportsTotalDiv" class="sportsTotal d-flex justify-content-between align-items-center">
+                    <div><p class="checkoutlabel">Sports:</p></div>
+                    <div><p id="sportstotalprice"></p></div>
+                </div>
+        
+                <div id="SocialEventsTotalDiv" class="socialeventsTotal d-flex justify-content-between align-items-center">
+                    <div><p class="checkoutlabel">Social Events:</p></div>
+                    <div><p id="socialeventstotalprice"></p></div>
+                </div>
+        
+                <div id="discountDiv" class="discountTotal d-flex justify-content-between align-items-center">
+                    <p class="checkoutlabel text-success">Discount:</p>
+                    <p id="dicountPrice" class="text-success"></p>
+                </div>
+        
+                <!-- Change this div to an input element -->
+                <div class="finalTotal mt-3 pt-2 d-flex justify-content-between align-items-center">
+                    <div><p class="finaltotallabel">Total:</p></div>
+                    <input type="text" id="finaltotalprice" name="totalAmount">
+                </div>
             </div>
+        </div>
+        
         </div> 
         <div class="mb-4 mt-4">
             <button type="submit" class="btn btn-lg SubmitBtn">Submit</button>
