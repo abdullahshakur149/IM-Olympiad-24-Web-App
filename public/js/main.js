@@ -408,6 +408,7 @@
 
   // Calculate Total Price
   $(document).ready(function () {
+    $("#dicountPrice").text('-');
     // Event listener for changes in sport checkboxes
     $('input[type="checkbox"]').change(function () {
       calculateTotalPrice();
@@ -538,24 +539,31 @@
           }
           if (isIMSciencesStudent) {
             totalPrice -= totalDiscount; // Apply the discount
+            $("#dicountPrice").text("RS. " + totalDiscount);
+          }
+          else{
+            $("#dicountPrice").text('-');
           }
           if (isSecondBadmintonPlayerIMSciencesStudent) {
             totalPrice -= discount;
             totalDiscount += discount;
+            $("#dicountPrice").text("RS. " + totalDiscount);
           }
           $('[id^="basketballPlayerType"]').each(function (index) {
             if ($(this).is(":checked") && $(this).val() === "yes") {
               totalPrice -= discount;
               totalDiscount += discount;
+              $("#dicountPrice").text("RS. " + totalDiscount);
             }
           });
           $('[id^="playerType"]').each(function (index) {
             if ($(this).is(":checked") && $(this).val() === "yes") {
               totalPrice -= discount;
               totalDiscount += discount;
+              $("#dicountPrice").text("RS. " + totalDiscount);
             }
           });
-          $("#dicountPrice").text("RS. " + totalDiscount);
+          
         } else if ($("#RegisterAsParticipant").is(":checked")) {
           totalPrice += socialEventPrice * totalSocialAttendees; // Add social event price for all attendees
           if (isIMSciencesStudent) {
@@ -565,6 +573,7 @@
               totalPrice -= discount;
               totalDiscount += discount;
             }
+           
             $('[id^="basketballPlayerType"]').each(function (index) {
               if ($(this).is(":checked") && $(this).val() === "yes") {
                 totalPrice -= discount;
