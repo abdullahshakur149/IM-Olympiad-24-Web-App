@@ -16,10 +16,10 @@
   function checkFileSize(input) {
     if (input.files && input.files[0]) {
       var fileSize = input.files[0].size;
-      var maxSize = 5 * 1024 * 1024; // 5 MB
+      var maxSize = 2 * 1024 * 1024; // 2 MB
 
       if (fileSize > maxSize) {
-        alert("File size exceeds 5MB. Please select a smaller file.");
+        alert("File size exceeds 2MB. Please select a smaller file.");
         input.value = "";
       }
     }
