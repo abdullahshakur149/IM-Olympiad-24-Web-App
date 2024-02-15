@@ -15,49 +15,68 @@
                 <div class="mb-3 mt-4">
                     <label for="studentType" class="form-label">Are you a student of IMSciences?</label>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="studentType" value="yes" id="studentTypeYes">
+                        <input class="form-check-input" type="radio" name="studentType" value="yes" id="studentTypeYes" >
                         <label class="form-check-label" for="studentTypeYes">Yes</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="studentType" value="no" id="studentTypeNo">
+                        <input class="form-check-input" type="radio" name="studentType" value="no" id="studentTypeNo" >
                         <label class="form-check-label" for="studentTypeNo">No</label>
                     </div>
                 </div>
                 <div class="mb-3" id="studentIdInput" style="display: none;">
                     <label for="studentIdImage" class="form-label">Upload student ID card</label>
-                    <input type="file" class="form-control" id="studentIdImage" name="studentIdImage" accept="image/png, image/jpeg" />
+                    <input type="file" class="form-control" id="studentIdImage" name="studentIdImage" accept="image/png, image/jpeg"  />
+
+                    <div class=" mt-2 alert alert-warning alert-dismissible fade show" role="alert">
+                        File size should not exceed 500KB!
+                        <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
+                      </div>
+                      
+                    
                 </div>
+                
                 <div class="mb-3">
                     <label for="studentImage" class="form-label">Upload Your Picture</label>
-                    <input type="file" class="form-control" id="studentImage" name="studentImage" accept="image/png, image/jpeg" />
+                    <input type="file" class="form-control" id="studentImage" name="studentImage" accept="image/png, image/jpeg"  />
+
+                    <div class=" mt-2 alert alert-warning alert-dismissible fade show" role="alert">
+                        File size should not exceed 500KB!
+                        <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
+                      </div>
+                      
                 </div>
                 <div class="mb-3">
                     <label for="name" class="form-label">Name</label>
-                    <input type="text" class="form-control" name="name" id="name" placeholder="Enter Full Name">
+                    <input type="text" class="form-control" name="name" id="name" placeholder="Enter Full Name" >
                 </div>
                 <div class="mb-3">
                     <label for="FatherName" class="form-label">Father Name</label>
                     <input type="text" class="form-control" name="FatherName" id="FatherName"
-                        placeholder="Enter Father Name">
+                        placeholder="Enter Father Name" required>
                 </div>
                 <div class="mb-3">
                     <label for="ContactNumber" class="form-label">Contact Number</label>
 
                     <input type="tel" inputmode="numeric" class="form-control" name="ContactNumber" id="ContactNumber"
 
-                        placeholder="Enter Contact Number">
+                        placeholder="Enter Contact Number" required>
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" name="email" id="email" placeholder="Enter Email">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Enter Email" >
                 </div>
                 <div class="mb-3">
                     <label for="cnic" class="form-label">CNIC</label>
-                    <input type="number" class="form-control" name="cnic" id="cnic" placeholder="Enter CNIC">
+                    <input type="number" class="form-control" name="cnic" id="cnic" placeholder="Enter CNIC" >
                 </div>
                 <div class="mb-3 mt-2" id="cnicImageDiv" style="display:none;">
                     <label for="cnicImage" class="form-label">Upload CNIC Picture</label>
-                    <input type="file" class="form-control" id="cnicImage" name="cnicImage" accept="image/png, image/jpeg" />
+                    <input type="file" class="form-control" id="cnicImage" name="cnicImage" accept="image/png, image/jpeg"  />
+                    <div class=" mt-2 alert alert-warning alert-dismissible fade show" role="alert">
+                        File size should not exceed 500KB!
+                        <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
+                      </div>
+                      
                 </div>
                                
     
@@ -72,16 +91,16 @@
                 <div class="mb-3 mt-4">
                     <label for="RegisterAs" class="form-label">Register as?</label>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="RegisterAs" value="observer" id="RegisterAsObserver">
+                        <input class="form-check-input" type="radio" name="RegisterAs" value="observer" id="RegisterAsObserver" >
                         <label class="form-check-label" for="RegisterAsObserver">Observer</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="RegisterAs" value="participant" id="RegisterAsParticipant">
+                        <input class="form-check-input" type="radio" name="RegisterAs" value="participant" id="RegisterAsParticipant" >
                         <label class="form-check-label" for="RegisterAsParticipant">Participant</label>
                     </div>
                     <div class="form-check">
 
-                        <input class="form-check-input" type="radio" name="RegisterAs" value="participantAndSocialEvent" id="RegisterAsParticipantAndSocialEvent">
+                        <input class="form-check-input" type="radio" name="RegisterAs" value="participantAndSocialEvent" id="RegisterAsParticipantAndSocialEvent" >
 
                         <label class="form-check-label" for="RegisterAsParticipantAndSocialEvent">Participant + Social Event</label>
                     </div>
@@ -91,14 +110,14 @@
 
 
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="Futsal" value="Futsal" id="Futsal">
+                        <input class="form-check-input" type="checkbox" name="Futsal" value="Futsal" id="Futsal" >
                         <label class="form-check-label" for="Futsal">
                             Futsal
                         </label>
                     </div>
                     <div class="mb-3 mt-2 ms-4 border-start ps-2" id="FutsalPlayersDiv" style="display: none;">
                         <label for="FutsalPlayers" class="form-label">Total Players</label>
-                        <input type="number" class="form-control" id="FutsalPlayers" name="FutsalPlayers" min="5" max="8" value="5" placeholder="Enter Total Team Players (5-8)"/>
+                        <input type="number" class="form-control" id="FutsalPlayers" name="FutsalPlayers" min="5" max="8" value="5" placeholder="Enter Total Team Players (5-8)" />
                         <div id="FutsalPlayersError" class="text-danger" style="display: none;"></div>
                         <div id="playersDetailsDiv">
                             <!-- Player details will be dynamically added here -->
@@ -107,7 +126,7 @@
 
 
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="Basketball" value="Basketball" id="Basketball">
+                        <input class="form-check-input" type="checkbox" name="Basketball" value="Basketball" id="Basketball" >
                         <label class="form-check-label" for="Basketball">
                             Basketball
                         </label>
@@ -115,7 +134,7 @@
                     <div class="mb-3 mt-2 ms-4 border-start ps-2" id="BasketballPlayersDiv" style="display: none;">
                         <label for="BasketballPlayers" class="form-label">Total Players</label>
 
-                        <input type="number" class="form-control" id="BasketballPlayers" name="BasketballPlayers" min="5" max="8" value="5" placeholder="Enter Total Team Players (5-8)"/>
+                        <input type="number" class="form-control" id="BasketballPlayers" name="BasketballPlayers" min="5" max="8" value="5" placeholder="Enter Total Team Players (5-8)" />
 
                         <div id="BasketballPlayersError" class="text-danger" style="display: none;"></div>
                         <div id="basketballplayersDetailsDiv">
@@ -125,7 +144,7 @@
 
 
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="Badminton" value="Badminton" id="Badminton">
+                        <input class="form-check-input" type="checkbox" name="Badminton" value="Badminton" id="Badminton" >
                         <label class="form-check-label" for="Badminton">
                             Badminton
                         </label>
@@ -139,7 +158,7 @@
                             <label class="form-check-label" for="single">Single</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="matchType" value="double" id="double">
+                            <input class="form-check-input" type="radio" name="matchType" value="double" id="double" >
                             <label class="form-check-label" for="double">Double</label>
                         </div>
                         <div class="mb-3 mt-3 ps-2 border-start ms-3" id="BadmintonSecondPlayerDetailsDiv" style="display:none;">
@@ -148,23 +167,34 @@
                             <div class='mb-2'>
                                 <label for='badmintonSecondPlayerType' class='form-label'>Is the player a student at IMSciences?</label>
                                 <div class="form-check">
-                                    <input class="form-check-input badmintonSecondPlayerType" type="radio" name="badmintonSecondPlayerType" value="yes" id="badmintonSecondPlayerTypeYes">
+                                    <input class="form-check-input badmintonSecondPlayerType" type="radio" name="badmintonSecondPlayerType" value="yes" id="badmintonSecondPlayerTypeYes" >
                                     <label class="form-check-label" for="badmintonSecondPlayerTypeYes">Yes</label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input badmintonSecondPlayerType" type="radio" name="badmintonSecondPlayerType" value="no" id="badmintonSecondPlayerTypeNo">
+                                    <input class="form-check-input badmintonSecondPlayerType" type="radio" name="badmintonSecondPlayerType" value="no" id="badmintonSecondPlayerTypeNo" >
                                     <label class="form-check-label" for="badmintonSecondPlayerTypeNo">No</label>
                                 </div>
                                 <div class='border-start ps-3 ms-3' id='badmintonSecondPlayerTypeDiv' style='display:none;'>
                                   <div class="mb-2">
                                       <label for="badmintonSecondPlayerId" class="form-label">Upload student ID card</label>
                                       <input type="file" class="form-control" name="badmintonSecondPlayerId" id="badmintonSecondPlayerId" accept="image/png, image/jpeg" />
+
+                                      <div class=" mt-2 alert alert-warning alert-dismissible fade show" role="alert">
+                                        File size should not exceed 500KB!
+                                        <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
+                                      </div>
                                   </div>
                                 </div>
                             </div>
                             <div class="mb-2">
                                 <label for="badmintonSecondPlayerImage" class="form-label">Upload Player Picture</label>
                                 <input type="file" class="form-control" name="badmintonSecondPlayerImage" id="badmintonSecondPlayerImage" accept="image/png, image/jpeg" />
+
+                                <div class=" mt-2 alert alert-warning alert-dismissible fade show" role="alert">
+                                    File size should not exceed 500KB!
+                                    <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
+                                  </div>
+                                  
                             </div>
                             <div class="mb-2">
                                 <label for="badmintonSecondPlayerName" class="form-label">Name</label>
@@ -265,7 +295,7 @@
 
 
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="ParliamentarySummit" value="ParliamentarySummit" id="ParliamentarySummit">
+                        <input class="form-check-input" type="checkbox" name="ParliamentarySummit" value="ParliamentarySummit" id="ParliamentarySummit" >
                         <label class="form-check-label" for="ParliamentarySummit">
                             Parliamentary Summit
                         </label>
@@ -299,33 +329,32 @@
         <div class="mb-4 mt-4" id="TotalPriceDiv">
             <label class="form-label">Checkout</label>
             <div class="PriceBoard">
-                <div id="ObserverTotalDiv" class="obseverTotal d-flex justify-content-between align-items-center">
-                    <div><p class="checkoutlabel">Observer:</p></div>
-                    <div><p id="observertotalprice"></p></div>
-                </div>
-        
-                <div id="SportsTotalDiv" class="sportsTotal d-flex justify-content-between align-items-center">
-                    <div><p class="checkoutlabel">Sports:</p></div>
-                    <div><p id="sportstotalprice"></p></div>
-                </div>
-        
-                <div id="SocialEventsTotalDiv" class="socialeventsTotal d-flex justify-content-between align-items-center">
-                    <div><p class="checkoutlabel">Social Events:</p></div>
-                    <div><p id="socialeventstotalprice"></p></div>
-                </div>
-        
-                <div id="discountDiv" class="discountTotal d-flex justify-content-between align-items-center">
-                    <p class="checkoutlabel text-success">Discount:</p>
-                    <p id="dicountPrice" class="text-success"></p>
-                </div>
-        
-                <!-- Change this div to an input element -->
-                <div class="finalTotal mt-3 pt-2 d-flex justify-content-between align-items-center">
-                    <div><p class="finaltotallabel">Total:</p></div>
-                    <input type="text" id="finaltotalprice" name="totalAmount">
-                </div>
+               <div id="ObserverTotalDiv" class="obseverTotal d-flex justify-content-between align-items-center">
+                <div><p class="checkoutlabel">Observer:</p></div>
+                <div><p id="observertotalprice"></p></div>
+               </div>
+
+               <div id="SportsTotalDiv" class="sportsTotal d-flex justify-content-between align-items-center">
+                <div><p class="checkoutlabel">Sports:</p></div>
+                <div><p id="sportstotalprice"></p></div>
+               </div>
+
+               <div id="SocialEventsTotalDiv" class="socialeventsTotal d-flex justify-content-between align-items-center">
+                <div><p class="checkoutlabel">Social Events:</p></div>
+                <div><p id="socialeventstotalprice"></p></div>
+               </div>
+
+               <div id="discountDiv" class="discountTotal d-flex justify-content-between align-items-center">
+                <p class="checkoutlabel text-success">Discount:</p>
+                <p id="dicountPrice" class="text-success"></p>
+               </div>
+
+               <div class="finalTotal mt-3 pt-2 d-flex justify-content-between align-items-center">
+                <div><p class="finaltotallabel">Total:</p></div>
+                <input type="text" id="finaltotalprice" name="totalAmount" readonly>
             </div>
-        </div>
+            
+            </div>
         
         </div> 
         <div class="mb-4 mt-4">
