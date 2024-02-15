@@ -623,8 +623,11 @@
       var hasCheckedSport = $('input[type="checkbox"]:checked').length > 0;
       if ($("#RegisterAsObserver").is(":checked") || hasCheckedSport) {
         $("#TotalPriceDiv").show();
+        $("#paymentScreenshotDiv").show();
+        
       } else {
         $("#TotalPriceDiv").hide();
+        $("#paymentScreenshotDiv").hide();
       }
     }
 

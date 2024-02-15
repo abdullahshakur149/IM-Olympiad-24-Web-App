@@ -5823,4 +5823,14 @@ h6 {
   display: none;
 }
 
+.finalTotalPriceInput{
+  border:none;
+  background: #E7E7E7;
+  text-align: end;
+}
+.finalTotalPriceInput:focus{
+  box-shadow: none;
+  border:none;
+  background: #E7E7E7;
+}
 /*# sourceMappingURL=style.css.map */
