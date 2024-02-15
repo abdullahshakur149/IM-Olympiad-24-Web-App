@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- <link rel="manifest" href="site.webmanifest"> -->
-    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
     <!-- Place favicon.ico in the root directory -->
 
     <!-- CSS here -->
@@ -22,8 +22,24 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flaticon/3.3.0/font/flaticon.css" />
     <link rel="stylesheet" href="css/slicknav.css" />
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <!-- <link rel="stylesheet" href="css/responsive.css"> -->
+
+    <style>
+        .loader {
+            border: 16px solid #f3f3f3; /* Light grey */
+            border-top: 16px solid #3498db; /* Blue */
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 2s linear infinite;
+          }
+          
+          @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+          }
+    </style>
 </head>
 <body>
      <!-- header-start -->
@@ -87,5 +103,50 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mailchimp-api-v3/3.0.9/mailchimp-api.min.js"></script>
 
     <script src="/js/main.js"></script>
+    <script>
+        const form = document.querySelector('#registrationForm');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            submitForm();
+        });
+
+        function submitForm() {
+            const form = document.querySelector('#registrationForm');
+            const formData = new FormData(form);
+            
+            // Call function to submit form data
+            submitFormData(formData);
+        }
+
+        function submitFormData(formData) {
+            startLoader();
+            fetch('/register/new-registration', {
+            method: 'POST',
+            body: formData
+            })
+            .then(response => response.json())
+            .then(response => {
+                stopLoader();
+                if (response.status == 'error'){
+                    alert(response.message)
+                } else if (response.status == 'internal-server-error'){
+                    alert(response.message)
+                } else {
+                    location.reload();
+                }
+            })
+            .catch(error => {
+            // Handle errors
+            });
+        }
+        
+        function startLoader(){
+            document.getElementsByClassName('loader')[0].removeAttribute('hidden', '')
+        }
+
+        function stopLoader(){
+            document.getElementsByClassName('loader')[0].setAttribute('hidden', '')
+        }
+    </script>
 </body>
 </html>

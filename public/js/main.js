@@ -675,13 +675,13 @@ function generatePlayerInputs(numPlayers) {
               <div class='playerTypeDiv' id='playerTypeDiv${i}'>
                   <div class="mb-2">
                       <label for="playerID${i}" class="form-label">Upload student ID card</label>
-                      <input type="file" class="form-control" name="playerID${i}" id="playerID${i}" accept="image/png, image/jpeg" />
+                      <input type="file" class="form-control" name="playerID" id="playerID${i}" accept="image/png, image/jpeg" />
                   </div>
               </div>
           </div>
           <div class="mb-2">
               <label for="playerImage${i}" class="form-label">Upload Player Picture</label>
-              <input type="file" class="form-control" name="playerImage${i}" id="playerImage${i}" accept="image/png, image/jpeg" />
+              <input type="file" class="form-control" name="playerImage" id="playerImage${i}" accept="image/png, image/jpeg" />
           </div>
           <div class="mb-2">
               <label for="playerName${i}" class="form-label">Name</label>
@@ -699,7 +699,7 @@ function generatePlayerInputs(numPlayers) {
           </div>
           <div class="mb-2" id='playerCnicImgDiv${i}' style='display:none;'>
               <label for="playerCnicImg${i}" class="form-label">Player CNIC</label>
-              <input type="file" class="form-control" name="playerCnicImg${i}" id="playerCnicImg${i}" accept="image/png, image/jpeg" />
+              <input type="file" class="form-control" name="playerCnicImg" id="playerCnicImg${i}" accept="image/png, image/jpeg" />
           </div>
           <div id='playerSocialEventDiv${i}' >
               <label for='playerAttendSocialEvent${i}' class='form-label'>Does the player wish to attend the social event?</label>
@@ -777,13 +777,13 @@ function generateBasketballPlayerInputs(numPlayers) {
                   <div class='basketballPlayerTypeDiv' id='basketballPlayerTypeDiv${i}'>
                     <div class="mb-2">
                         <label for="basketballPlayerID${i}" class="form-label">Upload student ID card</label>
-                        <input type="file" class="form-control" name="basketballPlayerID${i}" id="basketballPlayerID${i}" accept="image/png, image/jpeg" />
+                        <input type="file" class="form-control" name="basketballPlayerID" id="basketballPlayerID${i}" accept="image/png, image/jpeg" />
                     </div>
                   </div>
               </div>
               <div class="mb-2">
                   <label for="basketballPlayerImage${i}" class="form-label">Upload Player Picture</label>
-                  <input type="file" class="form-control" name="basketballPlayerImage${i}" id="basketballPlayerImage${i}" accept="image/png, image/jpeg" />
+                  <input type="file" class="form-control" name="basketballPlayerImage" id="basketballPlayerImage${i}" accept="image/png, image/jpeg" />
               </div>
               <div class="mb-2">
                   <label for="basketballPlayerName${i}" class="form-label">Name</label>
@@ -802,7 +802,7 @@ function generateBasketballPlayerInputs(numPlayers) {
               
               <div class="mb-2" id='basketballPlayerCnicImgDiv${i}'>
                   <label for="basketballPlayerCnicImg${i}" class="form-label">Player CNIC</label>
-                  <input type="file" class="form-control" name="basketballPlayerCnicImg${i}" id="basketballPlayerCnicImg${i}" accept="image/png, image/jpeg"/>
+                  <input type="file" class="form-control" name="basketballPlayerCnicImg" id="basketballPlayerCnicImg${i}" accept="image/png, image/jpeg"/>
               </div>
 
               <div id='BasketabllplayerSocialEventDiv${i}'>
@@ -1226,5 +1226,4 @@ mailChimp();
 
 
      
-
 })(jQuery);	

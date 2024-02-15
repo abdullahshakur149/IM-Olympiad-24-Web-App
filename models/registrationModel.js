@@ -38,9 +38,7 @@ const registrationSchema = new mongoose.Schema({
     type: String,
     default : ""
   },
-  images_directory: {
-    type: String
-  }
+  images_paths: [String]
 },
 {
   timestamps : true

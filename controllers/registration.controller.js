@@ -8,30 +8,56 @@ exports.newRegistration = async (req, res, next) => {
     try {
         
         let registrationDetails = req.body;
+        let allFiles = req.files;
 
         if (!validatePersonalDetails(registrationDetails)){
-            req.flash("response_msg", "Personal details error!")
-            return next();
+            // Remove uploaded files(undo)
+            for (var files of Object.keys(allFiles)) {
+                for (const file of allFiles[files]) {
+                    fs.unlinkSync(file.path);
+                }
+            }
+            
+            
+          return res.status(400).json({
+                status : "error",
+                message : "Personal details error!"
+            })
         }
         
         if (!validateEventDetails(registrationDetails)){
-            req.flash("response_msg", "Event details error!")
-            return next();
+            // Remove uploaded files(undo)
+            for (var files of Object.keys(allFiles)) {
+                for (const file of allFiles[files]) {
+                    fs.unlinkSync(file.path);
+                }
+            }
+
+            return res.status(400).json({
+                status : "error",
+                message : "Event details error!"
+            })
         }
 
         //update email to lower case
         registrationDetails.email = String(registrationDetails.email).toLowerCase();
         
-        let dataObj = reformatData(registrationDetails)
+        let dataObj = reformatData(registrationDetails, allFiles)
 
         //create registration
         await Registration.create(dataObj);
-        req.flash("response_msg", "Success!")
-        next();
+        return res.json({
+            status : "success",
+            message : "Form submitted successfully"
+        })
 
     } catch (err) {
         console.log(err);
-        next('Registration controller error')
+        return res.status(500).json({
+            status : "internal-server-error",
+            message : "Server error! please try again later."
+        })
+        // next('Registration controller error')
     }
 };
 
@@ -75,7 +101,7 @@ function validateEventDetails(data){
     return false;
 }
 
-function reformatData(data){
+function reformatData(data, allFiles){
     let newData = {
         name : data.name,
         father_name : data.FatherName,
@@ -98,9 +124,7 @@ function reformatData(data){
                 playersData.push({
                     ims_student : data[`playerType${i}`],
                     player_name : data[`playerName${i}`],
-                    player_father_name : data[`playerFatherName${i}`],
                     player_contact : data[`playerContact${i}`],
-                    player_email : data[`playerEmail${i}`],
                     player_cnic : data[`playerCnic${i}`],
                 }); 
         }
@@ -117,9 +141,7 @@ function reformatData(data){
                 playersData.push({
                     ims_student : data[`basketballPlayerType${i}`],
                     player_name : data[`basketballPlayerName${i}`],
-                    player_father_name : data[`basketballPlayerFatherName${i}`],
                     player_contact : data[`basketballPlayerContact${i}`],
-                    player_email : data[`basketballPlayerEmail${i}`],
                     player_cnic : data[`basketballPlayerCnic${i}`],
                 }); 
         }
@@ -132,6 +154,14 @@ function reformatData(data){
     }
 
     if (data["Badminton"] && data["matchType"]){
+        let player2Data = {}
+        if (data["matchType"] == 'double'){
+            player2Data.ims_student = data[`badmintonSecondPlayerType${i}`];
+            player2Data.player_name = data[`badmintonSecondPlayerName${i}`];
+            player2Data.player_contact = data[`badmintonSecondPlayerContact${i}`];
+            player2Data.player_cnic = data[`badmintonSecondPlayerCnic${i}`]
+
+        }
         selectedSports.push({
             sport_name : data["Badminton"],
             matchType : data["matchType"]
@@ -186,20 +216,29 @@ function reformatData(data){
             leader_of_house : data["LeaderOfHouse"]
         })
     }
-
     newData.sport_registered_in = selectedSports;
+
+    //getting images paths and storing in db
+    let imagesPaths = []
+    for (var files of Object.keys(allFiles)) {
+        for (const file of allFiles[files]) {
+            imagesPaths.push(file.path)
+        }
+    }
+
+    newData.images_paths = imagesPaths
     return newData;
 }
 
-//multer
-// Multer storage configuration
+//Multer
+//Multer storage configuration
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         fs.mkdirSync( 'uploads/', { recursive: true })
-      cb(null, 'uploads'); // Destination folder for storing uploaded files
+        cb(null, 'uploads'); // Destination folder for storing uploaded files
     },
     filename: function (req, file, cb) {
-      cb(null, Date.now() + '-' + file.originalname); // Renaming file to avoid conflicts
+        cb(null, Date.now() + '-' + file.originalname); // Renaming file to avoid conflicts
     }
   });
   
@@ -213,18 +252,69 @@ const storage = multer.diskStorage({
   
   
 // Function to handle file upload
-const uploadFile = function (req, res, fileName) {
+exports.uploadFiles = function (req, res, next) {
       // Multer configuration
     const upload = multer({
         storage: storage,
-        limits: { fileSize: 1 * 1024 * 1024 }, // Limiting file size to 1MB
+        limits: { fileSize: 0.5 * 1024 * 1024 }, // Limiting file size to 500KB
         fileFilter: fileFilter
-    }).single(fileName); // 'image' is the name of the file input field in your form
+    }).fields(
+        [
+            {
+                name : 'studentIdImage',
+                maxCount : 1
+            },
+            {
+                name : 'studentImage',
+                maxCount : 1
+            },
+            {
+                name : 'cnicImage',
+                maxCount : 1
+            },
+            {
+                name:'playerID',
+                maxCount:8
+            },
+            {
+                name:'playerImage',
+                maxCount:8
+            },
+            {
+                name:'playerCnicImg',
+                maxCount:8
+            },
+            {
+                name:'basketballPlayerID',
+                maxCount:8
+            },
+            {
+                name:'basketballPlayerImage',
+                maxCount:8
+            },
+            {
+                name:'basketballPlayerCnicImg',
+                maxCount:8
+            },
+            {
+                name:'badmintonSecondPlayerId',
+                maxCount:1
+            },
+            {
+                name:'badmintonSecondPlayerImage',
+                maxCount:1
+            },
+            {
+                name:'badmintonSecondPlayerCnicImage',
+                maxCount:1
+            },
+        ]
+    ); // 'image' is the name of the file input field in your form
 
     upload(req, res, function (err) {
         if (err instanceof multer.MulterError) {
             // A Multer error occurred when uploading.
-            return res.status(400).json({ message: 'File size exceeds 1MB!' });
+            return res.status(400).json({ message: 'File size exceeds 500KB!' });
         } else if (err) {
             if (err === 'INVALID_TYPE'){
                 return res.status(400).json({
@@ -240,7 +330,10 @@ const uploadFile = function (req, res, fileName) {
                   message : "Please try again later."
               });
         }
+
+        // console.log(req.body);
+        // console.log(req.files);
         // Everything went fine.
-        res.status(200).json({ message: 'File uploaded successfully!' });
+        next();
     });
 };

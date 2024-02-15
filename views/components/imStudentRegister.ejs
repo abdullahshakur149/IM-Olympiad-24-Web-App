@@ -3,7 +3,7 @@
 
 <div class="container">
 
-    <form class="RegisterForm" action="/register/new-registration" method="post">
+    <form class="RegisterForm" id="registrationForm" action="/register/new-registration" method="post" enctype="multipart/form-data">
 
         <div class="row">
 
@@ -327,9 +327,9 @@
         </div> 
         <div class="mb-4 mt-4">
             <button type="submit" class="btn btn-lg SubmitBtn">Submit</button>
-
-            <h4><%=response_msg%></h4>
-
+        </div>
+        <div class="mb-4 mt-4">
+            <div class="loader" hidden></div>
         </div>
     </form>
 </div>
