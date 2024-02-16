@@ -518,7 +518,7 @@ h3 {
 
 /* line 27, ../../Arafath/CL/December/236. Event-02/HTML/scss/_btn.scss */
 .boxed-btn3 {
-  background: #FF4533;
+  background: #3A090A;
   /* IE6-9 */
   color: #fff;
   display: inline-block;
@@ -546,8 +546,8 @@ h3 {
 .boxed-btn3:hover {
   background: transparent;
   /* IE6-9 */
-  color: #FF4533 !important;
-  border: 1px solid #FF4533;
+  color: #3A090A !important;
+  border: 1px solid #3A090A;
 }
 
 /* line 51, ../../Arafath/CL/December/236. Event-02/HTML/scss/_btn.scss */
@@ -799,7 +799,7 @@ h3 {
 .section_title h4 {
   font-size: 30px;
   font-weight: 400;
-  color: #FF4533;
+  color: #3A090A;
   font-family: "Anton", sans-serif;
   margin-bottom: 0;
 }
@@ -5858,13 +5858,30 @@ h6 {
 }
 .mobile_register_button a{
   background: #3A090A;
-  font-family: "Anton", sans-serif;
-  padding: 10px 20px;
-  font-size: 16px;
-  font-weight: 400;
-  border: 1px solid transparent;
-  color: #fff;
-  text-transform: capitalize;
+  padding: 20px;
+  
 }
 
+.home_register_button{
+  position: absolute;
+  background: #3A090A;
+  border: 1px solid #3A090A;
+  color: #ffffff;
+  transition: 0.3s all;
+}
+.home_register_button:hover{
+  background: transparent;
+  border: 1px solid #fcfcfc;
+  color: #fcfcfc;
+}
+.navbar .navbar-toggler{
+  box-shadow: none;
+}
+.navbar .navbar-toggler .menu-icon{
+  color: #ffffff !important;
+  font-size: 38px;
+}
+.navbar-brand img{
+  filter: brightness(120%) contrast(120%);
+}
 /*# sourceMappingURL=style.css.map */
