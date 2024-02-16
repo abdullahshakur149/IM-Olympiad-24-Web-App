@@ -519,8 +519,9 @@
       if ($("#RegisterAsObserver").is(":checked")) {
         totalPrice = observerPrice;
         if (isIMSciencesStudent) {
-          totalPrice = observerPrice - discount; // Apply the discount
-          $("#dicountPrice").text("RS. " + discount);
+          totalPrice = 0;
+         /* totalPrice = observerPrice - discount; // Apply the discount
+          $("#dicountPrice").text("RS. " + discount);*/
         } else {
           $("#dicountPrice").text("-");
         }
@@ -680,7 +681,7 @@
           if (matchType === "single") {
             return 1500;
           } else if (matchType === "double") {
-            return 2000;
+            return 3000;
           }
           return 0;
         default:
