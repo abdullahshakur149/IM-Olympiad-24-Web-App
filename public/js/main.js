@@ -484,15 +484,22 @@
       var totalPrice = 0;
       var discount = 500;
       var totalDiscount = 0;
+
       var futsalSocialEventAttendeesCount = $(
         '[id^="playerAttendSocialEventYes"]:checked'
       ).length;
+
+
       var basketballSocialEventAttendeesCount = $(
         '[id^="BasketballplayerAttendSocialEventYes"]:checked'
       ).length;
+
+
       var badmintonSocialEventAttendeesCount = $(
         '[id^="badmintonSecondPlayerAttendSocialEventYes"]:checked'
       ).length;
+
+
       var totalSocialAttendees =
         futsalSocialEventAttendeesCount +
         basketballSocialEventAttendeesCount +
@@ -504,6 +511,7 @@
         "#badmintonSecondPlayerTypeYes"
       ).is(":checked");
 
+
       // Calculate the price for selected sports
       $('input[type="checkbox"]:checked').each(function () {
         var sportName = $(this).attr("name");
@@ -512,32 +520,42 @@
         if (pricePerPlayer > 0) {
           totalDiscount += discount;
         }
-        sportsPrice += (pricePerPlayer);
+        sportsPrice += pricePerPlayer;
       });
+
+
+      // REGISTER AS OBSERVER
 
       // Calculate the total price based on selected options
       if ($("#RegisterAsObserver").is(":checked")) {
         totalPrice = observerPrice;
+
         if (isIMSciencesStudent) {
           totalPrice = 0;
-         /* totalPrice = observerPrice - discount; // Apply the discount
-          $("#dicountPrice").text("RS. " + discount);*/
-        } else {
+        } 
+        else {
           $("#dicountPrice").text("-");
         }
+
       } else {
         totalPrice = sportsPrice;
+
+
+        // REGISTER AS PARTICIPANT + SOCIAL EVENT
+
         // Add social events price if "Participant + Social Event" is selected
         if ($("#RegisterAsParticipantAndSocialEvent").is(":checked")) {
+
           // Check if any additional social event attendees are selected
           if (totalSocialAttendees > 1) {
-            totalPrice +=
-              socialEventPrice + socialEventPrice * totalSocialAttendees; // Add social event price for additional attendees
+            totalPrice += socialEventPrice + socialEventPrice * totalSocialAttendees; // Add social event price for additional attendees
+
           } else if (totalSocialAttendees == 0) {
             totalPrice += socialEventPrice;
           } else {
-            totalPrice += socialEventPrice;
+            totalPrice += socialEventPrice + 1500;
           }
+
           if (isIMSciencesStudent) {
             totalPrice -= totalDiscount; // Apply the discount
             $("#dicountPrice").text("RS. " + totalDiscount);
@@ -548,35 +566,36 @@
           if (isSecondBadmintonPlayerIMSciencesStudent) {
             totalPrice -= discount;
             totalDiscount += discount;
-            totalPrice += 1500;
             $("#dicountPrice").text("RS. " + totalDiscount);
           }
+
           $('[id^="basketballPlayerType"]').each(function (index) {
             if ($(this).is(":checked") && $(this).val() === "yes") {
               totalPrice -= discount;
               totalDiscount += discount;
-              totalPrice += 1500;
               $("#dicountPrice").text("RS. " + totalDiscount);
             }
           });
+
           $('[id^="playerType"]').each(function (index) {
             if ($(this).is(":checked") && $(this).val() === "yes") {
               totalPrice -= discount;
               totalDiscount += discount;
-              totalPrice += 1500;
               $("#dicountPrice").text("RS. " + totalDiscount);
             }
           });
-          
+
+
+          // REGISTER AS PARTICIPANT 
         } else if ($("#RegisterAsParticipant").is(":checked")) {
           totalPrice += socialEventPrice * totalSocialAttendees; // Add social event price for all attendees
+          
           if (isIMSciencesStudent) {
-            totalPrice -= discount; // Apply the discount
+            totalPrice -= totalDiscount; // Apply the discount
 
             if (isSecondBadmintonPlayerIMSciencesStudent) {
-              totalPrice -= discount;
+              totalPrice -= totalDiscount;
               totalDiscount += discount;
-              
             }
            
             $('[id^="basketballPlayerType"]').each(function (index) {
@@ -585,14 +604,17 @@
                 totalDiscount += discount;
               }
             });
+
             $('[id^="playerType"]').each(function (index) {
               if ($(this).is(":checked") && $(this).val() === "yes") {
                 totalPrice -= discount;
                 totalDiscount += discount;
               }
             });
+
             $("#dicountPrice").text("RS. " + totalDiscount);
-          } else {
+          } 
+          else {
             $("#dicountPrice").text("-");
           }
         }
@@ -606,6 +628,7 @@
         $("#observertotalprice").text("RS. " + observerPrice);
         $("#sportstotalprice").text("-");
         $("#socialeventstotalprice").text("-");
+
       } else if ($("#RegisterAsParticipantAndSocialEvent").is(":checked")) {
         $("#observertotalprice").text("-");
         $("#sportstotalprice").text("RS. " + sportsPrice);
@@ -619,7 +642,8 @@
         } else {
           $("#socialeventstotalprice").text("RS. " + (socialEventPrice + 1500));
         }
-      } else {
+      } 
+      else {
         $("#observertotalprice").text("-");
         $("#sportstotalprice").text("RS. " + sportsPrice);
         if (totalSocialAttendees > 0) {
@@ -672,7 +696,7 @@
             return 0;
           }
           // Return the price per player multiplied by the number of players
-          return numPlayers * 1500;
+          return (numPlayers * 1500)+1500;
         case "TableTennis":
         case "Ludo":
         case "Chess":
@@ -693,6 +717,11 @@
       }
     }
   });
+
+
+
+
+
 
   // FUTSAL
   // Get the input element for total players of Futsal
@@ -727,7 +756,7 @@
                   <input class="form-check-input playerType" type="radio" name="playerType${i}" value="no" id="playerTypeNo${i}">
                   <label class="form-check-label" for="playerTypeNo${i}">No</label>
               </div>
-              <div class='playerTypeDiv' id='playerTypeDiv${i}'>
+              <div class='playerTypeDiv' id='playerTypeDiv${i}' style="display:none;">
                   <div class="mb-2">
                       <label for="playerID${i}" class="form-label">Upload student ID card</label>
                       <input type="file" class="form-control" name="playerID" id="playerID${i}" accept="image/png, image/jpeg" />
@@ -795,6 +824,11 @@
     }
   });
 
+
+
+
+
+
   // BasketBall
   // Get the input element for total players of Basketball
   const totalBasketballPlayersInput =
@@ -831,7 +865,7 @@
                       <input class="form-check-input basketballPlayerType" type="radio" name="basketballPlayerType${i}" value="no" id="basketballPlayerTypeNo${i}">
                       <label class="form-check-label" for="basketballPlayerTypeNo${i}">No</label>
                   </div>
-                  <div class='basketballPlayerTypeDiv' id='basketballPlayerTypeDiv${i}'>
+                  <div class='basketballPlayerTypeDiv' id='basketballPlayerTypeDiv${i}'  style="display:none;>
                     <div class="mb-2">
                         <label for="basketballPlayerID${i}" class="form-label">Upload student ID card</label>
                         <input type="file" class="form-control" name="basketballPlayerID" id="basketballPlayerID${i}" accept="image/png, image/jpeg" />
@@ -857,7 +891,7 @@
                   <input type="email" class="form-control" name="basketballPlayerCnic${i}" id="basketballPlayerCnic${i}" placeholder="Enter Player CNIC" />
               </div>
               
-              <div class="mb-2" id='basketballPlayerCnicImgDiv${i}'>
+              <div class="mb-2" id='basketballPlayerCnicImgDiv${i}' style="display:none;>
                   <label for="basketballPlayerCnicImg${i}" class="form-label">Player CNIC</label>
                   <input type="file" class="form-control" name="basketballPlayerCnicImg" id="basketballPlayerCnicImg${i}" accept="image/png, image/jpeg"/>
               </div>
@@ -911,6 +945,11 @@
       }
     });
   });
+
+
+
+
+
 
   $(document).ready(function () {
     // mobile_menu
