@@ -1,61 +1,35 @@
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
 <!-- map_area_start  -->
 <div class="map_area">
-    <div id="map" style="height: 600px; position: relative; overflow: hidden;">
-    
-    </div>
+    <div id="map" style="height: 600px;"></div>
     <script>
-        function initMap() {
-            var uluru = {
-                lat: -25.363,
-                lng: 131.044
-            };
-            var grayStyles = [{
-                    featureType: "all",
-                    stylers: [{
-                            saturation: -90
-                        },
-                        {
-                            lightness: 50
-                        }
-                    ]
-                },
-                {
-                    elementType: 'labels.text.fill',
-                    stylers: [{
-                        color: '#ccdee9'
-                    }]
-                }
-            ];
-            var map = new google.maps.Map(document.getElementById('map'), {
-                center: {
-                    lat: -31.197,
-                    lng: 150.744
-                },
-                zoom: 9,
-                styles: grayStyles,
-                scrollwheel: false
-            });
-        }
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpfS1oRGreGSBU5HHjMmQ3o5NLw7VdJ6I&amp;callback=initMap">
+        var map = L.map('map').setView([33.9991, 71.4687], 15); // Set the coordinates for Sector E4 Phase 7 Hayatabad, Peshawar
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Add a marker for Sector E4 Phase 7 Hayatabad, Peshawar
+        L.marker([33.9991, 71.4687]).addTo(map)
+            .bindPopup('Sector E4 Phase 7 Hayatabad, Peshawar')
+            .openPopup();
     </script>
     <div class="location_information black_bg wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
-        <h3>Concert 2020</h3>
+        <h3>IMOlympiad 2024</h3>
         <div class="info_wrap">
             <div class="single_info">
-                <span>Vanue:</span>
-                <p>26/A, Coontum Avenu
-                    New York-2783</p>
-            </div>
-            <div class="single_info">
-                <span>Phone:</span>
-                <p>+10 (88) 267 368 283</p>
+                <span>Venue:</span>
+                <p>Sector E4 Phase 7 Hayatabad, Peshawar, Khyber Pakhtunkhwa, Pakistan</p>
             </div>
             <div class="single_info">
                 <span>Email:</span>
-                <p>contact@concert20.com</p>
+                <p>IMOlympiad24@gmail.com</p>
             </div>
         </div>
     </div>
 </div>
 <!-- map_area_end  -->
+
+
