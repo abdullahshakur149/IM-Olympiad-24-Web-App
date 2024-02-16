@@ -16,10 +16,10 @@
   function checkFileSize(input) {
     if (input.files && input.files[0]) {
       var fileSize = input.files[0].size;
-      var maxSize = 2 * 1024 * 1024; // 2 MB
+      var maxSize = 500 * 1024; //500KB
 
       if (fileSize > maxSize) {
-        alert("File size exceeds 2MB. Please select a smaller file.");
+        alert("File size exceeds 500KB. Please select a smaller file.");
         input.value = "";
       }
     }
@@ -512,7 +512,7 @@
         if (pricePerPlayer > 0) {
           totalDiscount += discount;
         }
-        sportsPrice += pricePerPlayer;
+        sportsPrice += (pricePerPlayer + 1500);
       });
 
       // Calculate the total price based on selected options
@@ -568,7 +568,7 @@
         } else if ($("#RegisterAsParticipant").is(":checked")) {
           totalPrice += socialEventPrice * totalSocialAttendees; // Add social event price for all attendees
           if (isIMSciencesStudent) {
-            totalPrice -= totalDiscount; // Apply the discount
+            totalPrice -= discount; // Apply the discount
 
             if (isSecondBadmintonPlayerIMSciencesStudent) {
               totalPrice -= discount;
