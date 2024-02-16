@@ -16,10 +16,10 @@
   function checkFileSize(input) {
     if (input.files && input.files[0]) {
       var fileSize = input.files[0].size;
-      var maxSize = 2 * 1024 * 1024; // 2 MB
+      var maxSize = 500 * 1024; //500KB
 
       if (fileSize > maxSize) {
-        alert("File size exceeds 2MB. Please select a smaller file.");
+        alert("File size exceeds 500KB. Please select a smaller file.");
         input.value = "";
       }
     }
@@ -512,15 +512,16 @@
         if (pricePerPlayer > 0) {
           totalDiscount += discount;
         }
-        sportsPrice += pricePerPlayer;
+        sportsPrice += (pricePerPlayer);
       });
 
       // Calculate the total price based on selected options
       if ($("#RegisterAsObserver").is(":checked")) {
         totalPrice = observerPrice;
         if (isIMSciencesStudent) {
-          totalPrice = observerPrice - discount; // Apply the discount
-          $("#dicountPrice").text("RS. " + discount);
+          totalPrice = 0;
+         /* totalPrice = observerPrice - discount; // Apply the discount
+          $("#dicountPrice").text("RS. " + discount);*/
         } else {
           $("#dicountPrice").text("-");
         }
@@ -535,7 +536,7 @@
           } else if (totalSocialAttendees == 0) {
             totalPrice += socialEventPrice;
           } else {
-            totalPrice += socialEventPrice + 1500;
+            totalPrice += socialEventPrice;
           }
           if (isIMSciencesStudent) {
             totalPrice -= totalDiscount; // Apply the discount
@@ -547,12 +548,14 @@
           if (isSecondBadmintonPlayerIMSciencesStudent) {
             totalPrice -= discount;
             totalDiscount += discount;
+            totalPrice += 1500;
             $("#dicountPrice").text("RS. " + totalDiscount);
           }
           $('[id^="basketballPlayerType"]').each(function (index) {
             if ($(this).is(":checked") && $(this).val() === "yes") {
               totalPrice -= discount;
               totalDiscount += discount;
+              totalPrice += 1500;
               $("#dicountPrice").text("RS. " + totalDiscount);
             }
           });
@@ -560,6 +563,7 @@
             if ($(this).is(":checked") && $(this).val() === "yes") {
               totalPrice -= discount;
               totalDiscount += discount;
+              totalPrice += 1500;
               $("#dicountPrice").text("RS. " + totalDiscount);
             }
           });
@@ -567,11 +571,12 @@
         } else if ($("#RegisterAsParticipant").is(":checked")) {
           totalPrice += socialEventPrice * totalSocialAttendees; // Add social event price for all attendees
           if (isIMSciencesStudent) {
-            totalPrice -= totalDiscount; // Apply the discount
+            totalPrice -= discount; // Apply the discount
 
             if (isSecondBadmintonPlayerIMSciencesStudent) {
               totalPrice -= discount;
               totalDiscount += discount;
+              
             }
            
             $('[id^="basketballPlayerType"]').each(function (index) {
@@ -680,7 +685,7 @@
           if (matchType === "single") {
             return 1500;
           } else if (matchType === "double") {
-            return 2000;
+            return 3000;
           }
           return 0;
         default:
