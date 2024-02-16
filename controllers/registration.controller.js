@@ -10,6 +10,8 @@ exports.newRegistration = async (req, res, next) => {
         let registrationDetails = req.body;
         let allFiles = req.files;
 
+        console.log(registrationDetails);
+
         if (!validatePersonalDetails(registrationDetails)){
             // Remove uploaded files(undo)
             for (var files of Object.keys(allFiles)) {
@@ -113,6 +115,7 @@ function reformatData(data, allFiles){
             if (data.studentId) return data.studentId
         }()),
         register_as : data.RegisterAs,
+        total_amount : data.totalAmount,
         ambassador_name : data.ambassador
     };
 
@@ -306,6 +309,10 @@ exports.uploadFiles = function (req, res, next) {
             },
             {
                 name:'badmintonSecondPlayerCnicImage',
+                maxCount:1
+            },
+            {
+                name:'paymentScreenshot',
                 maxCount:1
             },
         ]

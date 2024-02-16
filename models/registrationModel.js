@@ -32,7 +32,7 @@ const registrationSchema = new mongoose.Schema({
     type: Object
   }],
   total_amount: {
-    type: Number
+    type: String
   },
   ambassador_name: {
     type: String,
