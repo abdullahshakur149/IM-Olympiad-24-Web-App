@@ -5834,6 +5834,7 @@ h6 {
   border:none;
   background: #E7E7E7;
   text-align: end;
+  max-width: 150px;
 }
 .finalTotalPriceInput:focus{
   box-shadow: none;
