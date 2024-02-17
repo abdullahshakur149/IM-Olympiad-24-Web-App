@@ -1,3 +1,4 @@
+
 <div class="container">
 
     <form class="RegisterForm pb-3 needs-validation" id="registrationForm" action="/register/new-registration"
@@ -75,13 +76,14 @@
                     <label for="email" class="form-label">Email
                         <span class="badge text-danger fs-20">*</span>
                     </label>
-                    <input type="email" class="form-control" name="email" id="email" placeholder="Enter Email" >
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Enter Email" required>
+                    
                 </div>
                 <div class="mb-3">
                     <label for="cnic" class="form-label">CNIC
                         <span class="badge text-danger fs-20">*</span>
                     </label>
-                    <input type="number" class="form-control" name="cnic" id="cnic" placeholder="Enter CNIC" >
+                    <input type="number" class="form-control" name="cnic" id="cnic" placeholder="Enter CNIC" required>
                 </div>
                 <div class="mb-3 mt-2" id="cnicImageDiv" style="display:none;">
                     <label for="cnicImage" class="form-label">Upload CNIC Picture
