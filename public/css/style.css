@@ -799,8 +799,8 @@ h3 {
 .section_title h4 {
   font-size: 30px;
   font-weight: 400;
-  color: #3A090A;
-  font-family: "Anton", sans-serif;
+  color: #9c0a0d;
+    font-family: "Anton", sans-serif;
   margin-bottom: 0;
 }
 
@@ -2009,7 +2009,7 @@ h3 {
   font-family: "Anton", sans-serif;
   font-size: 30px;
   font-weight: 400;
-  color: #3A090A;
+   color: #9c0a0d;;
 }
 
 /* line 54, ../../Arafath/CL/December/236. Event-02/HTML/scss/_about.scss */
@@ -2525,7 +2525,7 @@ h3 {
 
 /* line 90, ../../Arafath/CL/December/236. Event-02/HTML/scss/_program_details.scss */
 .program_details_area .program_detail_wrap .single_propram .porgram_top span {
-  color: #3A090A;
+  color: #9c0a0d;
   font-size: 30px;
   font-family: "Anton", sans-serif;
   display: block;
@@ -2585,8 +2585,8 @@ h3 {
 .footer .footer_top .footer_widget h4 {
   font-size: 30px;
   font-weight: 400;
-  color: #3A090A;
-  margin-bottom: 24px;
+  color: #9c0a0d;
+    margin-bottom: 24px;
 }
 
 /* line 23, ../../Arafath/CL/December/236. Event-02/HTML/scss/_footer.scss */
@@ -5772,17 +5772,24 @@ h6 {
 .RegisterForm label{
   font-size: 16px;
   color: #131313;
-  font-weight: bold;
+  font-weight: 600;
 }
 .RegisterForm .SubmitBtn{
   background-color: #28AE61;
   color: #FFFFFF;
+  transition: 0.3s ease-in-out;
+}
+.RegisterForm .SubmitBtn:hover{
+  background-color: transparent;
+  color: #28AE61;
+  border: 1px solid #28AE61;
 }
 .RegisterForm .PriceBoard{
   width: 50%;
   background-color: #E7E7E7;
   padding: 10px 20px;
   border-radius: 5px;
+  border: 2px dashed #000;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 @media (max-width: 767px) {
@@ -5883,5 +5890,12 @@ h6 {
 }
 .navbar-brand img{
   filter: brightness(120%) contrast(120%);
+}
+.fs-20{
+  font-size: 20px;
+  margin-left: -10px;
+}
+.fs-14{
+  font-size: 13px;
 }
 /*# sourceMappingURL=style.css.map */
