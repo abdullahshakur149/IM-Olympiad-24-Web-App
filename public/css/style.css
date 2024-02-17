@@ -799,8 +799,8 @@ h3 {
 .section_title h4 {
   font-size: 30px;
   font-weight: 400;
-  color: #3A090A;
-  font-family: "Anton", sans-serif;
+  color: #9c0a0d;
+    font-family: "Anton", sans-serif;
   margin-bottom: 0;
 }
 
@@ -2009,7 +2009,7 @@ h3 {
   font-family: "Anton", sans-serif;
   font-size: 30px;
   font-weight: 400;
-  color: #3A090A;
+   color: #9c0a0d;;
 }
 
 /* line 54, ../../Arafath/CL/December/236. Event-02/HTML/scss/_about.scss */
@@ -2525,7 +2525,7 @@ h3 {
 
 /* line 90, ../../Arafath/CL/December/236. Event-02/HTML/scss/_program_details.scss */
 .program_details_area .program_detail_wrap .single_propram .porgram_top span {
-  color: #3A090A;
+  color: #9c0a0d;
   font-size: 30px;
   font-family: "Anton", sans-serif;
   display: block;
@@ -2585,8 +2585,8 @@ h3 {
 .footer .footer_top .footer_widget h4 {
   font-size: 30px;
   font-weight: 400;
-  color: #3A090A;
-  margin-bottom: 24px;
+  color: #9c0a0d;
+    margin-bottom: 24px;
 }
 
 /* line 23, ../../Arafath/CL/December/236. Event-02/HTML/scss/_footer.scss */
