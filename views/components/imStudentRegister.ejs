@@ -1,7 +1,7 @@
 <div class="container">
 
-    <form class="RegisterForm pb-5" id="registrationForm" action="/register/new-registration" method="post"
-        enctype="multipart/form-data">
+    <form class="RegisterForm pb-3 needs-validation" id="registrationForm" action="/register/new-registration"
+        method="post" enctype="multipart/form-data">
 
         <div class="row">
 
@@ -29,7 +29,7 @@
                     </label>
                     <input type="file" class="form-control" id="studentIdImage" name="studentIdImage"
                         accept="image/png,image/PNG, image/jpg, image/jpeg" />
-                        <span class="text-body-secondary fs-14 mt-3">Only PNG, JPEG, JPG images accepted</span>
+                    <span class="text-body-secondary fs-14 mt-3">Only PNG, JPEG, JPG images accepted</span>
 
                 </div>
 
@@ -40,9 +40,9 @@
                     </label>
                     <input type="file" class="form-control" id="studentImage" name="studentImage"
                         accept="image/png,image/PNG, image/jpg, image/jpeg" />
-                        <span class="text-body-secondary fs-14 mt-3">Only PNG, JPEG, JPG images accepted</span>
+                    <span class="text-body-secondary fs-14 mt-3">Only PNG, JPEG, JPG images accepted</span>
 
-                    
+
 
                 </div>
                 <div class="mb-3">
@@ -52,12 +52,13 @@
                     <input type="text" class="form-control" name="name" id="name" placeholder="Enter Full Name"
                         required>
                 </div>
+
                 <div class="mb-3">
                     <label for="FatherName" class="form-label">Father Name
                         <span class="badge text-danger fs-20">*</span>
                     </label>
                     <input type="text" class="form-control" name="FatherName" id="FatherName"
-                        placeholder="Enter Father Name" >
+                        placeholder="Enter Father Name" required>
                 </div>
                 <div class="mb-3">
                     <label for="ContactNumber" class="form-label">Contact Number
@@ -65,27 +66,27 @@
                     </label>
 
                     <input type="tel" inputmode="numeric" class="form-control" name="ContactNumber" id="ContactNumber"
-                        placeholder="Enter Contact Number" >
+                        placeholder="Enter Contact Number" required>
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Email
                         <span class="badge text-danger fs-20">*</span>
                     </label>
-                    <input type="email" class="form-control" name="email" id="email" placeholder="Enter Email">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Enter Email" required>
                 </div>
                 <div class="mb-3">
                     <label for="cnic" class="form-label">CNIC
                         <span class="badge text-danger fs-20">*</span>
                     </label>
-                    <input type="number" class="form-control" name="cnic" id="cnic" placeholder="Enter CNIC">
+                    <input type="number" class="form-control" name="cnic" id="cnic" placeholder="Enter CNIC" required>
                 </div>
                 <div class="mb-3 mt-2" id="cnicImageDiv" style="display:none;">
                     <label for="cnicImage" class="form-label">Upload CNIC Picture
                         <span class="badge text-danger fs-20">*</span>
                     </label>
                     <input type="file" class="form-control" id="cnicImage" name="cnicImage"
-                        accept="image/png,image/PNG, image/jpg, image/jpeg"/>
-                        <span class="text-body-secondary fs-14 mt-3">Only PNG, JPEG, JPG images accepted</span>                    
+                        accept="image/png,image/PNG, image/jpg, image/jpeg" />
+                    <span class="text-body-secondary fs-14 mt-3">Only PNG, JPEG, JPG images accepted</span>
 
                 </div>
 
@@ -112,8 +113,8 @@
                     </div>
                     <div class="form-check">
 
-                        <input class="form-check-input RegisterAs" type="radio" name="RegisterAs" value="participantAndSocialEvent"
-                            id="RegisterAsParticipantAndSocialEvent">
+                        <input class="form-check-input RegisterAs" type="radio" name="RegisterAs"
+                            value="participantAndSocialEvent" id="RegisterAsParticipantAndSocialEvent">
 
                         <label class="form-check-label" for="RegisterAsParticipantAndSocialEvent">Participant + Social
                             Event</label>
@@ -207,9 +208,11 @@
                                             <span class="badge text-danger fs-20">*</span>
                                         </label>
                                         <input type="file" class="form-control" name="badmintonSecondPlayerId"
-                                            id="badmintonSecondPlayerId" accept="image/png,image/PNG, image/jpg, image/jpeg" />
-                                            <span class="text-body-secondary fs-14 mt-3">Only PNG, JPEG, JPG images accepted</span>
-                                        
+                                            id="badmintonSecondPlayerId"
+                                            accept="image/png,image/PNG, image/jpg, image/jpeg" />
+                                        <span class="text-body-secondary fs-14 mt-3">Only PNG, JPEG, JPG images
+                                            accepted</span>
+
                                     </div>
                                 </div>
                             </div>
@@ -218,8 +221,9 @@
                                     <span class="badge text-danger fs-20">*</span>
                                 </label>
                                 <input type="file" class="form-control" name="badmintonSecondPlayerImage"
-                                    id="badmintonSecondPlayerImage" accept="image/png,image/PNG, image/jpg, image/jpeg"/>
-                                    <span class="text-body-secondary fs-14 mt-3">Only PNG, JPEG, JPG images accepted</span>
+                                    id="badmintonSecondPlayerImage"
+                                    accept="image/png,image/PNG, image/jpg, image/jpeg" />
+                                <span class="text-body-secondary fs-14 mt-3">Only PNG, JPEG, JPG images accepted</span>
 
                             </div>
                             <div class="mb-2">
@@ -251,11 +255,13 @@
                                     <span class="badge text-danger fs-20">*</span>
                                 </label>
                                 <input type="file" class="form-control" name="badmintonSecondPlayerCnicImage"
-                                    id="badmintonSecondPlayerCnicImage" accept="image/png,image/PNG, image/jpg, image/jpeg" />
-                                    <span class="text-body-secondary fs-14 mt-3">Only PNG, JPEG, JPG images accepted</span>
+                                    id="badmintonSecondPlayerCnicImage"
+                                    accept="image/png,image/PNG, image/jpg, image/jpeg" />
+                                <span class="text-body-secondary fs-14 mt-3">Only PNG, JPEG, JPG images accepted</span>
                             </div>
 
-                            <div class="badmintonSecondPlayerSocialEventDiv" id='badmintonSecondPlayerSocialEventDiv' style="display: none;">
+                            <div class="badmintonSecondPlayerSocialEventDiv" id='badmintonSecondPlayerSocialEventDiv'
+                                style="display: none;">
                                 <label for='badmintonSecondPlayerAttendSocialEvent' class='form-label'>Does the player
                                     wish to attend the social event?
                                     <span class="badge text-danger fs-20">*</span>
@@ -435,8 +441,8 @@
                         <span class="badge text-danger fs-20">*</span>
                     </label>
                     <input type="file" class="form-control" name="paymentScreenshot" id="paymentScreenshot"
-                        accept="image/png,image/PNG, image/jpg, image/jpeg" required/>
-                        <span class="text-body-secondary fs-14 mt-3">Only PNG, JPEG, JPG images accepted</span>
+                        accept="image/png,image/PNG, image/jpg, image/jpeg" required />
+                    <span class="text-body-secondary fs-14 mt-3">Only PNG, JPEG, JPG images accepted</span>
 
                 </div>
             </div>
@@ -450,62 +456,35 @@
             <div class="loader" hidden></div>
         </div>
     </form>
+    <div class="alert alert-success mb-4" id="successMessage" role="alert" style="display:none;">
+        <h4 class="alert-heading">Success!</h4>
+        <p class="text-dark">Thank you for registering for IMOlympiad 2024.</p>
+      </div>
+</div>
 
+<!-- footer_start  -->
+<footer class="footer">
 
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+    <div class="copy-right_text pt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <p class="copy_right text-center wow fadeInDown" data-wow-duration="1s" data-wow-delay=".5s">
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright IM Olympiad &copy;
+                        <script>
+                            document.write(new Date().getFullYear());
+                        </script>
+                        All rights reserved
+                    </p>
+
+                    <p class="copy_right mt-1 text-center wow fadeInDown" data-wow-duration="1s" data-wow-delay=".5s">
+                        Proudly Developed by: IM Olympiad IT Team
+                    </p>
+
                 </div>
             </div>
         </div>
     </div>
-
-
- 
-</div>
-
-   <!-- footer_start  -->
-   <footer class="footer">
-    
-    <div class="copy-right_text pt-5">
-      <div class="container">
-        <div class="row">
-          <div class="col-xl-12">
-            <p
-              class="copy_right text-center wow fadeInDown"
-              data-wow-duration="1s"
-              data-wow-delay=".5s"
-            >
-              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-              Copyright IM Olympiad &copy;
-              <script>
-                document.write(new Date().getFullYear());
-              </script>
-              All rights reserved
-            </p>
-
-            <p
-            class="copy_right mt-1 text-center wow fadeInDown"
-            data-wow-duration="1s"
-            data-wow-delay=".5s"
-          >
-          Proudly Developed by: IM Olympiad IT Team
-        </p>
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
-  <!-- footer_end  -->
+</footer>
+<!-- footer_end  -->
