@@ -1,35 +1,56 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<style>
+    .map_area {
+        position: relative;
+        height: 600px;
+    }
+
+    #map {
+        height: 100%;
+        width: 100%;
+        z-index: 0;
+    }
+
+    .location_information {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        z-index: 1000;
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 5px;
+    }
+</style>
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
 <!-- map_area_start  -->
 <div class="map_area">
-    <div id="map" style="height: 600px;"></div>
-    <script>
-        var map = L.map('map').setView([33.9991, 71.4687], 15); // Set the coordinates for Sector E4 Phase 7 Hayatabad, Peshawar
-
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
-
-        // Add a marker for Sector E4 Phase 7 Hayatabad, Peshawar
-        L.marker([33.9991, 71.4687]).addTo(map)
-            .bindPopup('Sector E4 Phase 7 Hayatabad, Peshawar')
-            .openPopup();
-    </script>
+    <div id="map"></div>
     <div class="location_information black_bg wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
         <h3>IMOlympiad 2024</h3>
         <div class="info_wrap">
             <div class="single_info">
                 <span>Venue:</span>
-                <p>Sector E4 Phase 7 Hayatabad, Peshawar, Khyber Pakhtunkhwa, Pakistan</p>
+                <p style="color: black;">Sector E4 Phase 7 Hayatabad, Peshawar, Khyber Pakhtunkhwa, Pakistan</p>
             </div>
             <div class="single_info">
                 <span>Email:</span>
-                <p>IMOlympiad24@gmail.com</p>
+                <p  style="color: black;">IMOlympiad24@gmail.com</p>
             </div>
         </div>
     </div>
 </div>
 <!-- map_area_end  -->
 
+<script>
+    var map = L.map('map').setView([33.9991, 71.4687], 15); // Set the coordinates for Sector E4 Phase 7 Hayatabad, Peshawar
 
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Add a marker for Sector E4 Phase 7 Hayatabad, Peshawar
+    L.marker([33.96004884559564, 71.41729762511329]).addTo(map)
+        .bindPopup('Sector E4 Phase 7 Hayatabad, Peshawar')
+        .openPopup();
+</script>
