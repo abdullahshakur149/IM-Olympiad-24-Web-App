@@ -102,17 +102,31 @@
     });
   });
 
+
+
+
+
   // Listen for changes in the "Register as?" radio buttons
-  $("input[name='RegisterAs']").change(function () {
-    const registerAsValue = $(this).val();
-    if (registerAsValue === "ParticipantAndSocialEvent") {
-      // If "Participant + Social Event" is selected, show the BasketabllplayerSocialEventDiv
-      $("#BasketabllplayerSocialEventDiv").fadeIn();
+  $(document).on("change", ".RegisterAs", function () {
+    const selectedValue = $(this).val();
+    
+    // If "Participant + Social Event" is selected, show the social event div for futsal, basketball and badminton, otherwise hide it
+    if (selectedValue === "participantAndSocialEvent") {
+        $(".playerSocialEventDiv").fadeIn();
+        $(".BasketabllplayerSocialEventDiv").fadeIn();
+        $(".badmintonSecondPlayerSocialEventDiv").fadeIn();
+        
     } else {
-      // Otherwise, hide the BasketabllplayerSocialEventDiv
-      $("#BasketabllplayerSocialEventDiv").fadeOut();
+        $(".playerSocialEventDiv").fadeOut();
+        $(".BasketabllplayerSocialEventDiv").fadeOut();
+        $(".badmintonSecondPlayerSocialEventDiv").fadeOut();
     }
-  });
+});
+  
+
+
+
+
 
   // Toggle Register As input
   $(document).ready(function () {
@@ -164,10 +178,10 @@
 
       if (isNaN(value)) {
         errorMessage = "Please enter a valid number.";
-      } else if (value < 5) {
-        errorMessage = "Minimum number of players is 5.";
-      } else if (value > 8) {
-        errorMessage = "Maximum number of players is 8.";
+      } else if (value < 4) {
+        errorMessage = "Minimum number of players is 4.";
+      } else if (value > 7) {
+        errorMessage = "Maximum number of players is 7.";
       }
 
       // Show or hide the error message based on the condition
@@ -195,7 +209,7 @@
         $('input[name^="playerAttendSocialEvent"]').prop("disabled", false);
       } else {
         $("#FutsalPlayersDiv").fadeOut();
-        $('input[name^="FutsalPlayers"]').prop("disabled", true).val(5);
+        $('input[name^="FutsalPlayers"]').prop("disabled", true).val(4);
         $('input[name^="playerType"]')
           .prop("disabled", true)
           .prop("checked", false);
@@ -225,10 +239,10 @@
 
       if (isNaN(value)) {
         errorMessage = "Please enter a valid number.";
-      } else if (value < 5) {
-        errorMessage = "Minimum number of players is 5.";
-      } else if (value > 8) {
-        errorMessage = "Maximum number of players is 8.";
+      } else if (value < 4) {
+        errorMessage = "Minimum number of players is 4.";
+      } else if (value > 7) {
+        errorMessage = "Maximum number of players is 7.";
       }
 
       // Show or hide the error message based on the condition
@@ -259,7 +273,7 @@
         );
       } else {
         $("#BasketballPlayersDiv").fadeOut();
-        $('input[name^="BasketballPlayers"]').prop("disabled", true).val(5);
+        $('input[name^="BasketballPlayers"]').prop("disabled", true).val(4);
         $('input[name^="basketballPlayerType"]')
           .prop("disabled", true)
           .prop("checked", false);
@@ -435,6 +449,7 @@
     $('input[name="RegisterAs"]').change(function () {
       calculateTotalPrice();
       toggleTotalPriceDiv(); // Show/hide the TotalPriceDiv based on the current selection
+      
     });
 
     // Event listener for changes in social event attendance for Futsal
@@ -484,15 +499,22 @@
       var totalPrice = 0;
       var discount = 500;
       var totalDiscount = 0;
+
       var futsalSocialEventAttendeesCount = $(
         '[id^="playerAttendSocialEventYes"]:checked'
       ).length;
+
+
       var basketballSocialEventAttendeesCount = $(
         '[id^="BasketballplayerAttendSocialEventYes"]:checked'
       ).length;
+
+
       var badmintonSocialEventAttendeesCount = $(
         '[id^="badmintonSecondPlayerAttendSocialEventYes"]:checked'
       ).length;
+
+
       var totalSocialAttendees =
         futsalSocialEventAttendeesCount +
         basketballSocialEventAttendeesCount +
@@ -504,6 +526,7 @@
         "#badmintonSecondPlayerTypeYes"
       ).is(":checked");
 
+
       // Calculate the price for selected sports
       $('input[type="checkbox"]:checked').each(function () {
         var sportName = $(this).attr("name");
@@ -512,32 +535,42 @@
         if (pricePerPlayer > 0) {
           totalDiscount += discount;
         }
-        sportsPrice += (pricePerPlayer);
+        sportsPrice += pricePerPlayer;
       });
+
+
+      // REGISTER AS OBSERVER
 
       // Calculate the total price based on selected options
       if ($("#RegisterAsObserver").is(":checked")) {
         totalPrice = observerPrice;
+
         if (isIMSciencesStudent) {
           totalPrice = 0;
-         /* totalPrice = observerPrice - discount; // Apply the discount
-          $("#dicountPrice").text("RS. " + discount);*/
-        } else {
+        } 
+        else {
           $("#dicountPrice").text("-");
         }
+
       } else {
         totalPrice = sportsPrice;
+
+
+        // REGISTER AS PARTICIPANT + SOCIAL EVENT
+
         // Add social events price if "Participant + Social Event" is selected
         if ($("#RegisterAsParticipantAndSocialEvent").is(":checked")) {
+
           // Check if any additional social event attendees are selected
           if (totalSocialAttendees > 1) {
-            totalPrice +=
-              socialEventPrice + socialEventPrice * totalSocialAttendees; // Add social event price for additional attendees
+            totalPrice += socialEventPrice + socialEventPrice * totalSocialAttendees; // Add social event price for additional attendees
+
           } else if (totalSocialAttendees == 0) {
             totalPrice += socialEventPrice;
           } else {
-            totalPrice += socialEventPrice;
+            totalPrice += socialEventPrice + 1500;
           }
+
           if (isIMSciencesStudent) {
             totalPrice -= totalDiscount; // Apply the discount
             $("#dicountPrice").text("RS. " + totalDiscount);
@@ -548,35 +581,35 @@
           if (isSecondBadmintonPlayerIMSciencesStudent) {
             totalPrice -= discount;
             totalDiscount += discount;
-            totalPrice += 1500;
             $("#dicountPrice").text("RS. " + totalDiscount);
           }
+
           $('[id^="basketballPlayerType"]').each(function (index) {
             if ($(this).is(":checked") && $(this).val() === "yes") {
               totalPrice -= discount;
               totalDiscount += discount;
-              totalPrice += 1500;
               $("#dicountPrice").text("RS. " + totalDiscount);
             }
           });
+
           $('[id^="playerType"]').each(function (index) {
             if ($(this).is(":checked") && $(this).val() === "yes") {
               totalPrice -= discount;
               totalDiscount += discount;
-              totalPrice += 1500;
               $("#dicountPrice").text("RS. " + totalDiscount);
             }
           });
-          
+
+
+          // REGISTER AS PARTICIPANT 
         } else if ($("#RegisterAsParticipant").is(":checked")) {
-          totalPrice += socialEventPrice * totalSocialAttendees; // Add social event price for all attendees
+          //totalPrice += socialEventPrice * totalSocialAttendees; 
           if (isIMSciencesStudent) {
-            totalPrice -= discount; // Apply the discount
+            totalPrice -= totalDiscount; // Apply the discount
 
             if (isSecondBadmintonPlayerIMSciencesStudent) {
-              totalPrice -= discount;
+              totalPrice -= totalDiscount;
               totalDiscount += discount;
-              
             }
            
             $('[id^="basketballPlayerType"]').each(function (index) {
@@ -585,14 +618,17 @@
                 totalDiscount += discount;
               }
             });
+
             $('[id^="playerType"]').each(function (index) {
               if ($(this).is(":checked") && $(this).val() === "yes") {
                 totalPrice -= discount;
                 totalDiscount += discount;
               }
             });
+
             $("#dicountPrice").text("RS. " + totalDiscount);
-          } else {
+          } 
+          else {
             $("#dicountPrice").text("-");
           }
         }
@@ -601,25 +637,35 @@
       // Update the total price display
       $("#finaltotalprice").val("RS. " + totalPrice);
 
+
+      // Show the Payment Screenshot input if the total price is > 0
+      if(totalPrice > 0){
+        $("#paymentScreenshotDiv").show();
+      }
+      else{
+        $("#paymentScreenshotDiv").hide();
+      }
+
+      
       // Update the observer and sports total price displays
       if ($("#RegisterAsObserver").is(":checked")) {
         $("#observertotalprice").text("RS. " + observerPrice);
         $("#sportstotalprice").text("-");
         $("#socialeventstotalprice").text("-");
+
       } else if ($("#RegisterAsParticipantAndSocialEvent").is(":checked")) {
         $("#observertotalprice").text("-");
         $("#sportstotalprice").text("RS. " + sportsPrice);
         if (totalSocialAttendees > 1) {
-          $("#socialeventstotalprice").text(
-            "RS. " +
-              (socialEventPrice + socialEventPrice * totalSocialAttendees)
+          $("#socialeventstotalprice").text("RS. " + (socialEventPrice + socialEventPrice * totalSocialAttendees)
           );
         } else if (totalSocialAttendees == 0) {
           $("#socialeventstotalprice").text("RS. " + socialEventPrice);
         } else {
           $("#socialeventstotalprice").text("RS. " + (socialEventPrice + 1500));
         }
-      } else {
+      } 
+      else {
         $("#observertotalprice").text("-");
         $("#sportstotalprice").text("RS. " + sportsPrice);
         if (totalSocialAttendees > 0) {
@@ -637,11 +683,11 @@
       var hasCheckedSport = $('input[type="checkbox"]:checked').length > 0;
       if ($("#RegisterAsObserver").is(":checked") || hasCheckedSport) {
         $("#TotalPriceDiv").show();
-        $("#paymentScreenshotDiv").show();
+        
         
       } else {
         $("#TotalPriceDiv").hide();
-        $("#paymentScreenshotDiv").hide();
+       
       }
     }
 
@@ -668,11 +714,11 @@
             numPlayers = parseInt($("#BasketballPlayers").val());
           }
           // Check if the number of players is within the valid range
-          if (numPlayers < 5 || numPlayers > 8) {
+          if (numPlayers < 4 || numPlayers > 7) {
             return 0;
           }
           // Return the price per player multiplied by the number of players
-          return numPlayers * 1500;
+          return (numPlayers * 1500)+1500;
         case "TableTennis":
         case "Ludo":
         case "Chess":
@@ -693,6 +739,11 @@
       }
     }
   });
+
+
+
+
+
 
   // FUTSAL
   // Get the input element for total players of Futsal
@@ -718,7 +769,9 @@
       playerDiv.innerHTML = `
           <label class='form-label fw-bold'>Player ${i} Details:</label>
           <div class='mb-2'>
-              <label for='playerType${i}' class='form-label'>Is the player a student at IMSciences?</label>
+              <label for='playerType${i}' class='form-label'>Is the player a student at IMSciences?
+                  <span class="badge text-danger fs-20">*</span>
+              </label>
               <div class="form-check">
                   <input class="form-check-input playerType" type="radio" name="playerType${i}" value="yes" id="playerTypeYes${i}">
                   <label class="form-check-label" for="playerTypeYes${i}">Yes</label>
@@ -727,37 +780,44 @@
                   <input class="form-check-input playerType" type="radio" name="playerType${i}" value="no" id="playerTypeNo${i}">
                   <label class="form-check-label" for="playerTypeNo${i}">No</label>
               </div>
-              <div class='playerTypeDiv' id='playerTypeDiv${i}'>
+              <div class='playerTypeDiv border-start ps-2 ms-3' id='playerTypeDiv${i}' style="display:none;">
                   <div class="mb-2">
-                      <label for="playerID${i}" class="form-label">Upload student ID card</label>
-                      <input type="file" class="form-control" name="playerID" id="playerID${i}" accept="image/png, image/jpeg" />
+                      <label for="playerID${i}" class="form-label">Upload student ID card
+                      <span class="badge text-danger fs-20">*</span>
+                      </label>
+                      <input type="file" class="form-control" name="playerID" id="playerID${i}" accept="image/png,image/PNG, image/jpg, image/jpeg" />
+                      <span class="text-body-secondary fs-14 mt-3">Only PNG, JPEG, JPG images accepted</span>
                   </div>
               </div>
           </div>
           <div class="mb-2">
-              <label for="playerImage${i}" class="form-label">Upload Player Picture</label>
-              <input type="file" class="form-control" name="playerImage" id="playerImage${i}" accept="image/png, image/jpeg" />
+              <label for="playerImage${i}" class="form-label">Upload Player Picture
+              <span class="badge text-danger fs-20">*</span>
+              </label>
+              <input type="file" class="form-control" name="playerImage" id="playerImage${i}" accept="image/png,image/PNG, image/jpg, image/jpeg" />
+              <span class="text-body-secondary fs-14 mt-3">Only PNG, JPEG, JPG images accepted</span>
           </div>
           <div class="mb-2">
-              <label for="playerName${i}" class="form-label">Name</label>
+              <label for="playerName${i}" class="form-label">Name <span class="badge text-danger fs-20">*</span></label>
               <input type="text" class="form-control" name="playerName${i}" id="playerName${i}" placeholder="Enter Player Name" />
           </div>
           
           <div class="mb-2">
-              <label for="playerContact${i}" class="form-label">Contact Number</label>
+              <label for="playerContact${i}" class="form-label">Contact Number <span class="badge text-danger fs-20">*</span></label>
               <input type="number" class="form-control" name="playerContact${i}" id="playerContact${i}" placeholder="Enter Player Contact Number" />
           </div>
           
           <div class="mb-2">
-              <label for="playerCnic${i}" class="form-label">CNIC</label>
+              <label for="playerCnic${i}" class="form-label">CNIC <span class="badge text-danger fs-20">*</span></label>
               <input type="text" class="form-control" name="playerCnic${i}" id="playerCnic${i}" placeholder="Enter Player CNIC" />
           </div>
           <div class="mb-2" id='playerCnicImgDiv${i}' style='display:none;'>
-              <label for="playerCnicImg${i}" class="form-label">Player CNIC</label>
-              <input type="file" class="form-control" name="playerCnicImg" id="playerCnicImg${i}" accept="image/png, image/jpeg" />
+              <label for="playerCnicImg${i}" class="form-label">Player CNIC <span class="badge text-danger fs-20">*</span></label>
+              <input type="file" class="form-control" name="playerCnicImg" id="playerCnicImg${i}" accept="image/png,image/PNG, image/jpg, image/jpeg" />
+              <span class="text-body-secondary fs-14 mt-3">Only PNG, JPEG, JPG images accepted</span>
           </div>
-          <div id='playerSocialEventDiv${i}' >
-              <label for='playerAttendSocialEvent${i}' class='form-label'>Does the player wish to attend the social event?</label>
+          <div class="playerSocialEventDiv" id='playerSocialEventDiv${i}' style="display:none;">
+              <label for='playerAttendSocialEvent${i}' class='form-label'>Does the player wish to attend the social event? <span class="badge text-danger fs-20">*</span></label>
               <div class="form-check">
                   <input class="form-check-input" type="radio" name="playerAttendSocialEvent${i}" value="yes" id="playerAttendSocialEventYes${i}">
                   <label class="form-check-label" for="playerAttendSocialEventYes${i}">Yes</label>
@@ -795,6 +855,11 @@
     }
   });
 
+
+
+
+
+
   // BasketBall
   // Get the input element for total players of Basketball
   const totalBasketballPlayersInput =
@@ -822,7 +887,7 @@
       basketballPlayerDiv.innerHTML = `
           <label class='form-label fw-bold'>Player ${i} Details:</label>
               <div class='mb-2'>
-                  <label for='basketballPlayerType${i}' class='form-label'>Is the player a student at IMSciences?</label>
+                  <label for='basketballPlayerType${i}' class='form-label'>Is the player a student at IMSciences? <span class="badge text-danger fs-20">*</span></label>
                   <div class="form-check">
                       <input class="form-check-input basketballPlayerType" type="radio" name="basketballPlayerType${i}" value="yes" id="basketballPlayerTypeYes${i}">
                       <label class="form-check-label" for="basketballPlayerTypeYes${i}">Yes</label>
@@ -831,39 +896,42 @@
                       <input class="form-check-input basketballPlayerType" type="radio" name="basketballPlayerType${i}" value="no" id="basketballPlayerTypeNo${i}">
                       <label class="form-check-label" for="basketballPlayerTypeNo${i}">No</label>
                   </div>
-                  <div class='basketballPlayerTypeDiv' id='basketballPlayerTypeDiv${i}'>
+                  <div class='basketballPlayerTypeDiv border-start ps-2 ms-3' id='basketballPlayerTypeDiv${i}'  style="display:none;>
                     <div class="mb-2">
-                        <label for="basketballPlayerID${i}" class="form-label">Upload student ID card</label>
-                        <input type="file" class="form-control" name="basketballPlayerID" id="basketballPlayerID${i}" accept="image/png, image/jpeg" />
+                        <label for="basketballPlayerID${i}" class="form-label">Upload student ID card <span class="badge text-danger fs-20">*</span></label>
+                        <input type="file" class="form-control" name="basketballPlayerID" id="basketballPlayerID${i}" accept="image/png,image/PNG, image/jpg, image/jpeg" />
+                        <span class="text-body-secondary fs-14 mt-3">Only PNG, JPEG, JPG images accepted</span>
                     </div>
                   </div>
               </div>
               <div class="mb-2">
-                  <label for="basketballPlayerImage${i}" class="form-label">Upload Player Picture</label>
-                  <input type="file" class="form-control" name="basketballPlayerImage" id="basketballPlayerImage${i}" accept="image/png, image/jpeg" />
+                  <label for="basketballPlayerImage${i}" class="form-label">Upload Player Picture <span class="badge text-danger fs-20">*</span></label>
+                  <input type="file" class="form-control" name="basketballPlayerImage" id="basketballPlayerImage${i}" accept="image/png,image/PNG, image/jpg, image/jpeg" />
+                  <span class="text-body-secondary fs-14 mt-3">Only PNG, JPEG, JPG images accepted</span>
               </div>
               <div class="mb-2">
-                  <label for="basketballPlayerName${i}" class="form-label">Name</label>
+                  <label for="basketballPlayerName${i}" class="form-label">Name <span class="badge text-danger fs-20">*</span></label>
                   <input type="text" class="form-control" name="basketballPlayerName${i}" id="basketballPlayerName${i}" placeholder="Enter Player Name" />
               </div>
              
               <div class="mb-2">
-                  <label for="basketballPlayerContact${i}" class="form-label">Contact Number</label>
+                  <label for="basketballPlayerContact${i}" class="form-label">Contact Number <span class="badge text-danger fs-20">*</span></label>
                   <input type="number" class="form-control" name="basketballPlayerContact${i}" id="basketballPlayerContact${i}" placeholder="Enter Player Contact Number" />
               </div>
              
               <div class="mb-2">
-                  <label for="basketballPlayerCnic${i}" class="form-label">CNIC</label>
+                  <label for="basketballPlayerCnic${i}" class="form-label">CNIC <span class="badge text-danger fs-20">*</span></label>
                   <input type="email" class="form-control" name="basketballPlayerCnic${i}" id="basketballPlayerCnic${i}" placeholder="Enter Player CNIC" />
               </div>
               
-              <div class="mb-2" id='basketballPlayerCnicImgDiv${i}'>
-                  <label for="basketballPlayerCnicImg${i}" class="form-label">Player CNIC</label>
-                  <input type="file" class="form-control" name="basketballPlayerCnicImg" id="basketballPlayerCnicImg${i}" accept="image/png, image/jpeg"/>
+              <div class="mb-2" id='basketballPlayerCnicImgDiv${i}' style="display:none;>
+                  <label for="basketballPlayerCnicImg${i}" class="form-label">Player CNIC <span class="badge text-danger fs-20">*</span></label>
+                  <input type="file" class="form-control" name="basketballPlayerCnicImg" id="basketballPlayerCnicImg${i}" accept="image/png,image/PNG, image/jpg, image/jpeg"/>
+                  <span class="text-body-secondary fs-14 mt-3">Only PNG, JPEG, JPG images accepted</span>
               </div>
 
-              <div id='BasketabllplayerSocialEventDiv${i}'>
-                  <label for='BasketballplayerAttendSocialEvent${i}' class='form-label'>Does the player wish to attend the social event?</label>
+              <div class="BasketabllplayerSocialEventDiv" id='BasketabllplayerSocialEventDiv${i}'  style="display:none;">
+                  <label for='BasketballplayerAttendSocialEvent${i}' class='form-label'>Does the player wish to attend the social event? <span class="badge text-danger fs-20">*</span></label>
                   <div class="form-check">
                       <input class="form-check-input" type="radio" name="BasketballplayerAttendSocialEvent${i}" value="yes" id="BasketballplayerAttendSocialEventYes${i}">
                       <label class="form-check-label" for="BasketballplayerAttendSocialEventYes${i}">Yes</label>
@@ -911,6 +979,11 @@
       }
     });
   });
+
+
+
+
+
 
   $(document).ready(function () {
     // mobile_menu

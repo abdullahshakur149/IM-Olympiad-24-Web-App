@@ -518,7 +518,7 @@ h3 {
 
 /* line 27, ../../Arafath/CL/December/236. Event-02/HTML/scss/_btn.scss */
 .boxed-btn3 {
-  background: #FF4533;
+  background: #3A090A;
   /* IE6-9 */
   color: #fff;
   display: inline-block;
@@ -546,8 +546,8 @@ h3 {
 .boxed-btn3:hover {
   background: transparent;
   /* IE6-9 */
-  color: #FF4533 !important;
-  border: 1px solid #FF4533;
+  color: #3A090A !important;
+  border: 1px solid #3A090A;
 }
 
 /* line 51, ../../Arafath/CL/December/236. Event-02/HTML/scss/_btn.scss */
@@ -799,7 +799,7 @@ h3 {
 .section_title h4 {
   font-size: 30px;
   font-weight: 400;
-  color: #FF4533;
+  color: #3A090A;
   font-family: "Anton", sans-serif;
   margin-bottom: 0;
 }
@@ -1136,7 +1136,7 @@ h3 {
 
 /* line 100, ../../Arafath/CL/December/236. Event-02/HTML/scss/_header.scss */
 .header-area .main-header-area .buy_tkt .book_btn a {
-  background: #FF4533;
+  background: #3A090A;
   font-family: "Anton", sans-serif;
   padding: 12px 46px;
   font-size: 16px;
@@ -1158,8 +1158,8 @@ h3 {
 
 /* line 113, ../../Arafath/CL/December/236. Event-02/HTML/scss/_header.scss */
 .header-area .main-header-area .buy_tkt .book_btn a:hover {
-  border-color: #FF4533;
-  color: #FF4533;
+  border-color: #3A090A;
+  color: #3A090A;
   background: transparent;
 }
 
@@ -1250,7 +1250,7 @@ h3 {
 
 /* line 192, ../../Arafath/CL/December/236. Event-02/HTML/scss/_header.scss */
 .header-area .main-header-area .main-menu ul li a:hover {
-  color: #FF4533;
+  color: #3A090A;
 }
 
 /* line 196, ../../Arafath/CL/December/236. Event-02/HTML/scss/_header.scss */
@@ -1399,7 +1399,7 @@ h3 {
 
 /* line 291, ../../Arafath/CL/December/236. Event-02/HTML/scss/_header.scss */
 .header-area .header-top_area .social_media_links a:hover {
-  color: #FF4533;
+  color: #3A090A;
 }
 
 /* line 297, ../../Arafath/CL/December/236. Event-02/HTML/scss/_header.scss */
@@ -1444,7 +1444,7 @@ h3 {
 
 /* line 321, ../../Arafath/CL/December/236. Event-02/HTML/scss/_header.scss */
 .header-area .header-top_area .short_contact_list ul li a i {
-  color: #FF4533;
+  color: #3A090A;
   margin-right: 7px;
 }
 
@@ -1576,7 +1576,7 @@ h3 {
 .slider_area .single_slider .slider_text span {
   font-size: 30px;
   font-weight: 400;
-  color: #FF4533;
+  color: #3A090A;
   font-family: "Anton", sans-serif;
 }
 
@@ -2009,7 +2009,7 @@ h3 {
   font-family: "Anton", sans-serif;
   font-size: 30px;
   font-weight: 400;
-  color: #FF4533;
+  color: #3A090A;
 }
 
 /* line 54, ../../Arafath/CL/December/236. Event-02/HTML/scss/_about.scss */
@@ -2267,7 +2267,7 @@ h3 {
 
 /* line 37, ../../Arafath/CL/December/236. Event-02/HTML/scss/_performer.scss */
 .performar_area .single_performer .performer_heading span {
-  color: #FF4533;
+  color: #3A090A;
   font-weight: 400;
   font-size: 20px;
 }
@@ -2327,7 +2327,7 @@ h3 {
 .map_area .location_information h3 {
   font-size: 30px;
   font-weight: 400;
-  color: #FF4533;
+  color: #3A090A;
   margin-bottom: 20px;
 }
 
@@ -2525,7 +2525,7 @@ h3 {
 
 /* line 90, ../../Arafath/CL/December/236. Event-02/HTML/scss/_program_details.scss */
 .program_details_area .program_detail_wrap .single_propram .porgram_top span {
-  color: #FF4533;
+  color: #3A090A;
   font-size: 30px;
   font-family: "Anton", sans-serif;
   display: block;
@@ -2585,7 +2585,7 @@ h3 {
 .footer .footer_top .footer_widget h4 {
   font-size: 30px;
   font-weight: 400;
-  color: #FF4533;
+  color: #3A090A;
   margin-bottom: 24px;
 }
 
@@ -2625,7 +2625,7 @@ h3 {
 
 /* line 45, ../../Arafath/CL/December/236. Event-02/HTML/scss/_footer.scss */
 .footer .copy-right_text .copy_right a {
-  color: #FF4533;
+  color: #3A090A;
 }
 
 /*=================== contact banner start ====================*/
@@ -5772,17 +5772,24 @@ h6 {
 .RegisterForm label{
   font-size: 16px;
   color: #131313;
-  font-weight: bold;
+  font-weight: 600;
 }
 .RegisterForm .SubmitBtn{
   background-color: #28AE61;
   color: #FFFFFF;
+  transition: 0.3s ease-in-out;
+}
+.RegisterForm .SubmitBtn:hover{
+  background-color: transparent;
+  color: #28AE61;
+  border: 1px solid #28AE61;
 }
 .RegisterForm .PriceBoard{
   width: 50%;
   background-color: #E7E7E7;
   padding: 10px 20px;
   border-radius: 5px;
+  border: 2px dashed #000;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 @media (max-width: 767px) {
@@ -5832,5 +5839,63 @@ h6 {
   box-shadow: none;
   border:none;
   background: #E7E7E7;
+}
+.navbar-nav .nav-item .nav-link{
+  color: #fff;
+  font-size: 20px;
+  text-transform: capitalize;
+  font-weight: 400;
+  display: inline-block;
+  padding: 30px 0 30px  0;
+  font-family: "Anton", sans-serif;
+  position: relative;
+  text-transform: uppercase;
+}
+.navbar-nav .nav-item {
+  margin: 0 18px;
+}
+@media (max-width: 768px) {
+  .navbar-collapse {
+    background-color: white;
+    color: #000000;
+  }
+  .navbar-nav .nav-item .nav-link{
+    color: #000000
+  }
+}
+.mobile_register_button a{
+  background: #3A090A;
+  padding: 20px;
+  
+}
+
+.home_register_button{
+  position: absolute;
+  background: #3A090A;
+  border: 1px solid #3A090A;
+  color: #ffffff;
+  transition: 0.3s all;
+}
+.home_register_button:hover{
+  background: transparent;
+  border: 1px solid #fcfcfc;
+  color: #fcfcfc;
+}
+.navbar .navbar-toggler{
+  box-shadow: none;
+}
+.navbar .navbar-toggler .menu-icon{
+  color: #ffffff !important;
+  font-size: 38px;
+}
+.navbar-brand img{
+  filter: brightness(120%) contrast(120%);
+}
+.fs-20{
+  font-size: 20px;
+  margin-left: -10px;
+}
+.fs-14{
+  font-size: 13px;
 }
 /*# sourceMappingURL=style.css.map */
