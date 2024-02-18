@@ -4,7 +4,9 @@ const colors = require('colors');
 const connectDB = require('./database/connection');
 // const session = require('express-session');
 const flash = require('connect-flash')
+const passport = require('passport');
 const app = express();
+
 
 
 //connect to database
@@ -18,18 +20,24 @@ app.use(express.json());
 // }))
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(flash());//for flash messages
 
 // Routes
 const indexRoute = require('./routes/index');
 const venueRoute = require('./routes/venue');
 const registerRoute = require('./routes/register')
+const loginRoute = require('./routes/login');
+
 
 
 
 app.use('/', indexRoute);
 app.use('/venue', venueRoute);
 app.use('/register', registerRoute);
+app.use('/login', loginRoute);
+
 
 
 // Error handling
