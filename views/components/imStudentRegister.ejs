@@ -226,6 +226,9 @@
                         <label for="FutsalPlayers" class="form-label">Total Players</label>
                         <input type="number" class="form-control FutsalPlayers" id="FutsalPlayers" name="FutsalPlayers" min="4"
                             max="7" placeholder="Enter Total Team Players (4-7)" />
+                            <span class="text-body-secondary fs-14 mt-3">
+                                Please enter the remaining team players.
+                            </span>
                         <div id="FutsalPlayersError" class="text-danger" style="display: none;"></div>
                         <div id="playersDetailsDiv">
                             <!-- Player details will be dynamically added here -->
@@ -245,6 +248,10 @@
 
                         <input type="number" class="form-control BasketballPlayers" id="BasketballPlayers" name="BasketballPlayers"
                             min="4" max="7" placeholder="Enter Total Team Players (4-7)" />
+
+                            <span class="text-body-secondary fs-14 mt-3">
+                                Please enter the remaining team players.
+                            </span>
 
                         <div id="BasketballPlayersError" class="text-danger" style="display: none;"></div>
                         <div id="basketballplayersDetailsDiv">
@@ -716,7 +723,7 @@
       </div>
     </div>
     <div class="row">
-        <div class="col-12">
+        <div class="col-12 col-md-6">
           <div class="mt-3 mb-3" id="paymentScreenshotDiv" style="display: none">
             <label for="paymentScreenshot">Upload Payment Screenshot
               <span class="badge text-danger fs-20">*</span>
@@ -724,19 +731,21 @@
             <input type="file" class="form-control" name="paymentScreenshot" id="paymentScreenshot" accept="image/png,image/PNG, image/jpg, image/jpeg" required />
             <span class="text-body-secondary fs-14 mt-3">Only PNG, JPEG, JPG images accepted</span>
 
-            <div class="mt-3 mb-3">
-                <p class="mb-1">Payment Accounts:</p>
+        </div>
+    </div>
+  </div>
+            <div class="payment-accounts mt-5 mb-4" id="accountDetails" style="display:none;">
+                <h5 class="mb-2">Payment Accounts:</h5>
                 <ul class="list-unstyled">
-                  <li><strong>Allied Bank Limited:</strong> 08540010000096710039</li>
+                  <li><img class="bank-logo" src="img/alliedBank.png" alt="Allied Bank Logo"> <strong>Allied Bank Limited:</strong> 08540010000096710039</li>
                   <li><strong>Account Holder:</strong> MARIA ZAHID</li>
                   <li><strong>Branch:</strong> Allied Bank Limited</li>
-                  <li><strong>Easypaisa:</strong> +92 317 6222344 - Abdullah</li>
+                  <li><img class="easypaisa-logo" src="img/easypaisa.jpg" alt="EasyPaisa Logo"> <strong>Easypaisa:</strong> +92 317 6222344 - Abdullah</li>
                 </ul>
               </div>
+              
+              
 
-          </div>
-        </div>
-      </div>
     
       
       
@@ -766,6 +775,46 @@
     <p class="text-dark">Thank you for registering for IMOlympiad 2024.</p>
   </div>
 </div>
+
+
+<!-- Whatsapp Click to Chat  -->
+<div id="whatsappChat">
+    <p class="chatToolTip" id="chatToolTip">Help? Contact us for assistance.</p>
+    <div id="closeBtn">x</div>
+    <a class="btn" href="https://wa.me/+923349196224" target="_blank">
+        <img class="whatsappIcon" src="img/whatsapp-logo.jpg" width="50" height="50">
+    </a>
+</div>
+
+
+<!-- How to Register (Video)  -->
+<div class="videoWindow">
+    <p class="videoToolTip" id="videoToolTip">Watch how to register using our website.</p>
+    <div id="VideoCloseBtn">x</div>
+    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        <img class="videoIcon" src="img/videoIcon.png" width="50" height="50">
+    </button>
+</div>
+
+
+<!-- Video Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">IMOlympiad | How to register using website</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="youtube-video-container">
+            <iframe class="youtube-video" src="https://www.youtube.com/embed/3zwGaHzxl9E?enablejsapi=1" title="IMOlympiad | How to register using website" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+
 
 <!-- footer_start  -->
 <footer class="footer">
