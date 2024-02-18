@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const colors = require('colors');
 const connectDB = require('./database/connection');
-// const session = require('express-session');
+const session = require('express-session');
 const flash = require('connect-flash')
 const passport = require('passport');
 const app = express();
@@ -15,9 +15,9 @@ connectDB();
 // middlewares
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-// app.use(session({
-//     secret:'da43gy-ca92-42f1-9041'
-// }))
+app.use(session({
+    secret:'da43gy-ca92-42f1-9041'
+}))
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
 app.use(passport.initialize());
