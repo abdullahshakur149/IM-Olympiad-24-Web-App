@@ -216,83 +216,42 @@
         >
           <label for="selectsport" class="form-label">Select Sport</label>
 
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="checkbox"
-              name="Futsal"
-              value="Futsal"
-              id="Futsal"
-            />
-            <label class="form-check-label" for="Futsal"> Futsal </label>
-          </div>
-          <div
-            class="mb-3 mt-2 ms-4 border-start ps-2"
-            id="FutsalPlayersDiv"
-            style="display: none"
-          >
-            <label for="FutsalPlayers" class="form-label">Total Players</label>
-            <input
-              type="number"
-              class="form-control"
-              id="FutsalPlayers"
-              name="FutsalPlayers"
-              min="4"
-              max="7"
-              value="4"
-              placeholder="Enter Total Team Players (4-7)"
-            />
-            <div
-              id="FutsalPlayersError"
-              class="text-danger"
-              style="display: none"
-            ></div>
-            <div id="playersDetailsDiv">
-              <!-- Player details will be dynamically added here -->
-            </div>
-          </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="Futsal" value="Futsal" id="Futsal">
+                        <label class="form-check-label" for="Futsal">
+                            Futsal
+                        </label>
+                    </div>
+                    <div class="mb-3 mt-2 ms-4 border-start ps-2" id="FutsalPlayersDiv" style="display: none;">
+                        <label for="FutsalPlayers" class="form-label">Total Players</label>
+                        <input type="number" class="form-control FutsalPlayers" id="FutsalPlayers" name="FutsalPlayers" min="4"
+                            max="7" placeholder="Enter Total Team Players (4-7)" />
+                        <div id="FutsalPlayersError" class="text-danger" style="display: none;"></div>
+                        <div id="playersDetailsDiv">
+                            <!-- Player details will be dynamically added here -->
+                        </div>
+                    </div>
 
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="checkbox"
-              name="Basketball"
-              value="Basketball"
-              id="Basketball"
-            />
-            <label class="form-check-label" for="Basketball">
-              Basketball
-            </label>
-          </div>
-          <div
-            class="mb-3 mt-2 ms-4 border-start ps-2"
-            id="BasketballPlayersDiv"
-            style="display: none"
-          >
-            <label for="BasketballPlayers" class="form-label"
-              >Total Players</label
-            >
 
-            <input
-              type="number"
-              class="form-control"
-              id="BasketballPlayers"
-              name="BasketballPlayers"
-              min="4"
-              max="7"
-              value="4"
-              placeholder="Enter Total Team Players (4-7)"
-            />
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="Basketball" value="Basketball"
+                            id="Basketball">
+                        <label class="form-check-label" for="Basketball">
+                            Basketball
+                        </label>
+                    </div>
+                    <div class="mb-3 mt-2 ms-4 border-start ps-2" id="BasketballPlayersDiv" style="display: none;">
+                        <label for="BasketballPlayers" class="form-label">Total Players</label>
 
-            <div
-              id="BasketballPlayersError"
-              class="text-danger"
-              style="display: none"
-            ></div>
-            <div id="basketballplayersDetailsDiv">
-              <!-- Player details will be dynamically added here -->
-            </div>
-          </div>
+                        <input type="number" class="form-control BasketballPlayers" id="BasketballPlayers" name="BasketballPlayers"
+                            min="4" max="7" placeholder="Enter Total Team Players (4-7)" />
+
+                        <div id="BasketballPlayersError" class="text-danger" style="display: none;"></div>
+                        <div id="basketballplayersDetailsDiv">
+                            <!-- Player details will be dynamically added here -->
+                        </div>
+                    </div>
+
 
           <div class="form-check">
             <input

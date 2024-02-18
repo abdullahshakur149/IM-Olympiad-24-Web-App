@@ -105,24 +105,20 @@
 
 
 
-
-  // Listen for changes in the "Register as?" radio buttons
-  $(document).on("change", ".RegisterAs", function () {
-    const selectedValue = $(this).val();
-    
-    // If "Participant + Social Event" is selected, show the social event div for futsal, basketball and badminton, otherwise hide it
+  function toggleSocialEventDivs(selectedValue) {
     if (selectedValue === "participantAndSocialEvent") {
-        $(".playerSocialEventDiv").fadeIn();
-        $(".BasketabllplayerSocialEventDiv").fadeIn();
-        $(".badmintonSecondPlayerSocialEventDiv").fadeIn();
-        
+      $(".playerSocialEventDiv").fadeIn();
+      $(".BasketabllplayerSocialEventDiv").fadeIn();
+      $(".badmintonSecondPlayerSocialEventDiv").fadeIn();
     } else {
-        $(".playerSocialEventDiv").fadeOut();
-        $(".BasketabllplayerSocialEventDiv").fadeOut();
-        $(".badmintonSecondPlayerSocialEventDiv").fadeOut();
+      $(".playerSocialEventDiv").fadeOut();
+      $(".BasketabllplayerSocialEventDiv").fadeOut();
+      $(".badmintonSecondPlayerSocialEventDiv").fadeOut();
     }
-});
-  
+  }
+
+
+
 
 
 
@@ -209,7 +205,7 @@
         $('input[name^="playerAttendSocialEvent"]').prop("disabled", false);
       } else {
         $("#FutsalPlayersDiv").fadeOut();
-        $('input[name^="FutsalPlayers"]').prop("disabled", true).val(4);
+        $('input[name^="FutsalPlayers"]').prop("disabled", true).val("");
         $('input[name^="playerType"]')
           .prop("disabled", true)
           .prop("checked", false);
@@ -273,7 +269,7 @@
         );
       } else {
         $("#BasketballPlayersDiv").fadeOut();
-        $('input[name^="BasketballPlayers"]').prop("disabled", true).val(4);
+        $('input[name^="BasketballPlayers"]').prop("disabled", true).val("");
         $('input[name^="basketballPlayerType"]')
           .prop("disabled", true)
           .prop("checked", false);
@@ -420,8 +416,12 @@
     }
   });
 
+
+
+
   // Calculate Total Price
   $(document).ready(function () {
+
     $("#dicountPrice").text('-');
     // Event listener for changes in sport checkboxes
     $('input[type="checkbox"]').change(function () {
@@ -437,19 +437,32 @@
 
     // Event listener for changes in the number of players for Futsal
     $("#FutsalPlayers").on("input", function () {
+      var selectedValue = $('input[name="RegisterAs"]:checked').val();
+      toggleSocialEventDivs(selectedValue);
       calculateTotalPrice();
+
     });
 
     // Event listener for changes in the number of players for Basketball
     $("#BasketballPlayers").on("input", function () {
-      calculateTotalPrice();
+      var selectedValue = $('input[name="RegisterAs"]:checked').val();
+      toggleSocialEventDivs(selectedValue);
+
+      $(this).change(function () {
+        calculateTotalPrice();
+      });
+
     });
+
+
 
     // Event listener for changes in "RegisterAs" radio buttons
     $('input[name="RegisterAs"]').change(function () {
+      const selectedValue = $(this).val();
+      toggleSocialEventDivs(selectedValue);
       calculateTotalPrice();
-      toggleTotalPriceDiv(); // Show/hide the TotalPriceDiv based on the current selection
-      
+      toggleTotalPriceDiv();
+
     });
 
     // Event listener for changes in social event attendance for Futsal
@@ -478,6 +491,13 @@
         calculateTotalPrice();
       });
     });
+    $("#playersDetailsDiv").on("click", function () {
+      calculateTotalPrice();
+    })
+    $("#basketballplayersDetailsDiv").on("click", function () {
+      calculateTotalPrice();
+    })
+
 
     // Event listener for changes in Basketball Player type
     $('[id^="basketballPlayerType"]').each(function (index) {
@@ -490,6 +510,46 @@
     $('input[name="badmintonSecondPlayerType"]').change(function () {
       calculateTotalPrice();
     });
+
+    // Event listener for changes in Futsal Player type
+    $('[id^="playerType"]').each(function () {
+      $(this).change(function () {
+        calculateTotalPrice(); // Ensure the discount calculation is triggered when a player type changes
+      });
+    });
+
+    // Event listener for changes in Basketball Player type
+    $('[id^="basketballPlayerType"]').each(function () {
+      $(this).change(function () {
+        calculateTotalPrice(); // Ensure the discount calculation is triggered when a basketball player type changes
+      });
+    });
+
+    function applyDiscountForCheckedPlayers(totalPrice, totalDiscount) {
+      var discount = 500;
+
+      // Check for basketball player discount
+      $('[id^="basketballPlayerType"]').each(function () {
+        if ($(this).is(":checked") && $(this).val() === "yes") {
+          totalPrice -= discount;
+          totalDiscount += discount;
+        }
+      });
+
+      // Check for player type discount
+      $('[id^="playerType"]').each(function () {
+        if ($(this).is(":checked") && $(this).val() === "yes") {
+          totalPrice -= discount;
+          totalDiscount += discount;
+        }
+      });
+
+      // Return totalPrice and totalDiscount after applying discounts
+      return { totalPrice: totalPrice, totalDiscount: totalDiscount };
+    }
+
+
+
 
     // Function to calculate the total price
     function calculateTotalPrice() {
@@ -547,14 +607,16 @@
 
         if (isIMSciencesStudent) {
           totalPrice = 0;
-        } 
+          $("#dicountPrice").text("RS. " + 3000);
+        }
         else {
           $("#dicountPrice").text("-");
         }
 
-      } else {
-        totalPrice = sportsPrice;
+      }
 
+      else {
+        totalPrice = sportsPrice;
 
         // REGISTER AS PARTICIPANT + SOCIAL EVENT
 
@@ -565,17 +627,12 @@
           if (totalSocialAttendees > 1) {
             totalPrice += socialEventPrice + socialEventPrice * totalSocialAttendees; // Add social event price for additional attendees
 
-          } else if (totalSocialAttendees == 0) {
-            totalPrice += socialEventPrice;
-          } else {
-            totalPrice += socialEventPrice + 1500;
+            if (isIMSciencesStudent) {
+              totalPrice -= totalDiscount; // Apply the discount
+              $("#dicountPrice").text("RS. " + totalDiscount);
+            }
           }
-
-          if (isIMSciencesStudent) {
-            totalPrice -= totalDiscount; // Apply the discount
-            $("#dicountPrice").text("RS. " + totalDiscount);
-          }
-          else{
+          else {
             $("#dicountPrice").text('-');
           }
           if (isSecondBadmintonPlayerIMSciencesStudent) {
@@ -583,6 +640,7 @@
             totalDiscount += discount;
             $("#dicountPrice").text("RS. " + totalDiscount);
           }
+
 
           $('[id^="basketballPlayerType"]').each(function (index) {
             if ($(this).is(":checked") && $(this).val() === "yes") {
@@ -601,37 +659,29 @@
           });
 
 
+
+
+
+
           // REGISTER AS PARTICIPANT 
         } else if ($("#RegisterAsParticipant").is(":checked")) {
-          //totalPrice += socialEventPrice * totalSocialAttendees; 
+          var socialEventPrice = 0;
           if (isIMSciencesStudent) {
             totalPrice -= totalDiscount; // Apply the discount
 
-            if (isSecondBadmintonPlayerIMSciencesStudent) {
-              totalPrice -= totalDiscount;
-              totalDiscount += discount;
-            }
-           
-            $('[id^="basketballPlayerType"]').each(function (index) {
-              if ($(this).is(":checked") && $(this).val() === "yes") {
-                totalPrice -= discount;
-                totalDiscount += discount;
-              }
-            });
-
-            $('[id^="playerType"]').each(function (index) {
-              if ($(this).is(":checked") && $(this).val() === "yes") {
-                totalPrice -= discount;
-                totalDiscount += discount;
-              }
-            });
-
-            $("#dicountPrice").text("RS. " + totalDiscount);
-          } 
-          else {
-            $("#dicountPrice").text("-");
           }
+          if (isSecondBadmintonPlayerIMSciencesStudent) {
+            totalPrice -= totalDiscount;
+            totalDiscount += discount;
+          }
+          var discounts = applyDiscountForCheckedPlayers(totalPrice, totalDiscount);
+          totalPrice = discounts.totalPrice;
+          totalDiscount = discounts.totalDiscount;
+
+          $("#dicountPrice").text("RS. " + totalDiscount);
+
         }
+
       }
 
       // Update the total price display
@@ -639,14 +689,15 @@
 
 
       // Show the Payment Screenshot input if the total price is > 0
-      if(totalPrice > 0){
+      if (totalPrice > 0) {
         $("#paymentScreenshotDiv").show();
       }
-      else{
+      else {
+        $("#finaltotalprice").val("Free");
         $("#paymentScreenshotDiv").hide();
       }
 
-      
+
       // Update the observer and sports total price displays
       if ($("#RegisterAsObserver").is(":checked")) {
         $("#observertotalprice").text("RS. " + observerPrice);
@@ -664,17 +715,11 @@
         } else {
           $("#socialeventstotalprice").text("RS. " + (socialEventPrice + 1500));
         }
-      } 
+      }
       else {
         $("#observertotalprice").text("-");
         $("#sportstotalprice").text("RS. " + sportsPrice);
-        if (totalSocialAttendees > 0) {
-          $("#socialeventstotalprice").text(
-            "RS. " + socialEventPrice * totalSocialAttendees
-          );
-        } else {
-          $("#socialeventstotalprice").text("-");
-        }
+        $("#socialeventstotalprice").text("-");
       }
     }
 
@@ -683,11 +728,10 @@
       var hasCheckedSport = $('input[type="checkbox"]:checked').length > 0;
       if ($("#RegisterAsObserver").is(":checked") || hasCheckedSport) {
         $("#TotalPriceDiv").show();
-        
-        
+
       } else {
         $("#TotalPriceDiv").hide();
-       
+
       }
     }
 
@@ -718,7 +762,7 @@
             return 0;
           }
           // Return the price per player multiplied by the number of players
-          return (numPlayers * 1500)+1500;
+          return (numPlayers * 1500) + 1500;
         case "TableTennis":
         case "Ludo":
         case "Chess":
