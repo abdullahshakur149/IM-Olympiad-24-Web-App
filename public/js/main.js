@@ -691,10 +691,13 @@
       // Show the Payment Screenshot input if the total price is > 0
       if (totalPrice > 0) {
         $("#paymentScreenshotDiv").show();
+        $("#accountDetails").show();
+        
       }
       else {
         $("#finaltotalprice").val("Free");
         $("#paymentScreenshotDiv").hide();
+        $("#accountDetails").hide();
       }
 
 
@@ -1027,6 +1030,34 @@
 
 
 
+  // Close whatsapp chat tooltip
+  $(document).ready(function() {
+    $("#closeBtn").click(function() {
+      $("#chatToolTip").hide();
+      $("#closeBtn").hide();
+    });
+  });
+
+
+
+  // Close Video tooltip
+  $(document).ready(function() {
+    $("#VideoCloseBtn").click(function() {
+      $("#videoToolTip").hide();
+      $("#VideoCloseBtn").hide();
+    });
+  });
+
+
+  $(document).ready(function() {
+    // Add a click event listener to the close button with class 'close-modal'
+    $('.close-modal').click(function(e) {
+        // Prevent the default behavior of the close button
+        e.preventDefault();
+        // Clear the 'src' attribute of the iframe inside the element with class 'video-embed'
+        $('.video-embed').children('iframe').attr('src', '');
+    });
+});
 
 
   $(document).ready(function () {
