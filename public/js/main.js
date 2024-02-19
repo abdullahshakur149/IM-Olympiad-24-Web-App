@@ -530,31 +530,6 @@
       });
     });
 
-    function applyDiscountForCheckedPlayers(totalPrice, totalDiscount) {
-      var discount = 500;
-
-      // Check for basketball player discount
-      $('[id^="basketballPlayerType"]').each(function () {
-        if ($(this).is(":checked") && $(this).val() === "yes") {
-          totalPrice -= discount;
-          totalDiscount += discount;
-        }
-      });
-
-      // Check for player type discount
-      $('[id^="playerType"]').each(function () {
-        if ($(this).is(":checked") && $(this).val() === "yes") {
-          totalPrice -= discount;
-          totalDiscount += discount;
-        }
-      });
-
-      // Return totalPrice and totalDiscount after applying discounts
-      return { totalPrice: totalPrice, totalDiscount: totalDiscount };
-    }
-
-
-
 
     // Function to calculate the total price
     function calculateTotalPrice() {
@@ -696,18 +671,17 @@
               $("#dicountPrice").text("RS. " + totalDiscount);
             }
           });
-
-          
-
         }
 
       }
+
 
       // Update the total price display
       $("#finaltotalprice").val("RS. " + totalPrice);
 
 
-      // Show the Payment Screenshot input if the total price is > 0
+      // Show the Payment Screenshot input if the total price is > 0, add the required attribute
+      // to the payment screenshot input
       if (totalPrice > 0) {
         $("#paymentScreenshot").attr("required", true);
         $("#paymentScreenshotDiv").show();
