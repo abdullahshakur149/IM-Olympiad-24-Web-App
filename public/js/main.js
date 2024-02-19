@@ -617,6 +617,7 @@
               $("#dicountPrice").text("RS. " + totalDiscount);
           }
           else{
+            totalDiscount -= totalDiscount;
             $("#dicountPrice").text("-");
           }
           
@@ -652,6 +653,7 @@
             $("#dicountPrice").text("RS. " + totalDiscount);
           }
           else{
+            totalDiscount -= totalDiscount;
             $("#dicountPrice").text("-");
           }
           if (isSecondBadmintonPlayerIMSciencesStudent) {
