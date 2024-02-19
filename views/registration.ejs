@@ -123,26 +123,39 @@
         }
 
         function submitFormData(formData) {
-            startLoader();
-            fetch('/register/new-registration', {
-            method: 'POST',
-            body: formData
-            })
-            .then(response => response.json())
-            .then(response => {
-                stopLoader();
-                if (response.status == 'error'){
-                    alert(response.message)
-                } else if (response.status == 'internal-server-error'){
-                    alert(response.message)
-                } else {
-                    location.reload();
-                }
-            })
-            .catch(error => {
-            // Handle errors
-            });
+    startLoader();
+    fetch('/register/new-registration', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(response => {
+        stopLoader();
+        if (response.status == 'error'){
+            // Update error message
+            document.getElementById('successMessage').className = 'alert alert-danger mb-4';
+            document.getElementById('messageHead').textContent = 'Error!';
+            document.getElementById('formSubmitMessage').textContent = response.message;
+            document.getElementById('successMessage').style.display = 'block';
+        } else if (response.status == 'internal-server-error'){
+            // Update internal server error message
+            document.getElementById('successMessage').className = 'alert alert-danger mb-4';
+            document.getElementById('messageHead').textContent = 'Error!';
+            document.getElementById('formSubmitMessage').textContent = response.message;
+            document.getElementById('successMessage').style.display = 'block';
+        } else {
+            // Update success message
+            document.getElementById('messageHead').textContent = 'Success!';
+            document.getElementById('formSubmitMessage').textContent = response.message;
+            document.getElementById('successMessage').className = 'alert alert-success mb-4';
+            document.getElementById('successMessage').style.display = 'block';
         }
+    })
+    .catch(error => {
+        // Handle errors
+    });
+}
+
         
         function startLoader(){
             document.getElementsByClassName('loader')[0].removeAttribute('hidden', '')

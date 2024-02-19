@@ -688,11 +688,13 @@
 
       // Show the Payment Screenshot input if the total price is > 0
       if (totalPrice > 0) {
+        $("#paymentScreenshot").attr("required", true);
         $("#paymentScreenshotDiv").show();
         $("#accountDetails").show();
         
       }
       else {
+        $("#paymentScreenshot").removeAttr("required");
         $("#finaltotalprice").val("Free");
         $("#paymentScreenshotDiv").hide();
         $("#accountDetails").hide();

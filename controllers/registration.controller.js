@@ -50,7 +50,7 @@ exports.newRegistration = async (req, res, next) => {
         await Registration.create(dataObj);
         return res.json({
             status : "success",
-            message : "Form submitted successfully"
+            message : "Thank you for registering for IMOlympiad. Your registration has been successfully completed."
         })
 
     } catch (err) {

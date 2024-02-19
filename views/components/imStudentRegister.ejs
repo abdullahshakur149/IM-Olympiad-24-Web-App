@@ -728,52 +728,42 @@
             <label for="paymentScreenshot">Upload Payment Screenshot
               <span class="badge text-danger fs-20">*</span>
             </label>
-            <input type="file" class="form-control" name="paymentScreenshot" id="paymentScreenshot" accept="image/png,image/PNG, image/jpg, image/jpeg" required />
+            <input type="file" class="form-control" name="paymentScreenshot" id="paymentScreenshot" accept="image/png,image/PNG, image/jpg, image/jpeg" />
             <span class="text-body-secondary fs-14 mt-3">Only PNG, JPEG, JPG images accepted</span>
 
         </div>
     </div>
   </div>
-            <div class="payment-accounts mt-5 mb-4" id="accountDetails" style="display:none;">
-                <h5 class="mb-2">Payment Accounts:</h5>
-                <ul class="list-unstyled">
-                  <li><img class="bank-logo" src="img/alliedBank.png" alt="Allied Bank Logo"> <strong>Allied Bank Limited:</strong> 08540010000096710039</li>
-                  <li><strong>Account Holder:</strong> MARIA ZAHID</li>
-                  <li><strong>Branch:</strong> Allied Bank Limited</li>
-                  <li><img class="easypaisa-logo" src="img/easypaisa.jpg" alt="EasyPaisa Logo"> <strong>Easypaisa:</strong> +92 317 6222344 - Abdullah</li>
-                </ul>
-              </div>
+    <div class="payment-accounts mt-5 mb-4" id="accountDetails" style="display:none;">
+        <h5 class="mb-2">Payment Accounts:</h5>
+        <ul class="list-unstyled">
+            <li><img class="bank-logo" src="img/alliedBank.png" alt="Allied Bank Logo"> <strong>Allied Bank Limited:</strong> 08540010000096710039</li>
+            <li><strong>Account Holder:</strong> MARIA ZAHID</li>
+            <li><strong>Branch:</strong> Allied Bank Limited</li>
+            <li><img class="easypaisa-logo" src="img/easypaisa.jpg" alt="EasyPaisa Logo"> <strong>Easypaisa:</strong> +92 317 6222344 - Abdullah</li>
+        </ul>
+        </div>
               
-              
-
-    
-      
-      
-      
+ 
     <div class="mb-4 mt-4">
-      <button
-        type="submit"
-        class="btn btn-lg SubmitBtn"
-        data-bs-toggle="modal"
-        data-bs-target="#exampleModal"
-      >
-        Submit
-      </button>
+        <button type="submit" class="btn btn-lg SubmitBtn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Submit
+        </button>
     </div>
 
     <div class="mb-4 mt-4">
       <div class="loader" hidden></div>
     </div>
   </form>
-  <div
-    class="alert alert-success mb-4"
-    id="successMessage"
-    role="alert"
-    style="display: none"
-  >
-    <h4 class="alert-heading">Success!</h4>
-    <p class="text-dark">Thank you for registering for IMOlympiad 2024.</p>
-  </div>
+
+
+  <!-- Success Message  -->
+  <div class="alert" id="successMessage" role="alert" style="display: none">
+    <h4 class="alert-heading" id="messageHead"></h4>
+    <p class="text-dark" id="formSubmitMessage"></p>
+</div>
+
+
 </div>
 
 
