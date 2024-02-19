@@ -530,31 +530,6 @@
       });
     });
 
-    function applyDiscountForCheckedPlayers(totalPrice, totalDiscount) {
-      var discount = 500;
-
-      // Check for basketball player discount
-      $('[id^="basketballPlayerType"]').each(function () {
-        if ($(this).is(":checked") && $(this).val() === "yes") {
-          totalPrice -= discount;
-          totalDiscount += discount;
-        }
-      });
-
-      // Check for player type discount
-      $('[id^="playerType"]').each(function () {
-        if ($(this).is(":checked") && $(this).val() === "yes") {
-          totalPrice -= discount;
-          totalDiscount += discount;
-        }
-      });
-
-      // Return totalPrice and totalDiscount after applying discounts
-      return { totalPrice: totalPrice, totalDiscount: totalDiscount };
-    }
-
-
-
 
     // Function to calculate the total price
     function calculateTotalPrice() {
@@ -671,27 +646,42 @@
           var socialEventPrice = 0;
           if (isIMSciencesStudent) {
             totalPrice -= totalDiscount; // Apply the discount
-
+            $("#dicountPrice").text("RS. " + totalDiscount);
+          }
+          else{
+            $("#dicountPrice").text("-");
           }
           if (isSecondBadmintonPlayerIMSciencesStudent) {
             totalPrice -= totalDiscount;
             totalDiscount += discount;
+            $("#dicountPrice").text("RS. " + totalDiscount);
           }
-          var discounts = applyDiscountForCheckedPlayers(totalPrice, totalDiscount);
-          totalPrice = discounts.totalPrice;
-          totalDiscount = discounts.totalDiscount;
+          $('[id^="basketballPlayerType"]').each(function (index) {
+            if ($(this).is(":checked") && $(this).val() === "yes") {
+              totalPrice -= discount;
+              totalDiscount += discount;
+              $("#dicountPrice").text("RS. " + totalDiscount);
+            }
+          });
 
-          $("#dicountPrice").text("RS. " + totalDiscount);
-
+          $('[id^="playerType"]').each(function (index) {
+            if ($(this).is(":checked") && $(this).val() === "yes") {
+              totalPrice -= discount;
+              totalDiscount += discount;
+              $("#dicountPrice").text("RS. " + totalDiscount);
+            }
+          });
         }
 
       }
+
 
       // Update the total price display
       $("#finaltotalprice").val("RS. " + totalPrice);
 
 
-      // Show the Payment Screenshot input if the total price is > 0
+      // Show the Payment Screenshot input if the total price is > 0, add the required attribute
+      // to the payment screenshot input
       if (totalPrice > 0) {
         $("#paymentScreenshot").attr("required", true);
         $("#paymentScreenshotDiv").show();
