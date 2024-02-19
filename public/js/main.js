@@ -65,6 +65,14 @@
     checkFileSize(this);
   });
 
+  // Event listener for a Payment Image input change
+  $(document).on("change", 'input[name^="paymentScreenshot"]', function () {
+    checkFileSize(this);
+  });
+
+
+  
+
   // Event listener for a Basketball Player CNIC input change
   $(document).on(
     "change",
