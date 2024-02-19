@@ -616,6 +616,9 @@
               totalPrice -= totalDiscount; // Apply the discount
               $("#dicountPrice").text("RS. " + totalDiscount);
           }
+          else{
+            $("#dicountPrice").text("-");
+          }
           
           if (isSecondBadmintonPlayerIMSciencesStudent) {
             totalPrice -= discount;
