@@ -671,17 +671,33 @@
           var socialEventPrice = 0;
           if (isIMSciencesStudent) {
             totalPrice -= totalDiscount; // Apply the discount
-
+            $("#dicountPrice").text("RS. " + totalDiscount);
+          }
+          else{
+            $("#dicountPrice").text("-");
           }
           if (isSecondBadmintonPlayerIMSciencesStudent) {
             totalPrice -= totalDiscount;
             totalDiscount += discount;
+            $("#dicountPrice").text("RS. " + totalDiscount);
           }
-          var discounts = applyDiscountForCheckedPlayers(totalPrice, totalDiscount);
-          totalPrice = discounts.totalPrice;
-          totalDiscount = discounts.totalDiscount;
+          $('[id^="basketballPlayerType"]').each(function (index) {
+            if ($(this).is(":checked") && $(this).val() === "yes") {
+              totalPrice -= discount;
+              totalDiscount += discount;
+              $("#dicountPrice").text("RS. " + totalDiscount);
+            }
+          });
 
-          $("#dicountPrice").text("RS. " + totalDiscount);
+          $('[id^="playerType"]').each(function (index) {
+            if ($(this).is(":checked") && $(this).val() === "yes") {
+              totalPrice -= discount;
+              totalDiscount += discount;
+              $("#dicountPrice").text("RS. " + totalDiscount);
+            }
+          });
+
+          
 
         }
 
