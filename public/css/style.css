@@ -5903,7 +5903,7 @@ h6 {
 #whatsappChat {
   position: fixed;
   bottom: 20px;
-  right: 20px;
+  right: 15px;
   z-index: 100;
 }
 
@@ -5920,11 +5920,11 @@ h6 {
   background-color: #333;
   color: #fff;
   padding: 5px 20px;
-  max-width: 400px; /* Adjust max-width as needed */
+  max-width: 400px; 
   border-radius: 5px;
   font-size: 14px;
   transition: opacity 0.3s;
-  white-space: nowrap; /* Prevent text from wrapping */
+  white-space: nowrap; 
 }
 #closeBtn{
   position: absolute;
@@ -5934,7 +5934,7 @@ h6 {
   background-color: #333;
   color: #fff;
   padding: 5px 10px;
-  max-width: 400px; /* Adjust max-width as needed */
+  max-width: 400px; 
   border-radius: 50%;
   font-size: 12px;
   transition: opacity 0.3s;
@@ -5944,8 +5944,8 @@ h6 {
 
 .videoWindow {
   position: fixed;
-  bottom: 90px; /* Adjust as needed */
-  right: 20px;
+  bottom: 90px; 
+  right: 15px;
   z-index: 100;
 }
 
@@ -5956,23 +5956,23 @@ h6 {
 
 .videoToolTip {
   position: absolute;
-  top: 125%; /* Adjust as needed */
-  left: -70%; /* Adjust as needed */
+  top: 125%; 
+  left: -70%; 
   transform: translate(-90%, -170%);
   background-color: #333;
   color: #fff;
   padding: 5px 20px;
-  max-width: 400px; /* Adjust max-width as needed */
+  max-width: 400px; 
   border-radius: 5px;
   font-size: 14px;
   transition: opacity 0.3s;
-  white-space: nowrap; /* Prevent text from wrapping */
+  white-space: nowrap; 
 }
 
 #VideoCloseBtn {
   position: absolute;
-  top: 95%; /* Adjust as needed */
-  left: 7%; /* Adjust as needed */
+  top: 95%; 
+  left: 7%; 
   transform: translate(-90%, -170%);
   background-color: #333;
   color: #fff;

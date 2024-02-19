@@ -93,9 +93,14 @@
   $(document).ready(function () {
     $('input[name="studentType"]').change(function () {
       if ($(this).val() === "yes") {
+        
+        $("#studentIdImage").attr("required", true);
+        $("#cnicImage").removeAttr("required");
         $("#studentIdInput").fadeIn();
         $("#cnicImageDiv").fadeOut();
       } else {
+        $("#cnicImage").attr("required", true);
+        $("#studentIdImage").removeAttr("required");
         $("#studentIdInput").fadeOut();
         $("#cnicImageDiv").fadeIn();
       }
@@ -626,21 +631,22 @@
           // Check if any additional social event attendees are selected
           if (totalSocialAttendees > 1) {
             totalPrice += socialEventPrice + socialEventPrice * totalSocialAttendees; // Add social event price for additional attendees
-
-            if (isIMSciencesStudent) {
+          }
+          else if (totalSocialAttendees == 0) {
+            totalPrice += socialEventPrice;
+          } else {
+           totalPrice += (socialEventPrice + 1500);
+          }
+          if (isIMSciencesStudent) {
               totalPrice -= totalDiscount; // Apply the discount
               $("#dicountPrice").text("RS. " + totalDiscount);
-            }
           }
-          else {
-            $("#dicountPrice").text('-');
-          }
+          
           if (isSecondBadmintonPlayerIMSciencesStudent) {
             totalPrice -= discount;
             totalDiscount += discount;
             $("#dicountPrice").text("RS. " + totalDiscount);
           }
-
 
           $('[id^="basketballPlayerType"]').each(function (index) {
             if ($(this).is(":checked") && $(this).val() === "yes") {
@@ -657,14 +663,11 @@
               $("#dicountPrice").text("RS. " + totalDiscount);
             }
           });
+        }
 
-
-
-
-
-
-          // REGISTER AS PARTICIPANT 
-        } else if ($("#RegisterAsParticipant").is(":checked")) {
+        
+        // REGISTER AS PARTICIPANT 
+        else if ($("#RegisterAsParticipant").is(":checked")) {
           var socialEventPrice = 0;
           if (isIMSciencesStudent) {
             totalPrice -= totalDiscount; // Apply the discount
@@ -690,11 +693,13 @@
 
       // Show the Payment Screenshot input if the total price is > 0
       if (totalPrice > 0) {
+        $("#paymentScreenshot").attr("required", true);
         $("#paymentScreenshotDiv").show();
         $("#accountDetails").show();
         
       }
       else {
+        $("#paymentScreenshot").removeAttr("required");
         $("#finaltotalprice").val("Free");
         $("#paymentScreenshotDiv").hide();
         $("#accountDetails").hide();
@@ -892,10 +897,15 @@
   $(document).on("change", ".playerType", function () {
     const playerId = $(this).attr("name").match(/\d+/)[0];
     if ($(this).val() === "yes") {
+      
+      $(`#playerID${playerId}`).attr("required", true);
+      $(`#cnicImage${playerId}`).removeAttr("required");
       $(`#playerTypeDiv${playerId}`).fadeIn();
       $(`#playerCnicImgDiv${playerId}`).fadeOut();
       $(`#playerStudentId${playerId}`).fadeIn();
     } else {
+      $(`#playerID${playerId}`).removeAttr("required");
+      $(`#cnicImage${playerId}`).attr("required", true);
       $(`#playerTypeDiv${playerId}`).fadeOut();
       $(`#playerCnicImgDiv${playerId}`).fadeIn();
       $(`#playerStudentId${playerId}`).fadeOut();
@@ -1006,9 +1016,13 @@
   $(document).on("change", ".basketballPlayerType", function () {
     const playerId = $(this).attr("name").match(/\d+/)[0];
     if ($(this).val() === "yes") {
+      $(`#basketballPlayerID${playerId}`).attr("required", true);
+      $(`#basketballPlayerCnicImg${playerId}`).removeAttr("required");
       $(`#basketballPlayerTypeDiv${playerId}`).fadeIn();
       $(`#basketballPlayerCnicImgDiv${playerId}`).fadeOut();
     } else {
+      $(`#basketballPlayerID${playerId}`).removeAttr("required");
+      $(`#basketballPlayerCnicImg${playerId}`).attr("required", true);
       $(`#basketballPlayerTypeDiv${playerId}`).fadeOut();
       $(`#basketballPlayerCnicImgDiv${playerId}`).fadeIn();
     }
