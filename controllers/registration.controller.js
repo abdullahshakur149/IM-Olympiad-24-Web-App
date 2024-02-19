@@ -10,7 +10,7 @@ exports.newRegistration = async (req, res, next) => {
         let registrationDetails = req.body;
         let allFiles = req.files;
 
-        console.log(registrationDetails);
+        // console.log(registrationDetails);
 
         if (!validatePersonalDetails(registrationDetails)){
             // Remove uploaded files(undo)
@@ -159,10 +159,10 @@ function reformatData(data, allFiles){
     if (data["Badminton"] && data["matchType"]){
         let player2Data = {}
         if (data["matchType"] == 'double'){
-            player2Data.ims_student = data[`badmintonSecondPlayerType${i}`];
-            player2Data.player_name = data[`badmintonSecondPlayerName${i}`];
-            player2Data.player_contact = data[`badmintonSecondPlayerContact${i}`];
-            player2Data.player_cnic = data[`badmintonSecondPlayerCnic${i}`]
+            player2Data.ims_student = data[`badmintonSecondPlayerType`];
+            player2Data.player_name = data[`badmintonSecondPlayerName`];
+            player2Data.player_contact = data[`badmintonSecondPlayerContact`];
+            player2Data.player_cnic = data[`badmintonSecondPlayerCnic`]
 
         }
         selectedSports.push({
@@ -224,9 +224,18 @@ function reformatData(data, allFiles){
     //getting images paths and storing in db
     let imagesPaths = []
     for (var files of Object.keys(allFiles)) {
+        
+        //creating individual object for images
+        let imagesObj = {};
+        let fieldName = files.toString();
+        let pathsArr = []
+        
         for (const file of allFiles[files]) {
-            imagesPaths.push(file.path)
+            pathsArr.push({path : file.path})
         }
+
+        imagesObj[fieldName] = pathsArr;
+        imagesPaths.push(imagesObj);
     }
 
     newData.images_paths = imagesPaths
@@ -235,10 +244,15 @@ function reformatData(data, allFiles){
 
 //Multer
 //Multer storage configuration
+
+//create folder for each submission
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        fs.mkdirSync( 'uploads/', { recursive: true })
-        cb(null, 'uploads'); // Destination folder for storing uploaded files
+        let imageFolder = new Date().toLocaleDateString().replace(/\//g, '-');
+        let imagePath =  'uploads/' +  imageFolder;
+        
+        fs.mkdirSync( imagePath, { recursive: true })
+        cb(null, imagePath); // Destination folder for storing uploaded files
     },
     filename: function (req, file, cb) {
         cb(null, Date.now() + '-' + file.originalname); // Renaming file to avoid conflicts
@@ -321,7 +335,9 @@ exports.uploadFiles = function (req, res, next) {
     upload(req, res, function (err) {
         if (err instanceof multer.MulterError) {
             // A Multer error occurred when uploading.
-            return res.status(400).json({ message: 'File size exceeds 500KB!' });
+            return res.status(400).json({
+                status : "error",
+                message: 'File size exceeds 500KB!' });
         } else if (err) {
             if (err === 'INVALID_TYPE'){
                 return res.status(400).json({
@@ -340,6 +356,7 @@ exports.uploadFiles = function (req, res, next) {
 
         // console.log(req.body);
         // console.log(req.files);
+        
         // Everything went fine.
         next();
     });
