@@ -5,26 +5,6 @@ const connectDB = require('./database/connection');
 const session = require('express-session');
 const flash = require('connect-flash');
 const passport = require('passport');
-<<<<<<< Updated upstream
-const User = require('./models/user'); // Assuming you have a User model
-
-// Passport configuration
-passport.use(User.createStrategy());
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
-
-const app = express();
-
-// Connect to the database
-connectDB();
-
-// Middleware setup
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-app.use(session({
-    secret: 'da43gy-ca92-42f1-9041'
-}));
-=======
 const MongoStore = require('connect-mongo')
 const app = express();
 
@@ -40,7 +20,6 @@ initializePassport(passport);
 // middlewares
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
->>>>>>> Stashed changes
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
@@ -63,14 +42,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash()); // for flash messages
 
-<<<<<<< Updated upstream
-// Routes setup
-const indexRoute = require('./routes/index');
-const venueRoute = require('./routes/venue');
-const registerRoute = require('./routes/register');
-const loginRoute = require('./routes/login');
-
-=======
 
 // Routes
 const indexRoute = require('./routes/index');
@@ -80,7 +51,6 @@ const adminPanelRoute = require('./routes/admin-panel')
 const loginRoute = require('./routes/login');
 
 
->>>>>>> Stashed changes
 app.use('/', indexRoute);
 app.use('/venue', venueRoute);
 app.use('/register', registerRoute);
