@@ -617,6 +617,7 @@
               $("#dicountPrice").text("RS. " + totalDiscount);
           }
           else{
+            totalDiscount -= totalDiscount;
             $("#dicountPrice").text("-");
           }
           
@@ -652,6 +653,7 @@
             $("#dicountPrice").text("RS. " + totalDiscount);
           }
           else{
+            totalDiscount -= totalDiscount;
             $("#dicountPrice").text("-");
           }
           if (isSecondBadmintonPlayerIMSciencesStudent) {
@@ -800,7 +802,11 @@
     const playersDetailsDiv = document.getElementById("playersDetailsDiv");
     playersDetailsDiv.innerHTML = "";
 
-    // Loop to generate inputs for each player
+    if(numPlayers < 4 || numPlayers > 7){
+      playersDetailsDiv.innerHTML = "";
+    }
+    else{
+      // Loop to generate inputs for each player
     for (let i = 1; i <= numPlayers; i++) {
       const playerDiv = document.createElement("div");
       playerDiv.classList.add(
@@ -875,6 +881,7 @@
       `;
       playersDetailsDiv.appendChild(playerDiv);
     }
+    }
   }
 
   // Call the function initially with default value
@@ -923,7 +930,10 @@
     );
     basketballPlayersDetailsDiv.innerHTML = "";
 
-    // Loop to generate inputs for each player
+    if(numPlayers < 4 || numPlayers > 7){
+      basketballPlayersDetailsDiv.innerHTML = "";
+    }else{
+      // Loop to generate inputs for each player
     for (let i = 1; i <= numPlayers; i++) {
       const basketballPlayerDiv = document.createElement("div");
       basketballPlayerDiv.classList.add(
@@ -993,6 +1003,7 @@
               </div>
       `;
       basketballPlayersDetailsDiv.appendChild(basketballPlayerDiv);
+    }
     }
   }
 
