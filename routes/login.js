@@ -8,15 +8,9 @@ router.get('/', checkNotAuthenticated, function(req, res, next) {
 });
 
 router.post('/', passport.authenticate('local', {
-<<<<<<< Updated upstream
-    successRedirect: '/',
-    failureRedirect: '/login',
-    failureFlash: true
-=======
   successRedirect: '/admin-panel',
   failureRedirect: '/login',
   failureFlash: true
->>>>>>> Stashed changes
 }));
 
 //To logout
