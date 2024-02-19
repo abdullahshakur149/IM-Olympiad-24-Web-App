@@ -13,6 +13,8 @@
     <!-- Place favicon.ico in the root directory -->
 
     <!-- CSS here -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/themify-icons/0.1.2/css/themify-icons.min.css" />
@@ -75,6 +77,8 @@
 
 
     <!-- JS here -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/3.5.0/modernizr.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
@@ -119,26 +123,39 @@
         }
 
         function submitFormData(formData) {
-            startLoader();
-            fetch('/register/new-registration', {
-            method: 'POST',
-            body: formData
-            })
-            .then(response => response.json())
-            .then(response => {
-                stopLoader();
-                if (response.status == 'error'){
-                    alert(response.message)
-                } else if (response.status == 'internal-server-error'){
-                    alert(response.message)
-                } else {
-                    location.reload();
-                }
-            })
-            .catch(error => {
-            // Handle errors
-            });
+    startLoader();
+    fetch('/register/new-registration', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(response => {
+        stopLoader();
+        if (response.status == 'error'){
+            // Update error message
+            document.getElementById('successMessage').className = 'alert alert-danger mb-4';
+            document.getElementById('messageHead').textContent = 'Error!';
+            document.getElementById('formSubmitMessage').textContent = response.message;
+            document.getElementById('successMessage').style.display = 'block';
+        } else if (response.status == 'internal-server-error'){
+            // Update internal server error message
+            document.getElementById('successMessage').className = 'alert alert-danger mb-4';
+            document.getElementById('messageHead').textContent = 'Error!';
+            document.getElementById('formSubmitMessage').textContent = response.message;
+            document.getElementById('successMessage').style.display = 'block';
+        } else {
+            // Update success message
+            document.getElementById('messageHead').textContent = 'Success!';
+            document.getElementById('formSubmitMessage').textContent = response.message;
+            document.getElementById('successMessage').className = 'alert alert-success mb-4';
+            document.getElementById('successMessage').style.display = 'block';
         }
+    })
+    .catch(error => {
+        // Handle errors
+    });
+}
+
         
         function startLoader(){
             document.getElementsByClassName('loader')[0].removeAttribute('hidden', '')
@@ -147,6 +164,28 @@
         function stopLoader(){
             document.getElementsByClassName('loader')[0].setAttribute('hidden', '')
         }
+
+
+
+        var modal = document.getElementById('staticBackdrop');
+  var video = modal.querySelector('.youtube-video');
+  var player;
+
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player(video, {
+      events: {
+        'onStateChange': onPlayerStateChange
+      }
+    });
+  }
+
+  function onPlayerStateChange(event) {
+    if (event.data === YT.PlayerState.PLAYING) {
+      modal.addEventListener('hide.bs.modal', function () {
+        player.pauseVideo();
+      });
+    }
+  }
     </script>
 </body>
 </html>

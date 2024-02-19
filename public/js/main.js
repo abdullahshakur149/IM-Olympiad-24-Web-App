@@ -93,9 +93,14 @@
   $(document).ready(function () {
     $('input[name="studentType"]').change(function () {
       if ($(this).val() === "yes") {
+        
+        $("#studentIdImage").attr("required", true);
+        $("#cnicImage").removeAttr("required");
         $("#studentIdInput").fadeIn();
         $("#cnicImageDiv").fadeOut();
       } else {
+        $("#cnicImage").attr("required", true);
+        $("#studentIdImage").removeAttr("required");
         $("#studentIdInput").fadeOut();
         $("#cnicImageDiv").fadeIn();
       }
@@ -525,31 +530,6 @@
       });
     });
 
-    function applyDiscountForCheckedPlayers(totalPrice, totalDiscount) {
-      var discount = 500;
-
-      // Check for basketball player discount
-      $('[id^="basketballPlayerType"]').each(function () {
-        if ($(this).is(":checked") && $(this).val() === "yes") {
-          totalPrice -= discount;
-          totalDiscount += discount;
-        }
-      });
-
-      // Check for player type discount
-      $('[id^="playerType"]').each(function () {
-        if ($(this).is(":checked") && $(this).val() === "yes") {
-          totalPrice -= discount;
-          totalDiscount += discount;
-        }
-      });
-
-      // Return totalPrice and totalDiscount after applying discounts
-      return { totalPrice: totalPrice, totalDiscount: totalDiscount };
-    }
-
-
-
 
     // Function to calculate the total price
     function calculateTotalPrice() {
@@ -626,21 +606,26 @@
           // Check if any additional social event attendees are selected
           if (totalSocialAttendees > 1) {
             totalPrice += socialEventPrice + socialEventPrice * totalSocialAttendees; // Add social event price for additional attendees
-
-            if (isIMSciencesStudent) {
+          }
+          else if (totalSocialAttendees == 0) {
+            totalPrice += socialEventPrice;
+          } else {
+           totalPrice += (socialEventPrice + 1500);
+          }
+          if (isIMSciencesStudent) {
               totalPrice -= totalDiscount; // Apply the discount
               $("#dicountPrice").text("RS. " + totalDiscount);
-            }
           }
-          else {
-            $("#dicountPrice").text('-');
+          else{
+            totalDiscount -= totalDiscount;
+            $("#dicountPrice").text("-");
           }
+          
           if (isSecondBadmintonPlayerIMSciencesStudent) {
             totalPrice -= discount;
             totalDiscount += discount;
             $("#dicountPrice").text("RS. " + totalDiscount);
           }
-
 
           $('[id^="basketballPlayerType"]').each(function (index) {
             if ($(this).is(":checked") && $(this).val() === "yes") {
@@ -657,44 +642,62 @@
               $("#dicountPrice").text("RS. " + totalDiscount);
             }
           });
+        }
 
-
-
-
-
-
-          // REGISTER AS PARTICIPANT 
-        } else if ($("#RegisterAsParticipant").is(":checked")) {
+        
+        // REGISTER AS PARTICIPANT 
+        else if ($("#RegisterAsParticipant").is(":checked")) {
           var socialEventPrice = 0;
           if (isIMSciencesStudent) {
             totalPrice -= totalDiscount; // Apply the discount
-
+            $("#dicountPrice").text("RS. " + totalDiscount);
+          }
+          else{
+            totalDiscount -= totalDiscount;
+            $("#dicountPrice").text("-");
           }
           if (isSecondBadmintonPlayerIMSciencesStudent) {
             totalPrice -= totalDiscount;
             totalDiscount += discount;
+            $("#dicountPrice").text("RS. " + totalDiscount);
           }
-          var discounts = applyDiscountForCheckedPlayers(totalPrice, totalDiscount);
-          totalPrice = discounts.totalPrice;
-          totalDiscount = discounts.totalDiscount;
+          $('[id^="basketballPlayerType"]').each(function (index) {
+            if ($(this).is(":checked") && $(this).val() === "yes") {
+              totalPrice -= discount;
+              totalDiscount += discount;
+              $("#dicountPrice").text("RS. " + totalDiscount);
+            }
+          });
 
-          $("#dicountPrice").text("RS. " + totalDiscount);
-
+          $('[id^="playerType"]').each(function (index) {
+            if ($(this).is(":checked") && $(this).val() === "yes") {
+              totalPrice -= discount;
+              totalDiscount += discount;
+              $("#dicountPrice").text("RS. " + totalDiscount);
+            }
+          });
         }
 
       }
+
 
       // Update the total price display
       $("#finaltotalprice").val("RS. " + totalPrice);
 
 
-      // Show the Payment Screenshot input if the total price is > 0
+      // Show the Payment Screenshot input if the total price is > 0, add the required attribute
+      // to the payment screenshot input
       if (totalPrice > 0) {
+        $("#paymentScreenshot").attr("required", true);
         $("#paymentScreenshotDiv").show();
+        $("#accountDetails").show();
+        
       }
       else {
+        $("#paymentScreenshot").removeAttr("required");
         $("#finaltotalprice").val("Free");
         $("#paymentScreenshotDiv").hide();
+        $("#accountDetails").hide();
       }
 
 
@@ -799,7 +802,11 @@
     const playersDetailsDiv = document.getElementById("playersDetailsDiv");
     playersDetailsDiv.innerHTML = "";
 
-    // Loop to generate inputs for each player
+    if(numPlayers < 4 || numPlayers > 7){
+      playersDetailsDiv.innerHTML = "";
+    }
+    else{
+      // Loop to generate inputs for each player
     for (let i = 1; i <= numPlayers; i++) {
       const playerDiv = document.createElement("div");
       playerDiv.classList.add(
@@ -874,6 +881,7 @@
       `;
       playersDetailsDiv.appendChild(playerDiv);
     }
+    }
   }
 
   // Call the function initially with default value
@@ -889,10 +897,15 @@
   $(document).on("change", ".playerType", function () {
     const playerId = $(this).attr("name").match(/\d+/)[0];
     if ($(this).val() === "yes") {
+      
+      $(`#playerID${playerId}`).attr("required", true);
+      $(`#cnicImage${playerId}`).removeAttr("required");
       $(`#playerTypeDiv${playerId}`).fadeIn();
       $(`#playerCnicImgDiv${playerId}`).fadeOut();
       $(`#playerStudentId${playerId}`).fadeIn();
     } else {
+      $(`#playerID${playerId}`).removeAttr("required");
+      $(`#cnicImage${playerId}`).attr("required", true);
       $(`#playerTypeDiv${playerId}`).fadeOut();
       $(`#playerCnicImgDiv${playerId}`).fadeIn();
       $(`#playerStudentId${playerId}`).fadeOut();
@@ -917,7 +930,10 @@
     );
     basketballPlayersDetailsDiv.innerHTML = "";
 
-    // Loop to generate inputs for each player
+    if(numPlayers < 4 || numPlayers > 7){
+      basketballPlayersDetailsDiv.innerHTML = "";
+    }else{
+      // Loop to generate inputs for each player
     for (let i = 1; i <= numPlayers; i++) {
       const basketballPlayerDiv = document.createElement("div");
       basketballPlayerDiv.classList.add(
@@ -988,6 +1004,7 @@
       `;
       basketballPlayersDetailsDiv.appendChild(basketballPlayerDiv);
     }
+    }
   }
 
   // Call the function initially with default value
@@ -1003,9 +1020,13 @@
   $(document).on("change", ".basketballPlayerType", function () {
     const playerId = $(this).attr("name").match(/\d+/)[0];
     if ($(this).val() === "yes") {
+      $(`#basketballPlayerID${playerId}`).attr("required", true);
+      $(`#basketballPlayerCnicImg${playerId}`).removeAttr("required");
       $(`#basketballPlayerTypeDiv${playerId}`).fadeIn();
       $(`#basketballPlayerCnicImgDiv${playerId}`).fadeOut();
     } else {
+      $(`#basketballPlayerID${playerId}`).removeAttr("required");
+      $(`#basketballPlayerCnicImg${playerId}`).attr("required", true);
       $(`#basketballPlayerTypeDiv${playerId}`).fadeOut();
       $(`#basketballPlayerCnicImgDiv${playerId}`).fadeIn();
     }
@@ -1027,6 +1048,34 @@
 
 
 
+  // Close whatsapp chat tooltip
+  $(document).ready(function() {
+    $("#closeBtn").click(function() {
+      $("#chatToolTip").hide();
+      $("#closeBtn").hide();
+    });
+  });
+
+
+
+  // Close Video tooltip
+  $(document).ready(function() {
+    $("#VideoCloseBtn").click(function() {
+      $("#videoToolTip").hide();
+      $("#VideoCloseBtn").hide();
+    });
+  });
+
+
+  $(document).ready(function() {
+    // Add a click event listener to the close button with class 'close-modal'
+    $('.close-modal').click(function(e) {
+        // Prevent the default behavior of the close button
+        e.preventDefault();
+        // Clear the 'src' attribute of the iframe inside the element with class 'video-embed'
+        $('.video-embed').children('iframe').attr('src', '');
+    });
+});
 
 
   $(document).ready(function () {
