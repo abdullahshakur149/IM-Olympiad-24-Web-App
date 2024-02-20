@@ -52,11 +52,11 @@
                   </div>
                 </div>
 
-                <% if (error) {%>
-                <div class="col-12">
-                  <h4 style="color: red;"><%=error %></h4>
-                </div>
-                <% } %>
+<% if (typeof error !== 'undefined') { %>
+    <div class="alert alert-danger"><%= error %></div>
+<% } %>
+<!-- Rest of your template -->
+
                 
                 <div class="col-12">
                   <div class="d-grid">
