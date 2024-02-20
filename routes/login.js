@@ -7,6 +7,7 @@ router.get('/', checkNotAuthenticated, function(req, res, next) {
   res.render('admin/login', {error : req.flash("error")[0]});
 });
 
+
 router.post('/', passport.authenticate('local', {
   successRedirect: '/admin-panel',
   failureRedirect: '/login',
