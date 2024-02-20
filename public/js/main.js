@@ -65,7 +65,7 @@
     checkFileSize(this);
   });
 
-  // Event listener for a Payment Image input change
+  //Event listener for a Payment Image input change
   $(document).on("change", 'input[name^="paymentScreenshot"]', function () {
     checkFileSize(this);
   });
