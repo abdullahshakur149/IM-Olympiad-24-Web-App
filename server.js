@@ -48,6 +48,7 @@ const indexRoute = require('./routes/index');
 const venueRoute = require('./routes/venue');
 const registerRoute = require('./routes/register')
 const adminPanelRoute = require('./routes/admin-panel')
+const registeredUsersRoute = require('./routes/registered-users')
 const loginRoute = require('./routes/login');
 
 
@@ -55,6 +56,8 @@ app.use('/', indexRoute);
 app.use('/venue', venueRoute);
 app.use('/register', registerRoute);
 app.use('/admin-panel', adminPanelRoute);
+app.use('/registered-users', registeredUsersRoute);
+
 app.use('/login', loginRoute);
 
 // Error handling
