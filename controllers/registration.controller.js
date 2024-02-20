@@ -1,6 +1,7 @@
 const Registration = require("../models/registrationModel");
 const multer = require('multer');
 const fs = require('fs');
+// const { sendRegistrationEmail } = require('../config/nodemailer');
 
 
 exports.newRegistration = async (req, res, next) => {
@@ -8,6 +9,8 @@ exports.newRegistration = async (req, res, next) => {
     try {
         
         let registrationDetails = req.body;
+        // const userEmail = req.body.email; 
+
         let allFiles = req.files;
 
         // console.log(registrationDetails);
@@ -48,6 +51,7 @@ exports.newRegistration = async (req, res, next) => {
 
         //create registration
         await Registration.create(dataObj);
+        // await sendRegistrationEmail(userEmail);
         return res.json({
             status : "success",
             message : "Thank you for registering for IMOlympiad. Your registration has been successfully completed."
