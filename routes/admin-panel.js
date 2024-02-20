@@ -6,7 +6,7 @@ const webAuth = require('../config/webAuth');
 router.use(webAuth.checkAuthenticated);
 
 router.get('/', (req, res, next) => {
-    res.render('admin-panel', {});
+    res.render('admin/admin-panel', {});
 });
 
 module.exports = router;
