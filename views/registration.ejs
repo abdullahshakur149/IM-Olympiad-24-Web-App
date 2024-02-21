@@ -78,7 +78,7 @@
 
     <!-- JS here -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/3.5.0/modernizr.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
@@ -108,10 +108,167 @@
 
     <script src="/js/main.js"></script>
     <script>
+
+
         const form = document.querySelector('#registrationForm');
+
         form.addEventListener('submit', (e) => {
             e.preventDefault();
+
+            function validateForm() {
+                var isValid = false;
+                var studentTypeYes = document.getElementById("studentTypeYes");
+                var studentTypeNo = document.getElementById("studentTypeNo");
+                var studentTypeError = document.getElementById("studentTypeError");
+
+                // Validate Student Type
+                if (!studentTypeYes.checked && !studentTypeNo.checked) {
+                    studentTypeError.innerText = "Please select an option.";
+                    studentTypeError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    return false;
+                }
+
+                if (studentTypeYes.checked) {
+                    studentTypeError.innerText = "";
+
+                    var studentIdImage = document.getElementById("studentIdImage");
+                    var studentIdError = document.getElementById("studentIdError");
+
+                    // Validate Student ID
+                    if (!studentIdImage.value.trim()) {
+                        studentIdError.innerText = "Please upload your student ID card.";
+                        studentIdError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        return false;
+                    } else {
+                        studentIdError.textContent = "";
+                    }
+                }
+
+                // Validate studentImage
+                var studentImage = document.getElementById("studentImage");
+                var studentImageError = document.getElementById("studentImageError");
+                if (!studentImage.files.length) {
+                    studentImageError.textContent = "Please upload your picture.";
+                    studentImageError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    return false;
+                } else {
+                    studentImageError.textContent = "";
+                }
+
+                // Validate name
+                var name = document.getElementById("name");
+                var nameError = document.getElementById("nameError");
+                if (!name.value.trim()) {
+                    nameError.textContent = "Please enter your name.";
+                    nameError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    return false;
+                } else {
+                    nameError.textContent = "";
+                }
+
+                // Validate FatherName
+                var FatherName = document.getElementById("FatherName");
+                var FatherNameError = document.getElementById("FatherNameError");
+                if (!FatherName.value.trim()) {
+                    FatherNameError.textContent = "Please enter your father's name.";
+                    FatherNameError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    return false;
+                } else {
+                    FatherNameError.textContent = "";
+                }
+
+                // Validate ContactNumber
+                var ContactNumber = document.getElementById("ContactNumber");
+                var ContactNumberError = document.getElementById("ContactNumberError");
+                if (!ContactNumber.value.trim()) {
+                    ContactNumberError.textContent = "Please enter your contact number.";
+                    ContactNumberError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    return false;
+                } else {
+                    ContactNumberError.textContent = "";
+                }
+
+                // Validate email
+                var email = document.getElementById("email");
+                var emailError = document.getElementById("emailError");
+                if (!email.value.trim()) {
+                    emailError.textContent = "Please enter your email.";
+                    emailError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    return false;
+                } else {
+                    emailError.textContent = "";
+                }
+
+                // Validate cnic
+                var cnic = document.getElementById("cnic");
+                var cnicError = document.getElementById("cnicError");
+                if (!cnic.value.trim()) {
+                    cnicError.textContent = "Please enter your CNIC.";
+                    cnicError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    return false;
+                } else {
+                    cnicError.textContent = "";
+                }
+
+                if (studentTypeNo.checked) {
+                    studentTypeError.innerText = "";
+
+                    var cnicImage = document.getElementById("cnicImage");
+                    var cnicImageError = document.getElementById("cnicImageError");
+
+                    // Validate CNIC Image
+                    if (!cnicImage.value.trim()) {
+                        cnicImageError.innerText = "Please upload your CNIC Picture.";
+                        cnicImageError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        return false;
+                    } else {
+                        cnicImageError.textContent = "";
+                    }
+                }
+
+
+
+                // Validate "Register as?" field
+                var registerAsOptions = document.querySelectorAll('input[name="RegisterAs"]');
+                var registerAsError = document.getElementById("sportsSelectError");
+                var registerAsChecked = false;
+
+                registerAsOptions.forEach(function (option) {
+                    if (option.checked) {
+                        registerAsChecked = true;
+                    }
+                });
+
+                if (!registerAsChecked) {
+                    registerAsError.textContent = "Please select an option.";
+                    registerAsError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    return false;
+                } else {
+                    registerAsError.textContent = "";
+                }
+
+
+                // Payment Screenshot Validation
+                var paymentScreenshotError = document.getElementById("paymentScreenshotError");
+                paymentScreenshotError.textContent = "";
+                var paymentScreenshotInput = document.getElementById("paymentScreenshot");
+
+               
+                if (!paymentScreenshotInput.files || paymentScreenshotInput.files.length === 0) {
+                    paymentScreenshotError.textContent = "Please upload your payment screenshot.";
+                    paymentScreenshotInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    return false; 
+                }
+
+                // If all validations pass, set isValid to true
+                isValid = true;
+                return isValid;
+            }
+
+
+            if (validateForm()) {
             submitForm();
+            }
         });
 
         function submitForm() {

@@ -12,160 +12,100 @@
         <h4>Personal Details</h4>
 
         <div class="mb-3 mt-4">
-          <label for="studentType" class="form-label"
-            >Are you a student of IMSciences?
-            <span class="badge text-danger fs-20">*</span>
-          </label>
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="radio"
-              name="studentType"
-              value="yes"
-              id="studentTypeYes"
-              required
-            />
-            <label class="form-check-label" for="studentTypeYes">Yes</label>
-          </div>
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="radio"
-              name="studentType"
-              value="no"
-              id="studentTypeNo"
-              required
-            />
-            <label class="form-check-label" for="studentTypeNo">No</label>
-          </div>
+            <label for="studentType" class="form-label">Are you a student of IMSciences?
+                <span class="badge text-danger fs-20">*</span>
+            </label>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="studentType" value="yes" id="studentTypeYes" />
+                <label class="form-check-label" for="studentTypeYes">Yes</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="studentType" value="no" id="studentTypeNo" />
+                <label class="form-check-label" for="studentTypeNo">No</label>
+            </div>
+            <p id="studentTypeError" class="text-danger small"></p>
         </div>
-        <div
-          class="mb-3 border-start ps-2 ms-3"
-          id="studentIdInput"
-          style="display: none"
-        >
-          <label for="studentIdImage" class="form-label"
-            >Upload student ID card
-            <span class="badge text-danger fs-20">*</span>
-          </label>
-          <input
-            type="file"
-            class="form-control"
-            id="studentIdImage"
-            name="studentIdImage"
-            accept="image/png,image/PNG, image/jpg, image/jpeg"
-          />
-          <span class="text-body-secondary fs-14 mt-3"
-            >Only PNG, JPEG, JPG images accepted</span
-          >
+
+
+        <div class="mb-3 border-start ps-2 ms-3" id="studentIdInput" style="display: none">
+            <label for="studentIdImage" class="form-label">Upload student ID card
+                <span class="badge text-danger fs-20">*</span>
+            </label>
+            <input type="file" class="form-control" id="studentIdImage" name="studentIdImage"
+                accept="image/png,image/PNG, image/jpg, image/jpeg" />
+            <span class="text-body-secondary fs-14 mt-3">Only PNG, JPEG, JPG images accepted</span>
+            <p id="studentIdError" class="text-danger small"></p>
         </div>
 
         <div class="mb-3">
-          <label for="studentImage" class="form-label"
-            >Upload Your Picture
-            <span class="badge text-danger fs-20">*</span>
-          </label>
-          <input
-            type="file"
-            class="form-control"
-            id="studentImage"
-            name="studentImage"
-            accept="image/png,image/PNG, image/jpg, image/jpeg"
-            required
-          />
-          <span class="text-body-secondary fs-14 mt-3"
-            >Only PNG, JPEG, JPG images accepted</span
-          >
-        </div>
-        <div class="mb-3">
-          <label for="name" class="form-label"
-            >Name
-            <span class="badge text-danger fs-20">*</span>
-          </label>
-          <input
-            type="text"
-            class="form-control"
-            name="name"
-            id="name"
-            placeholder="Enter Full Name"
-            required
-          />
+            <label for="studentImage" class="form-label">Upload Your Picture
+                <span class="badge text-danger fs-20">*</span>
+            </label>
+            <input type="file" class="form-control" id="studentImage" name="studentImage"
+                accept="image/png,image/PNG, image/jpg, image/jpeg" />
+            <span class="text-body-secondary fs-14 mt-3">Only PNG, JPEG, JPG images accepted</span>
+            <p id="studentImageError" class="text-danger small"></p>
         </div>
 
-        <div class="mb-3">
-          <label for="FatherName" class="form-label"
-            >Father Name
-            <span class="badge text-danger fs-20">*</span>
-          </label>
-          <input
-            type="text"
-            class="form-control"
-            name="FatherName"
-            id="FatherName"
-            placeholder="Enter Father Name"
-            required
-          />
-        </div>
-        <div class="mb-3">
-          <label for="ContactNumber" class="form-label"
-            >Contact Number
-            <span class="badge text-danger fs-20">*</span>
-          </label>
 
-          <input
-            type="tel"
-            inputmode="numeric"
-            class="form-control"
-            name="ContactNumber"
-            id="ContactNumber"
-            placeholder="Enter Contact Number"
-            required
-          />
-        </div>
         <div class="mb-3">
-          <label for="email" class="form-label"
-            >Email
-            <span class="badge text-danger fs-20">*</span>
-          </label>
-          <input
-            type="email"
-            class="form-control"
-            name="email"
-            id="email"
-            placeholder="Enter Email"
-            required
-          />
+            <label for="name" class="form-label">Name
+                <span class="badge text-danger fs-20">*</span>
+            </label>
+            <input type="text" class="form-control" name="name" id="name" placeholder="Enter Full Name" />
+            <p id="nameError" class="text-danger small"></p>
         </div>
+
+
         <div class="mb-3">
-          <label for="cnic" class="form-label"
-            >CNIC
-            <span class="badge text-danger fs-20">*</span>
-          </label>
-          <input
-            type="number"
-            class="form-control"
-            name="cnic"
-            id="cnic"
-            placeholder="Enter CNIC"
-            required
-          />
+            <label for="FatherName" class="form-label">Father Name
+                <span class="badge text-danger fs-20">*</span>
+            </label>
+            <input type="text" class="form-control" name="FatherName" id="FatherName" placeholder="Enter Father Name" />
+            <p id="FatherNameError" class="text-danger small"></p>
         </div>
+
+
+        <div class="mb-3">
+            <label for="ContactNumber" class="form-label">Contact Number
+                <span class="badge text-danger fs-20">*</span>
+            </label>
+        
+            <input type="tel" inputmode="numeric" class="form-control" name="ContactNumber" id="ContactNumber"
+                placeholder="Enter Contact Number" />
+            <p id="ContactNumberError" class="text-danger small"></p>
+        </div>
+
+
+        <div class="mb-3">
+            <label for="email" class="form-label">Email
+                <span class="badge text-danger fs-20">*</span>
+            </label>
+            <input type="email" class="form-control" name="email" id="email" placeholder="Enter Email" />
+            <p id="emailError" class="text-danger small"></p>
+        </div>
+
+
+
+        <div class="mb-3">
+            <label for="cnic" class="form-label">CNIC
+                <span class="badge text-danger fs-20">*</span>
+            </label>
+            <input type="number" class="form-control" name="cnic" id="cnic" placeholder="Enter CNIC" />
+            <p id="cnicError" class="text-danger small"></p>
+        </div>
+
+
         <div class="mb-3 mt-2" id="cnicImageDiv" style="display: none">
-          <label for="cnicImage" class="form-label"
-            >Upload CNIC Picture
-            <span class="badge text-danger fs-20">*</span>
-          </label>
-          <input
-            type="file"
-            class="form-control"
-            id="cnicImage"
-            name="cnicImage"
-            accept="image/png,image/PNG, image/jpg, image/jpeg"
-          />
-          <span class="text-body-secondary fs-14 mt-3"
-            >Only PNG, JPEG, JPG images accepted</span
-          >
+            <label for="cnicImage" class="form-label">Upload CNIC Picture
+                <span class="badge text-danger fs-20">*</span>
+            </label>
+            <input type="file" class="form-control" id="cnicImage" name="cnicImage"
+                accept="image/png,image/PNG, image/jpg, image/jpeg" />
+            <span class="text-body-secondary fs-14 mt-3">Only PNG, JPEG, JPG images accepted</span>
+            <p id="cnicImageError" class="text-danger small"></p>
         </div>
+
       </div>
 
       <!-- EVENT DETAILS -->
@@ -182,44 +122,40 @@
 
 
             <div class="form-check">
-                <input class="form-check-input RegisterAs" type="radio" name="RegisterAs" value="participant"
-                    id="RegisterAsParticipant" />
+                <input class="form-check-input RegisterAs" type="radio" name="RegisterAs" value="participant" id="RegisterAsParticipant" />
                 <label class="form-check-label" for="RegisterAsParticipant">Participant</label>
             </div>
 
         <div class="form-check">
             <input class="form-check-input RegisterAs" type="radio" name="RegisterAs" value="participantAndSocialEvent"
                 id="RegisterAsParticipantAndSocialEvent" />
-        
             <label class="form-check-label" for="RegisterAsParticipantAndSocialEvent">Participant + Social Event</label>
         </div>
+        <p id="sportsSelectError" class="text-danger small"></p>
         </div>
+
         
-        <div
-          class="mb-3 border-start ps-3 ms-3"
-          id="sports"
-          style="display: none"
-        >
+        <div class="mb-3 border-start ps-3 ms-3" id="sports" style="display: none">
           <label for="selectsport" class="form-label">Select Sport</label>
 
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="Futsal" value="Futsal" id="Futsal">
-                        <label class="form-check-label" for="Futsal">
-                            Futsal
-                        </label>
-                    </div>
-                    <div class="mb-3 mt-2 ms-4 border-start ps-2" id="FutsalPlayersDiv" style="display: none;">
-                        <label for="FutsalPlayers" class="form-label">Team Players</label>
-                        <input type="number" class="form-control FutsalPlayers" id="FutsalPlayers" name="FutsalPlayers" min="4"
-                            max="7" placeholder="Enter Total Team Players (4-7)" />
-                            <span class="text-body-secondary fs-14 mt-3">
-                                Please enter the remaining team players.
-                            </span>
-                        <div id="FutsalPlayersError" class="text-danger" style="display: none;"></div>
-                        <div id="playersDetailsDiv">
-                            <!-- Player details will be dynamically added here -->
-                        </div>
-                    </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="Futsal" value="Futsal" id="Futsal">
+                <label class="form-check-label" for="Futsal">
+                    Futsal
+                </label>
+            </div>
+            <div class="mb-3 mt-2 ms-4 border-start ps-2" id="FutsalPlayersDiv" style="display: none;">
+                <label for="FutsalPlayers" class="form-label">Team Players</label>
+                <input type="number" class="form-control FutsalPlayers" id="FutsalPlayers" name="FutsalPlayers" min="4" max="7"
+                    placeholder="Enter Total Team Players (4-7)" />
+                <span class="text-body-secondary fs-14 mt-3">
+                    Please enter the remaining team players.
+                </span>
+                <div id="FutsalPlayersError" class="text-danger" style="display: none;"></div>
+                <div id="playersDetailsDiv">
+                    <!-- Player details will be dynamically added here -->
+                </div>
+            </div>
 
 
                     <div class="form-check">
@@ -716,7 +652,7 @@
             </label>
             <input type="file" class="form-control" name="paymentScreenshot" id="paymentScreenshot" accept="image/png,image/PNG, image/jpg, image/jpeg" />
             <span class="text-body-secondary fs-14 mt-3">Only PNG, JPEG, JPG images accepted</span>
-
+            <p id="paymentScreenshotError" class="text-danger small"></p>
         </div>
     </div>
   </div>
