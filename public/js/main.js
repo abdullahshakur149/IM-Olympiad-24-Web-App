@@ -594,8 +594,8 @@
         totalPrice = observerPrice;
 
         if (isIMSciencesStudent) {
-          totalPrice = 0;
-          $("#dicountPrice").text("RS. " + 3000);
+          totalPrice = 2500;
+          $("#dicountPrice").text("RS. " + discount);
         }
         else {
           $("#dicountPrice").text("-");
@@ -737,7 +737,7 @@
     // Function to toggle the visibility of the total price div
     function toggleTotalPriceDiv() {
       var hasCheckedSport = $('input[type="checkbox"]:checked').length > 0;
-      if ($("#RegisterAsObserver").is(":checked") || hasCheckedSport) {
+      if ($("#RegisterAsObserver").is(":checked") || hasCheckedSport || $("#ObserverAndSocialEvent").is(":checked")) {
         $("#TotalPriceDiv").show();
 
       } else {
