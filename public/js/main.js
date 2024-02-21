@@ -100,15 +100,13 @@
   // Toggle student Type input
   $(document).ready(function () {
     $('input[name="studentType"]').change(function () {
+      $("#studentIdImage").val("");
+      $("#cnicImage").val("");
       if ($(this).val() === "yes") {
         
-        $("#studentIdImage").attr("required", true);
-        $("#cnicImage").removeAttr("required");
         $("#studentIdInput").fadeIn();
         $("#cnicImageDiv").fadeOut();
       } else {
-        $("#cnicImage").attr("required", true);
-        $("#studentIdImage").removeAttr("required");
         $("#studentIdInput").fadeOut();
         $("#cnicImageDiv").fadeIn();
       }
@@ -696,14 +694,11 @@
       // Show the Payment Screenshot input if the total price is > 0, add the required attribute
       // to the payment screenshot input
       if (totalPrice > 0) {
-        $("#paymentScreenshot").attr("required", true);
         $("#paymentScreenshotDiv").show();
         $("#accountDetails").show();
         
       }
       else {
-        $("#paymentScreenshot").removeAttr("required");
-        $("#finaltotalprice").val("Free");
         $("#paymentScreenshotDiv").hide();
         $("#accountDetails").hide();
       }
