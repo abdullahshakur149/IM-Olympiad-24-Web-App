@@ -30,6 +30,15 @@ exports.newRegistration = async (req, res, next) => {
             })
         }
 
+        //email exists?
+        const userEmail = await Registration.findOne({email : registrationDetails.email})
+        if (userEmail != null){
+            return res.json({
+                'status' : 'error',
+                'message' : 'Email already exists.'
+            });
+        }
+
         if (!validateEventDetails(registrationDetails)) {
             // Remove uploaded files(undo)
             for (var files of Object.keys(allFiles)) {
