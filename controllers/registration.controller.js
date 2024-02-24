@@ -376,3 +376,21 @@ exports.uploadFiles = function (req, res, next) {
         next();
     });
 };
+
+
+exports.getRegisteredUsers = async (req, res, next)=>{
+    try {
+
+        const registeredUsers = await Registration.find();
+
+        if (registeredUsers.length > 0){
+            res.locals.registered_users = registeredUsers;
+        }
+
+        next();
+
+    } catch (err) {
+        console.log(err);
+        next('Registration controller error')
+    }
+}

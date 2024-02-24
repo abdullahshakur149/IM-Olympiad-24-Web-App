@@ -9,9 +9,4 @@ router.get('/', (req, res, next) => {
     res.render('admin/admin-panel', {});
 });
 
-// Route for rendering registered users page
-router.get('/registered-users', (req, res, next) => {
-    res.render('admin/registeredUsers', {});
-});
-
 module.exports = router;
