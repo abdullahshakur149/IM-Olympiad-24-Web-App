@@ -686,17 +686,14 @@
 
       }
 
-
       // Update the total price display
       $("#finaltotalprice").val("RS. " + totalPrice);
-
 
       // Show the Payment Screenshot input if the total price is > 0, add the required attribute
       // to the payment screenshot input
       if (totalPrice > 0) {
         $("#paymentScreenshotDiv").show();
         $("#accountDetails").show();
-        
       }
       else {
         $("#paymentScreenshotDiv").hide();
@@ -728,6 +725,7 @@
         $("#socialeventstotalprice").text("-");
       }
     }
+
 
     // Function to toggle the visibility of the total price div
     function toggleTotalPriceDiv() {
