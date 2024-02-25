@@ -181,7 +181,9 @@ function reformatData(data, allFiles) {
         }
         selectedSports.push({
             sport_name: data["Badminton"],
-            matchType: data["matchType"]
+            matchType: data["matchType"],
+            player2_Data: player2Data
+
         })
     }
 
