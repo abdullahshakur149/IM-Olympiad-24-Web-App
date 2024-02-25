@@ -187,6 +187,13 @@ function reformatData(data, allFiles) {
         })
     }
 
+    // Check if Table Tennis is registered
+    if (data["TableTennis"]) {
+        selectedSports.push({
+            sport_name: "Table Tennis",
+        });
+    }
+
     if (data["BoardGames"]) {
         selectedSports.push({
             sport_name: data["BoardGames"],
