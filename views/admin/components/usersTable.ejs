@@ -1,11 +1,11 @@
 <main id="main" class="main">
 
     <div class="pagetitle">
-        <h1>Dashboard</h1>
+        <h1>Participants</h1>
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/admin-panel">Home</a></li>
-                <li class="breadcrumb-item active">Dashboard</li>
+                <li class="breadcrumb-item active">Registered Participants</li>
             </ol>
         </nav>
     </div><!-- End Page Title -->
@@ -14,14 +14,14 @@
         <div class="row"></div>
 
         <div class="table-responsive">
-            <table class="table table-bordered">
-                <thead>
+            <table class="table table-bordered shadow-sm table-hover table-rounded">
+                <thead class="table-dark">
                     <tr class="bg-light">
                         <th scope="col" style="width: 4%;">#</th>
                         <th scope="col">Name </th>
                         <th scope="col">IMS Student</th>
                         <th scope="col">Contact Number</th>
-                        <th scope="col">Action</th>
+                        <th scope="col">Details</th>
 
                     </tr>
                 </thead>
@@ -33,7 +33,7 @@
                                 <td><%=user.name%></td>
                                 <td><%=user.is_ims_student%></td>
                                 <td><%=user.contact_number%></td>
-                                <td><button type="button" class="trigger">Details</button></td>
+                                <td><a href="/user-detail" type="button" class="trigger btn btn-details"><i class="bi bi-person-lines-fill"></i></a></td>
                             </tr>
                         <% } %>
                     <% } %>

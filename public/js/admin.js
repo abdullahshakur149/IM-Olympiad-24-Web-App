@@ -27,3 +27,17 @@
     })
   }
 
+
+  function openModal(imageSrc) {
+    var modal = document.getElementById('myModal');
+    var modalImg = document.getElementById('modal-img');
+    modal.style.display = 'block';
+    modalImg.src = imageSrc;
+  }
+  function closeModal() {
+      document.getElementById('myModal').style.display = 'none';
+  }
+
+function goBack() {
+  window.history.back();
+}

@@ -1,0 +1,335 @@
+<main id="main" class="main">
+
+
+    <div class="pagetitle">
+        <div class="mb-2">
+            <button type="button" class="btn btn-secondary" onclick="goBack()"><i class="bi bi-arrow-left"></i></button>
+        </div>
+        <h1>User Details</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/admin-panel">Home</a></li>
+                <li class="breadcrumb-item active">User Details</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+
+
+    <!-- Personal Details -->
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">Personal Details</h5>
+                </div>
+                <div class="card-body">
+                    <div class="user-details mt-3">
+                        <div class="detail border-bottom pb-3">
+                            <strong>Is IMS Student?</strong>
+                            <span>Yes</span>
+                        </div>
+                        <div class="detail border-bottom pb-3">
+                            <strong>Name:</strong>
+                            <span>Muhammad Talha</span>
+                        </div>
+                        <div class="detail border-bottom pb-3">
+                            <strong>Student ID Card Picture:</strong>
+                            <img src="img/alliedBank.png" class="img-thumbnail img" alt="Student ID Picture" width="40" height="20" onclick="openModal('img/alliedBank.png')">
+                        </div>
+                        <div class="detail border-bottom pb-3">
+                            <strong>Picture:</strong>
+                            <img src="img/logo.png" class="img-thumbnail img" alt="Participant Picture" width="40" height="20" onclick="openModal('img/logo.png')">
+                        </div>
+                        <div class="detail border-bottom pb-3">
+                            <strong>Father Name:</strong>
+                            <span>Muhammad Talha</span>
+                        </div>
+                        <div class="detail border-bottom pb-3">
+                            <strong>Contact Number:</strong>
+                            <span>32323232</span>
+                        </div>
+                        <div class="detail border-bottom pb-3">
+                            <strong>Email:</strong>
+                            <span>tk97286@gmail.com</span>
+                        </div>
+                        <div class="detail border-bottom pb-3">
+                            <strong>CNIC:</strong>
+                            <span>17301-4566454-5</span>
+                        </div>
+                        <div class="detail ">
+                            <strong>CNIC Picture:</strong>
+                            <img src="img/brand/1.png" class="img-thumbnail img" alt="CNIC Picture" width="40" height="20" onclick="openModal('img/brand/1.png')">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image Modal -->
+                <div id="myModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal()">&times;</span>
+                        <img id="modal-img" class="" alt="Modal Image">
+                    </div>
+                </div>
+                 <!-- Image Modal Ends -->
+
+            </div>
+        </div>
+        <!-- Personal Detail Ends -->
+
+
+
+        <!-- Event Details -->
+        <div class="col-12 col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">Event Details</h5>
+                </div>
+                <div class="card-body">
+                    <div class="user-details mt-3">
+                        <div class="detail border-bottom pb-3">
+                            <strong>Registered As</strong>
+                            <span>Participant</span>
+                        </div>
+                        <div class="detail border-bottom pb-3">
+                            <strong>Selected Sports</strong>
+                            <div class="selected-sports">
+                                <div class="sport-tag">Futsal</div>
+                                <div class="sport-tag">Basketball</div>
+                                <div class="sport-tag">Badminton</div>
+                            </div>
+                        </div>
+                        <div class=" border-bottom pb-3 mt-3">
+                            <a class="btn btn-primary" data-bs-toggle="collapse" href="#futsalPlayers" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                Futsal Team
+                              </a>
+                              <div class="collapse mt-2" id="futsalPlayers">
+                                <div class="card card-body border p-3">
+                                    <div class="teamPlayerDetails pb-3">
+                                        <h6 class="border-bottom text-primary pb-2"><b>Player 1 Details</b></h6>
+                                    <div class="detail border-bottom pb-3">
+                                        <strong>Is IMS Student?</strong>
+                                        <span>Yes</span>
+                                    </div>
+                                    
+                            
+                                    <div class="detail border-bottom pb-3">
+                                        <strong>Name:</strong>
+                                        <span>Muhammad Talha</span>
+                                    </div>
+                                    <div class="detail border-bottom pb-3">
+                                        <strong>Student ID Card Picture:</strong>
+                                        <img src="img/alliedBank.png" class="img-thumbnail img" alt="Student ID Picture" width="40" height="20" onclick="openModal('img/alliedBank.png')">
+                                    </div>
+                                    <div class="detail border-bottom pb-3">
+                                        <strong>Picture:</strong>
+                                        <img src="img/logo.png" class="img-thumbnail img" alt="Participant Picture" width="40" height="20" onclick="openModal('img/logo.png')">
+                                    </div>
+                                    
+                                    <div class="detail border-bottom pb-3">
+                                        <strong>Contact Number:</strong>
+                                        <span>32323232</span>
+                                    </div>
+                                    
+                                    <div class="detail border-bottom pb-3">
+                                        <strong>CNIC:</strong>
+                                        <span>17301-4566454-5</span>
+                                    </div>
+                                    <div class="detail border-bottom pb-3">
+                                        <strong>CNIC Picture:</strong>
+                                        <img src="img/brand/1.png" class="img-thumbnail img" alt="CNIC Picture" width="40" height="20" onclick="openModal('img/brand/1.png')">
+                                    </div>
+                                    <div class="detail border-bottom pb-3">
+                                        <strong>Player attending the social event?</strong>
+                                        <span>Yes</span>
+                                    </div>
+                                    </div>
+                                    <div class="teamPlayerDetails pb-3">
+                                        <h6 class="border-bottom text-primary pb-2"><b>Player 2 Details</b></h6>
+                                    <div class="detail border-bottom pb-3">
+                                        <strong>Is IMS Student?</strong>
+                                        <span>Yes</span>
+                                    </div>
+                                    <div class="detail border-bottom pb-3">
+                                        <strong>Name:</strong>
+                                        <span>Muhammad Talha</span>
+                                    </div>
+                                    <div class="detail border-bottom pb-3">
+                                        <strong>Student ID Card Picture:</strong>
+                                        <img src="img/alliedBank.png" class="img-thumbnail img" alt="Student ID Picture" width="40" height="20" onclick="openModal('img/alliedBank.png')">
+                                    </div>
+                                    <div class="detail border-bottom pb-3">
+                                        <strong>Picture:</strong>
+                                        <img src="img/logo.png" class="img-thumbnail img" alt="Participant Picture" width="40" height="20" onclick="openModal('img/logo.png')">
+                                    </div>
+                                    
+                                    <div class="detail border-bottom pb-3">
+                                        <strong>Contact Number:</strong>
+                                        <span>32323232</span>
+                                    </div>
+                                    
+                                    <div class="detail border-bottom pb-3">
+                                        <strong>CNIC:</strong>
+                                        <span>17301-4566454-5</span>
+                                    </div>
+                                    <div class="detail border-bottom pb-3">
+                                        <strong>CNIC Picture:</strong>
+                                        <img src="img/brand/1.png" class="img-thumbnail img" alt="CNIC Picture" width="40" height="20" onclick="openModal('img/brand/1.png')">
+                                    </div>
+                                    <div class="detail border-bottom pb-3">
+                                        <strong>Player attending the social event?</strong>
+                                        <span>No</span>
+                                    </div>
+                                    </div>
+                                </div>
+                              </div>
+                        </div>
+                        <div class=" border-bottom pb-3 mt-3">
+                            <a class="btn btn-primary" data-bs-toggle="collapse" href="#basketBallPlayers" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                Basketball Team
+                              </a>
+                              <div class="collapse mt-2" id="basketBallPlayers">
+                                <div class="card card-body border p-3">
+                                    <div class="teamPlayerDetails pb-3">
+                                        <h6 class="border-bottom text-primary pb-2"><b>Player 1 Details</b></h6>
+                                    <div class="detail border-bottom pb-3">
+                                        <strong>Is IMS Student?</strong>
+                                        <span>Yes</span>
+                                    </div>
+                                    <div class="detail border-bottom pb-3">
+                                        <strong>Name:</strong>
+                                        <span>Muhammad Talha</span>
+                                    </div>
+                                    <div class="detail border-bottom pb-3">
+                                        <strong>Student ID Card Picture:</strong>
+                                        <img src="img/alliedBank.png" class="img-thumbnail img" alt="Student ID Picture" width="40" height="20" onclick="openModal('img/alliedBank.png')">
+                                    </div>
+                                    <div class="detail border-bottom pb-3">
+                                        <strong>Picture:</strong>
+                                        <img src="img/logo.png" class="img-thumbnail img" alt="Participant Picture" width="40" height="20" onclick="openModal('img/logo.png')">
+                                    </div>
+                                    
+                                    <div class="detail border-bottom pb-3">
+                                        <strong>Contact Number:</strong>
+                                        <span>32323232</span>
+                                    </div>
+                                    
+                                    <div class="detail border-bottom pb-3">
+                                        <strong>CNIC:</strong>
+                                        <span>17301-4566454-5</span>
+                                    </div>
+                                    <div class="detail border-bottom pb-3">
+                                        <strong>CNIC Picture:</strong>
+                                        <img src="img/brand/1.png" class="img-thumbnail img" alt="CNIC Picture" width="40" height="20" onclick="openModal('img/brand/1.png')">
+                                    </div>
+                                    <div class="detail border-bottom pb-3">
+                                        <strong>Player attending the social event?</strong>
+                                        <span>Yes</span>
+                                    </div>
+                                    </div>
+                                    <div class="teamPlayerDetails pb-3">
+                                        <h6 class="border-bottom text-primary pb-2"><b>Player 2 Details</b></h6>
+                                    <div class="detail border-bottom pb-3">
+                                        <strong>Is IMS Student?</strong>
+                                        <span>Yes</span>
+                                    </div>
+                                    <div class="detail border-bottom pb-3">
+                                        <strong>Name:</strong>
+                                        <span>Muhammad Talha</span>
+                                    </div>
+                                    <div class="detail border-bottom pb-3">
+                                        <strong>Student ID Card Picture:</strong>
+                                        <img src="img/alliedBank.png" class="img-thumbnail img" alt="Student ID Picture" width="40" height="20" onclick="openModal('img/alliedBank.png')">
+                                    </div>
+                                    <div class="detail border-bottom pb-3">
+                                        <strong>Picture:</strong>
+                                        <img src="img/logo.png" class="img-thumbnail img" alt="Participant Picture" width="40" height="20" onclick="openModal('img/logo.png')">
+                                    </div>
+                                    
+                                    <div class="detail border-bottom pb-3">
+                                        <strong>Contact Number:</strong>
+                                        <span>32323232</span>
+                                    </div>
+                                    
+                                    <div class="detail border-bottom pb-3">
+                                        <strong>CNIC:</strong>
+                                        <span>17301-4566454-5</span>
+                                    </div>
+                                    <div class="detail border-bottom pb-3">
+                                        <strong>CNIC Picture:</strong>
+                                        <img src="img/brand/1.png" class="img-thumbnail img" alt="CNIC Picture" width="40" height="20" onclick="openModal('img/brand/1.png')">
+                                    </div>
+                                    <div class="detail border-bottom pb-3">
+                                        <strong>Player attending the social event?</strong>
+                                        <span>Yes</span>
+                                    </div>
+                                    </div>
+                                </div>
+                              </div>
+                        </div>
+                        <div class=" border-bottom pb-3 mt-3">
+                            <a class="btn btn-primary" data-bs-toggle="collapse" href="#badmintonPlayer" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                Badminton Team 
+                              </a>
+                              <div class="collapse mt-2" id="badmintonPlayer">
+                                <div class="card card-body border p-3">
+                                    <div class="teamPlayerDetails pb-3">
+                                        <h6 class="border-bottom text-primary pb-2"><b>Player 2 Details</b></h6>
+                                    <div class="detail border-bottom pb-3">
+                                        <strong>Is IMS Student?</strong>
+                                        <span>Yes</span>
+                                    </div>
+                                    <div class="detail border-bottom pb-3">
+                                        <strong>Name:</strong>
+                                        <span>Muhammad Talha</span>
+                                    </div>
+                                    <div class="detail border-bottom pb-3">
+                                        <strong>Student ID Card Picture:</strong>
+                                        <img src="img/alliedBank.png" class="img-thumbnail img" alt="Student ID Picture" width="40" height="20" onclick="openModal('img/alliedBank.png')">
+                                    </div>
+                                    <div class="detail border-bottom pb-3">
+                                        <strong>Picture:</strong>
+                                        <img src="img/logo.png" class="img-thumbnail img" alt="Participant Picture" width="40" height="20" onclick="openModal('img/logo.png')">
+                                    </div>
+                                    
+                                    <div class="detail border-bottom pb-3">
+                                        <strong>Contact Number:</strong>
+                                        <span>32323232</span>
+                                    </div>
+                                    
+                                    <div class="detail border-bottom pb-3">
+                                        <strong>CNIC:</strong>
+                                        <span>17301-4566454-5</span>
+                                    </div>
+                                    <div class="detail border-bottom pb-3">
+                                        <strong>CNIC Picture:</strong>
+                                        <img src="img/brand/1.png" class="img-thumbnail img" alt="CNIC Picture" width="40" height="20" onclick="openModal('img/brand/1.png')">
+                                    </div>
+                                    <div class="detail border-bottom pb-3">
+                                        <strong>Player attending the social event?</strong>
+                                        <span>Yes</span>
+                                    </div>
+                                    </div>
+                                    
+                                </div>
+                              </div>
+                        </div>
+
+                        <div class="detail border-bottom pb-3 mt-3">
+                            <strong>Ambassador</strong>
+                            <span>Talha</span>
+                        </div>
+                        <div class="detail border-bottom pb-3">
+                            <strong>Payment Screenshot:</strong>
+                            <img src="img/payment.jpg" class="img-thumbnail img" alt="Payment Screenshot" width="40" height="20" onclick="openModal('img/payment.jpg')">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Event Details Ends -->
+
+
+    </div>
+
+
+</main>
