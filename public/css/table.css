@@ -31,7 +31,17 @@ body {
 .green {
     color: green;
 }
+.btn-details{
+    background-color: #243064;
+    color: #fff;
+    transition: 0.3s all;
+}
+.btn-details:hover{
+    background-color: #0e1433;
+    color: #fff;
+}
 
-.table-responsive{
-    
+.table-rounded{
+    border-radius: 10px;
+    overflow: hidden;
 }
