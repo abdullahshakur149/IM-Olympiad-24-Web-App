@@ -72,9 +72,13 @@
  </div>
 <!-- bradcam_area end -->
 
-<div class="moving-message mt-2 " id="movingMessage">
-    <p class="text-danger">Last date for registration is 28th February  2024</p>
+<div class="container">
+    <div class="countdown-timer mt-2 mx-auto" id="countdownTimer">
+        <p><b><span class="emoji">📅</span> Time Remaining for registration is <span id="countdown"></span> <span class="emoji">⏰</span></b></p>
+    </div>
 </div>
+
+
 
 
 <!-- about_area_start  -->
@@ -363,17 +367,37 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 
-<script>
-    // Anime.js animation
-    anime({
-            targets: '#movingMessage',
-            translateX: [-1000, window.innerWidth + 1000], // Move from left to right
-            duration: 60000, // Duration in milliseconds (60 seconds)
-            easing: 'linear', // Linear easing for constant speed
-            loop: true, // Loop the animation infinitely
-            delay: 1000 // Delay before restarting the animation (in milliseconds)
-        });
-</script>
+ <script>
+   // Set the deadline date (replace with your desired deadline date)
+const deadline = new Date('February 28, 2024 23:59:59').getTime();
+
+// Update the countdown every second
+const timerInterval = setInterval(updateCountdown, 1000);
+
+function updateCountdown() {
+    
+    const now = new Date().getTime();
+    
+    
+    const distance = deadline - now;
+
+   
+    if (distance < 0) {
+        clearInterval(timerInterval);
+        document.getElementById('countdown').innerHTML = 'Deadline passed';
+    } else {
+        
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        
+        document.getElementById('countdown').innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+}
+
+</script> 
 
 
 </body>

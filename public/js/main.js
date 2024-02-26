@@ -861,7 +861,7 @@
           
           <div class="mb-2">
               <label for="playerCnic${i}" class="form-label">CNIC <span class="badge text-danger fs-20">*</span></label>
-              <input type="text" class="form-control" name="playerCnic${i}" id="playerCnic${i}" placeholder="Enter Player CNIC" />
+              <input type="number" class="form-control" name="playerCnic${i}" id="playerCnic${i}" placeholder="Enter Player CNIC" />
           </div>
           <div class="mb-2" id='playerCnicImgDiv${i}' style='display:none;'>
               <label for="playerCnicImg${i}" class="form-label">Player CNIC <span class="badge text-danger fs-20">*</span></label>
@@ -982,7 +982,7 @@
              
               <div class="mb-2">
                   <label for="basketballPlayerCnic${i}" class="form-label">CNIC <span class="badge text-danger fs-20">*</span></label>
-                  <input type="email" class="form-control" name="basketballPlayerCnic${i}" id="basketballPlayerCnic${i}" placeholder="Enter Player CNIC" />
+                  <input type="number" class="form-control" name="basketballPlayerCnic${i}" id="basketballPlayerCnic${i}" placeholder="Enter Player CNIC" />
               </div>
               
               <div class="mb-2" id='basketballPlayerCnicImgDiv${i}' style="display:none;>
