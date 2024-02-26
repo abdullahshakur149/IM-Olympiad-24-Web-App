@@ -6033,6 +6033,56 @@ h6 {
 }
 
 
+.moving-message {
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+}
+
+.moving-message p {
+  animation: moveMessage 10s linear infinite;
+  margin: 0;
+  padding: 10px;
+  color: #fff;
+  background-color: #f8d7da; /* Background color for emphasis */
+  border-radius: 5px; /* Rounded corners */
+  font-size: 16px;
+  display: inline-block;
+}
+
+.moving-message .emoji {
+  margin-right: 5px; /* Add spacing between emoji and text */
+}
+
+.date {
+  font-weight: bold; /* Emphasize the date */
+}
+
+@keyframes moveMessage {
+  0% {
+      transform: translateX(100%);
+  }
+  100% {
+      transform: translateX(-100%);
+  }
+}
+
+
+.countdown-timer p {
+  margin: 0;
+  padding: 10px;
+  background-color: #f8d7da;
+  border-radius: 5px;
+  font-size: 16px;
+  display: inline-block;
+}
+
+.countdown-timer .emoji {
+  margin-right: 5px;
+}
+
+
+
 
 
 /*# sourceMappingURL=style.css.map */
