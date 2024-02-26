@@ -183,137 +183,65 @@
 
 
           <div class="form-check">
-            <input
-              class="form-check-input"
-              type="checkbox"
-              name="Badminton"
-              value="Badminton"
-              id="Badminton"
-            />
+            <input class="form-check-input" type="checkbox" name="Badminton" value="Badminton" id="Badminton" />
             <label class="form-check-label" for="Badminton"> Badminton </label>
           </div>
-          <div
-            class="mb-3 mt-2 ms-4 border-start ps-2"
-            id="BadmintonTypeDiv"
-            style="display: none"
-          >
+          <div class="mb-3 mt-2 ms-4 border-start ps-2" id="BadmintonTypeDiv" style="display: none">
             <label for="BadmintonType" class="form-label">Match Type</label>
             <div class="form-check">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="matchType"
-                
-                value="single"
-                id="single"
-                checked
-              />
-
+              <input class="form-check-input" type="radio" name="matchType" value="single" id="single" checked />
               <label class="form-check-label" for="single">Single</label>
             </div>
+
             <div class="form-check">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="matchType"
-                value="double"
-                id="double"
-              />
+              <input class="form-check-input" type="radio" name="matchType" value="double" id="double" />
               <label class="form-check-label" for="double">Double</label>
             </div>
-            <div
-              class="mb-3 mt-3 ps-2 border-start ms-3"
-              id="BadmintonSecondPlayerDetailsDiv"
-              style="display: none"
-            >
+            
+            <div class="mb-3 mt-3 ps-2 border-start ms-3" id="BadmintonSecondPlayerDetailsDiv" style="display: none">
               <label for="badmintonPlayerDetails">Player 2 Details:</label>
-
+          
               <div class="mb-2">
-                <label for="badmintonSecondPlayerType" class="form-label"
-                  >Is the player a student at IMSciences?
+                <label for="badmintonSecondPlayerType" class="form-label">Is the player a student at IMSciences?
                   <span class="badge text-danger fs-20">*</span>
                 </label>
                 <div class="form-check">
-                  <input
-                    class="form-check-input badmintonSecondPlayerType"
-                    type="radio"
-                    name="badmintonSecondPlayerType"
-                    value="yes"
-                    id="badmintonSecondPlayerTypeYes"
-                  />
-                  <label
-                    class="form-check-label"
-                    for="badmintonSecondPlayerTypeYes"
-                    >Yes</label
-                  >
+                  <input class="form-check-input badmintonSecondPlayerType" type="radio" name="badmintonSecondPlayerType"
+                    value="yes" id="badmintonSecondPlayerTypeYes" />
+                  <label class="form-check-label" for="badmintonSecondPlayerTypeYes">Yes</label>
                 </div>
                 <div class="form-check">
-                  <input
-                    class="form-check-input badmintonSecondPlayerType"
-                    type="radio"
-                    name="badmintonSecondPlayerType"
-                    value="no"
-                    id="badmintonSecondPlayerTypeNo"
-                  />
-                  <label
-                    class="form-check-label"
-                    for="badmintonSecondPlayerTypeNo"
-                    >No</label
-                  >
+                  <input class="form-check-input badmintonSecondPlayerType" type="radio" name="badmintonSecondPlayerType"
+                    value="no" id="badmintonSecondPlayerTypeNo" />
+                  <label class="form-check-label" for="badmintonSecondPlayerTypeNo">No</label>
                 </div>
-                <div
-                  class="border-start ps-2 ms-3"
-                  id="badmintonSecondPlayerTypeDiv"
-                  style="display: none"
-                >
+                <div class="border-start ps-2 ms-3" id="badmintonSecondPlayerTypeDiv" style="display: none">
                   <div class="mb-2">
-                    <label for="badmintonSecondPlayerId" class="form-label"
-                      >Upload student ID card
+                    <label for="badmintonSecondPlayerId" class="form-label">Upload student ID card
                       <span class="badge text-danger fs-20">*</span>
                     </label>
-                    <input
-                      type="file"
-                      class="form-control"
-                      name="badmintonSecondPlayerId"
-                      id="badmintonSecondPlayerId"
-                      accept="image/png,image/PNG, image/jpg, image/jpeg"
-                    />
-                    <span class="text-body-secondary fs-14 mt-3"
-                      >Only PNG, JPEG, JPG images accepted</span
-                    >
+                    <input type="file" class="form-control" name="badmintonSecondPlayerId" id="badmintonSecondPlayerId"
+                      accept="image/png,image/PNG, image/jpg, image/jpeg" />
+                    <span class="text-body-secondary fs-14 mt-3">Only PNG, JPEG, JPG images accepted</span>
                   </div>
                 </div>
               </div>
               <div class="mb-2">
-                <label for="badmintonSecondPlayerImage" class="form-label"
-                  >Upload Player Picture
+                <label for="badmintonSecondPlayerImage" class="form-label">Upload Player Picture
                   <span class="badge text-danger fs-20">*</span>
                 </label>
-                <input
-                  type="file"
-                  class="form-control"
-                  name="badmintonSecondPlayerImage"
-                  id="badmintonSecondPlayerImage"
-                  accept="image/png,image/PNG, image/jpg, image/jpeg"
-                />
-                <span class="text-body-secondary fs-14 mt-3"
-                  >Only PNG, JPEG, JPG images accepted</span
-                >
+                <input type="file" class="form-control" name="badmintonSecondPlayerImage" id="badmintonSecondPlayerImage"
+                  accept="image/png,image/PNG, image/jpg, image/jpeg" />
+                <span class="text-body-secondary fs-14 mt-3">Only PNG, JPEG, JPG images accepted</span>
               </div>
               <div class="mb-2">
-                <label for="badmintonSecondPlayerName" class="form-label"
-                  >Name
+                <label for="badmintonSecondPlayerName" class="form-label">Name
                   <span class="badge text-danger fs-20">*</span>
                 </label>
-                <input
-                  type="text"
-                  class="form-control"
-                  name="badmintonSecondPlayerName"
-                  id="badmintonSecondPlayerName"
-                  placeholder="Enter Player Name"
-                />
+                <input type="text" class="form-control" name="badmintonSecondPlayerName" id="badmintonSecondPlayerName"
+                  placeholder="Enter Player Name" />
               </div>
-
+          
               <div class="mb-2">
                 <label for="badmintonSecondPlayerContact" class="form-label">Contact Number
                   <span class="badge text-danger fs-20">*</span>
@@ -321,7 +249,7 @@
                 <input type="number" class="form-control" name="badmintonSecondPlayerContact" id="badmintonSecondPlayerContact"
                   placeholder="Enter Player Contact Number" />
               </div>
-
+          
               <div class="mb-2">
                 <label for="badmintonSecondPlayerCnic" class="form-label">CNIC
                   <span class="badge text-danger fs-20">*</span>
@@ -329,7 +257,7 @@
                 <input type="number" class="form-control" name="badmintonSecondPlayerCnic" id="badmintonSecondPlayerCnic"
                   placeholder="Enter Player CNIC" />
               </div>
-
+          
               <div class="mb-2" id="badmintonSecondPlayerCnicImageDiv">
                 <label for="badmintonSecondPlayerCnicImage" class="form-label">Player CNIC
                   <span class="badge text-danger fs-20">*</span>
@@ -338,7 +266,7 @@
                   accept="image/png,image/PNG, image/jpg, image/jpeg" />
                 <span class="text-body-secondary fs-14 mt-3">Only PNG, JPEG, JPG images accepted</span>
               </div>
-
+          
               <div class="badmintonSecondPlayerSocialEventDiv" id="badmintonSecondPlayerSocialEventDiv" style="display: none">
                 <label for="badmintonSecondPlayerAttendSocialEvent" class="form-label">Does the player wish to attend the social
                   event?
@@ -355,7 +283,7 @@
                   <label class="form-check-label" for="badmintonSecondPlayerAttendSocialEventNo">No</label>
                 </div>
               </div>
-
+          
             </div>
           </div>
 
