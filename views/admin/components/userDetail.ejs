@@ -22,55 +22,49 @@
                 <div class="card-header">
                     <h5 class="card-title">Personal Details</h5>
                 </div>
+                
                 <div class="card-body">
                     <div class="user-details mt-3">
-                        <div class="detail border-bottom pb-3">
-                            <strong>Is IMS Student?</strong>
-                            <span>Yes</span>
-                        </div>
-                        <div class="detail border-bottom pb-3">
-                            <strong>Name:</strong>
-                            <span>Muhammad Talha</span>
-                        </div>
-                        <div class="detail border-bottom pb-3">
-                            <strong>Student ID Card Picture:</strong>
-                            <img src="img/alliedBank.png" class="img-thumbnail img" alt="Student ID Picture" width="40" height="20" onclick="openModal('img/alliedBank.png')">
-                        </div>
-                        <div class="detail border-bottom pb-3">
-                            <strong>Picture:</strong>
-                            <img src="img/logo.png" class="img-thumbnail img" alt="Participant Picture" width="40" height="20" onclick="openModal('img/logo.png')">
-                        </div>
-                        <div class="detail border-bottom pb-3">
-                            <strong>Father Name:</strong>
-                            <span>Muhammad Talha</span>
-                        </div>
-                        <div class="detail border-bottom pb-3">
-                            <strong>Contact Number:</strong>
-                            <span>32323232</span>
-                        </div>
-                        <div class="detail border-bottom pb-3">
-                            <strong>Email:</strong>
-                            <span>tk97286@gmail.com</span>
-                        </div>
-                        <div class="detail border-bottom pb-3">
-                            <strong>CNIC:</strong>
-                            <span>17301-4566454-5</span>
-                        </div>
-                        <div class="detail ">
-                            <strong>CNIC Picture:</strong>
-                            <img src="img/brand/1.png" class="img-thumbnail img" alt="CNIC Picture" width="40" height="20" onclick="openModal('img/brand/1.png')">
-                        </div>
+                        <% if (personal_details) {%>
+                            <div class="detail border-bottom pb-3">
+                                <strong>Is IMS Student?</strong>
+                                <span><%=personal_details.is_ims_student %></span>
+                            </div>
+                            <div class="detail border-bottom pb-3">
+                                <strong>Name:</strong>
+                                <span><%=personal_details.name%></span>
+                            </div>
+                            <div class="detail border-bottom pb-3">
+                                <strong>Student ID Card Picture:</strong>
+                                <img src="<%=personal_details.studentIdImage%>" class="img-thumbnail img" alt="Student ID Picture" width="40" height="20" onclick="openModal('<%=personal_details.studentIdImage%>')">
+                            </div>
+                            <div class="detail border-bottom pb-3">
+                                <strong>Picture:</strong>
+                                <img src="<%=personal_details.studentImage%>" class="img-thumbnail img" alt="Participant Picture" width="40" height="20" onclick="openModal('<%=personal_details.studentImage%>')">
+                            </div>
+                            <div class="detail border-bottom pb-3">
+                                <strong>Father Name:</strong>
+                                <span><%=personal_details.father_name%></span>
+                            </div>
+                            <div class="detail border-bottom pb-3">
+                                <strong>Contact Number:</strong>
+                                <span><%=personal_details.contact_number%></span>
+                            </div>
+                            <div class="detail border-bottom pb-3">
+                                <strong>Email:</strong>
+                                <span><%=personal_details.email%></span>
+                            </div>
+                            <div class="detail border-bottom pb-3">
+                                <strong>CNIC:</strong>
+                                <span><%=personal_details.cnic%></span>
+                            </div>
+                            <div class="detail ">
+                                <strong>CNIC Picture:</strong>
+                                <img src="<%=personal_details.cnicImage%>" class="img-thumbnail img" alt="CNIC Picture" width="40" height="20" onclick="openModal('<%=personal_details.cnicImage%>')">
+                            </div>
+                        <% } %>
                     </div>
                 </div>
-
-                <!-- Image Modal -->
-                <div id="myModal" class="modal">
-                    <div class="modal-content">
-                        <span class="close" onclick="closeModal()">&times;</span>
-                        <img id="modal-img" class="" alt="Modal Image">
-                    </div>
-                </div>
-                 <!-- Image Modal Ends -->
 
             </div>
         </div>
@@ -86,252 +80,213 @@
                 </div>
                 <div class="card-body">
                     <div class="user-details mt-3">
-                        <div class="detail border-bottom pb-3">
-                            <strong>Registered As</strong>
-                            <span>Participant</span>
-                        </div>
-                        <div class="detail border-bottom pb-3">
-                            <strong>Selected Sports</strong>
-                            <div class="selected-sports">
-                                <div class="sport-tag">Futsal</div>
-                                <div class="sport-tag">Basketball</div>
-                                <div class="sport-tag">Badminton</div>
+                        <% if (event_details) {%>
+                            <div class="detail border-bottom pb-3">
+                                <strong>Registered As</strong>
+                                <span><%=event_details.register_as%></span>
                             </div>
-                        </div>
-                        <div class=" border-bottom pb-3 mt-3">
-                            <a class="btn btn-primary" data-bs-toggle="collapse" href="#futsalPlayers" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                Futsal Team
-                              </a>
-                              <div class="collapse mt-2" id="futsalPlayers">
-                                <div class="card card-body border p-3">
-                                    <div class="teamPlayerDetails pb-3">
-                                        <h6 class="border-bottom text-primary pb-2"><b>Player 1 Details</b></h6>
-                                    <div class="detail border-bottom pb-3">
-                                        <strong>Is IMS Student?</strong>
-                                        <span>Yes</span>
-                                    </div>
-                                    
-                            
-                                    <div class="detail border-bottom pb-3">
-                                        <strong>Name:</strong>
-                                        <span>Muhammad Talha</span>
-                                    </div>
-                                    <div class="detail border-bottom pb-3">
-                                        <strong>Student ID Card Picture:</strong>
-                                        <img src="img/alliedBank.png" class="img-thumbnail img" alt="Student ID Picture" width="40" height="20" onclick="openModal('img/alliedBank.png')">
-                                    </div>
-                                    <div class="detail border-bottom pb-3">
-                                        <strong>Picture:</strong>
-                                        <img src="img/logo.png" class="img-thumbnail img" alt="Participant Picture" width="40" height="20" onclick="openModal('img/logo.png')">
-                                    </div>
-                                    
-                                    <div class="detail border-bottom pb-3">
-                                        <strong>Contact Number:</strong>
-                                        <span>32323232</span>
-                                    </div>
-                                    
-                                    <div class="detail border-bottom pb-3">
-                                        <strong>CNIC:</strong>
-                                        <span>17301-4566454-5</span>
-                                    </div>
-                                    <div class="detail border-bottom pb-3">
-                                        <strong>CNIC Picture:</strong>
-                                        <img src="img/brand/1.png" class="img-thumbnail img" alt="CNIC Picture" width="40" height="20" onclick="openModal('img/brand/1.png')">
-                                    </div>
-                                    <div class="detail border-bottom pb-3">
-                                        <strong>Player attending the social event?</strong>
-                                        <span>Yes</span>
-                                    </div>
-                                    </div>
-                                    <div class="teamPlayerDetails pb-3">
-                                        <h6 class="border-bottom text-primary pb-2"><b>Player 2 Details</b></h6>
-                                    <div class="detail border-bottom pb-3">
-                                        <strong>Is IMS Student?</strong>
-                                        <span>Yes</span>
-                                    </div>
-                                    <div class="detail border-bottom pb-3">
-                                        <strong>Name:</strong>
-                                        <span>Muhammad Talha</span>
-                                    </div>
-                                    <div class="detail border-bottom pb-3">
-                                        <strong>Student ID Card Picture:</strong>
-                                        <img src="img/alliedBank.png" class="img-thumbnail img" alt="Student ID Picture" width="40" height="20" onclick="openModal('img/alliedBank.png')">
-                                    </div>
-                                    <div class="detail border-bottom pb-3">
-                                        <strong>Picture:</strong>
-                                        <img src="img/logo.png" class="img-thumbnail img" alt="Participant Picture" width="40" height="20" onclick="openModal('img/logo.png')">
-                                    </div>
-                                    
-                                    <div class="detail border-bottom pb-3">
-                                        <strong>Contact Number:</strong>
-                                        <span>32323232</span>
-                                    </div>
-                                    
-                                    <div class="detail border-bottom pb-3">
-                                        <strong>CNIC:</strong>
-                                        <span>17301-4566454-5</span>
-                                    </div>
-                                    <div class="detail border-bottom pb-3">
-                                        <strong>CNIC Picture:</strong>
-                                        <img src="img/brand/1.png" class="img-thumbnail img" alt="CNIC Picture" width="40" height="20" onclick="openModal('img/brand/1.png')">
-                                    </div>
-                                    <div class="detail border-bottom pb-3">
-                                        <strong>Player attending the social event?</strong>
-                                        <span>No</span>
-                                    </div>
-                                    </div>
+                            <div class="detail border-bottom pb-3">
+                                <strong>Selected Sports</strong>
+                                <div class="selected-sports">
+                                    <% if (typeof event_details.selected_sports != undefined && event_details.selected_sports.length > 0) {%>
+                                        <% for (let sport of event_details.selected_sports) {%>
+                                            <div class="sport-tag"><%=sport%></div>
+                                        <% } %>
+                                    <% } %>
+                                            
                                 </div>
-                              </div>
-                        </div>
-                        <div class=" border-bottom pb-3 mt-3">
-                            <a class="btn btn-primary" data-bs-toggle="collapse" href="#basketBallPlayers" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                Basketball Team
-                              </a>
-                              <div class="collapse mt-2" id="basketBallPlayers">
-                                <div class="card card-body border p-3">
-                                    <div class="teamPlayerDetails pb-3">
-                                        <h6 class="border-bottom text-primary pb-2"><b>Player 1 Details</b></h6>
-                                    <div class="detail border-bottom pb-3">
-                                        <strong>Is IMS Student?</strong>
-                                        <span>Yes</span>
-                                    </div>
-                                    <div class="detail border-bottom pb-3">
-                                        <strong>Name:</strong>
-                                        <span>Muhammad Talha</span>
-                                    </div>
-                                    <div class="detail border-bottom pb-3">
-                                        <strong>Student ID Card Picture:</strong>
-                                        <img src="img/alliedBank.png" class="img-thumbnail img" alt="Student ID Picture" width="40" height="20" onclick="openModal('img/alliedBank.png')">
-                                    </div>
-                                    <div class="detail border-bottom pb-3">
-                                        <strong>Picture:</strong>
-                                        <img src="img/logo.png" class="img-thumbnail img" alt="Participant Picture" width="40" height="20" onclick="openModal('img/logo.png')">
-                                    </div>
-                                    
-                                    <div class="detail border-bottom pb-3">
-                                        <strong>Contact Number:</strong>
-                                        <span>32323232</span>
-                                    </div>
-                                    
-                                    <div class="detail border-bottom pb-3">
-                                        <strong>CNIC:</strong>
-                                        <span>17301-4566454-5</span>
-                                    </div>
-                                    <div class="detail border-bottom pb-3">
-                                        <strong>CNIC Picture:</strong>
-                                        <img src="img/brand/1.png" class="img-thumbnail img" alt="CNIC Picture" width="40" height="20" onclick="openModal('img/brand/1.png')">
-                                    </div>
-                                    <div class="detail border-bottom pb-3">
-                                        <strong>Player attending the social event?</strong>
-                                        <span>Yes</span>
-                                    </div>
-                                    </div>
-                                    <div class="teamPlayerDetails pb-3">
-                                        <h6 class="border-bottom text-primary pb-2"><b>Player 2 Details</b></h6>
-                                    <div class="detail border-bottom pb-3">
-                                        <strong>Is IMS Student?</strong>
-                                        <span>Yes</span>
-                                    </div>
-                                    <div class="detail border-bottom pb-3">
-                                        <strong>Name:</strong>
-                                        <span>Muhammad Talha</span>
-                                    </div>
-                                    <div class="detail border-bottom pb-3">
-                                        <strong>Student ID Card Picture:</strong>
-                                        <img src="img/alliedBank.png" class="img-thumbnail img" alt="Student ID Picture" width="40" height="20" onclick="openModal('img/alliedBank.png')">
-                                    </div>
-                                    <div class="detail border-bottom pb-3">
-                                        <strong>Picture:</strong>
-                                        <img src="img/logo.png" class="img-thumbnail img" alt="Participant Picture" width="40" height="20" onclick="openModal('img/logo.png')">
-                                    </div>
-                                    
-                                    <div class="detail border-bottom pb-3">
-                                        <strong>Contact Number:</strong>
-                                        <span>32323232</span>
-                                    </div>
-                                    
-                                    <div class="detail border-bottom pb-3">
-                                        <strong>CNIC:</strong>
-                                        <span>17301-4566454-5</span>
-                                    </div>
-                                    <div class="detail border-bottom pb-3">
-                                        <strong>CNIC Picture:</strong>
-                                        <img src="img/brand/1.png" class="img-thumbnail img" alt="CNIC Picture" width="40" height="20" onclick="openModal('img/brand/1.png')">
-                                    </div>
-                                    <div class="detail border-bottom pb-3">
-                                        <strong>Player attending the social event?</strong>
-                                        <span>Yes</span>
-                                    </div>
-                                    </div>
-                                </div>
-                              </div>
-                        </div>
-                        <div class=" border-bottom pb-3 mt-3">
-                            <a class="btn btn-primary" data-bs-toggle="collapse" href="#badmintonPlayer" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                Badminton Team 
-                              </a>
-                              <div class="collapse mt-2" id="badmintonPlayer">
-                                <div class="card card-body border p-3">
-                                    <div class="teamPlayerDetails pb-3">
-                                        <h6 class="border-bottom text-primary pb-2"><b>Player 2 Details</b></h6>
-                                    <div class="detail border-bottom pb-3">
-                                        <strong>Is IMS Student?</strong>
-                                        <span>Yes</span>
-                                    </div>
-                                    <div class="detail border-bottom pb-3">
-                                        <strong>Name:</strong>
-                                        <span>Muhammad Talha</span>
-                                    </div>
-                                    <div class="detail border-bottom pb-3">
-                                        <strong>Student ID Card Picture:</strong>
-                                        <img src="img/alliedBank.png" class="img-thumbnail img" alt="Student ID Picture" width="40" height="20" onclick="openModal('img/alliedBank.png')">
-                                    </div>
-                                    <div class="detail border-bottom pb-3">
-                                        <strong>Picture:</strong>
-                                        <img src="img/logo.png" class="img-thumbnail img" alt="Participant Picture" width="40" height="20" onclick="openModal('img/logo.png')">
-                                    </div>
-                                    
-                                    <div class="detail border-bottom pb-3">
-                                        <strong>Contact Number:</strong>
-                                        <span>32323232</span>
-                                    </div>
-                                    
-                                    <div class="detail border-bottom pb-3">
-                                        <strong>CNIC:</strong>
-                                        <span>17301-4566454-5</span>
-                                    </div>
-                                    <div class="detail border-bottom pb-3">
-                                        <strong>CNIC Picture:</strong>
-                                        <img src="img/brand/1.png" class="img-thumbnail img" alt="CNIC Picture" width="40" height="20" onclick="openModal('img/brand/1.png')">
-                                    </div>
-                                    <div class="detail border-bottom pb-3">
-                                        <strong>Player attending the social event?</strong>
-                                        <span>Yes</span>
-                                    </div>
-                                    </div>
-                                    
-                                </div>
-                              </div>
-                        </div>
+                            </div>
 
-                        <div class="detail border-bottom pb-3 mt-3">
-                            <strong>Ambassador</strong>
-                            <span>Talha</span>
-                        </div>
-                        <div class="detail border-bottom pb-3 mt-3">
-                            <strong>Total Amount</strong>
-                            <span>RS. 7500</span>
-                        </div>
-                        <div class="detail border-bottom pb-3">
-                            <strong>Payment Screenshot:</strong>
-                            <img src="img/payment.jpg" class="img-thumbnail img" alt="Payment Screenshot" width="40" height="20" onclick="openModal('img/payment.jpg')">
-                        </div>
+                            <!-- Futsal Team -->
+                            <% if (event_details['Futsal']) {%>
+                                <div class=" border-bottom pb-3 mt-3">
+                                    <a class="btn btn-primary" data-bs-toggle="collapse" href="#futsalPlayers" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                        <%=event_details['Futsal'].sport_name %>
+                                    </a>
+
+                                    <% for (let [index,playerData] of event_details['Futsal']['players_data'].entries()) {%>
+                                        <% index = index + 1 %>
+                                        <div class="collapse mt-2" id="futsalPlayers">
+                                            <div class="card card-body border p-3">
+                                                <div class="teamPlayerDetails pb-3">
+                                                    <h6 class="border-bottom text-primary pb-2"><b>Player <%=index%> Details</b></h6>
+                                                <div class="detail border-bottom pb-3">
+                                                    <strong>Is IMS Student?</strong>
+                                                    <span><%=playerData.ims_student%></span>
+                                                </div>
+                                                
+                                        
+                                                <div class="detail border-bottom pb-3">
+                                                    <strong>Name:</strong>
+                                                    <span><%=playerData.player_name%></span>
+                                                </div>
+                                                <div class="detail border-bottom pb-3">
+                                                    <strong>Student ID Card Picture:</strong>
+                                                    <img src="<%=event_details[`playerID${index}`]%>" class="img-thumbnail img" alt="Student ID Picture" width="40" height="20" onclick="openModal('<%=event_details[`playerID${index}`]%>')">
+                                                </div>
+                                                <div class="detail border-bottom pb-3">
+                                                    <strong>Picture:</strong>
+                                                    <img src="<%=event_details[`playerImage${index}`]%>" class="img-thumbnail img" alt="Participant Picture" width="40" height="20" onclick="openModal('<%=event_details[`playerImage${index}`]%>')">
+                                                </div>
+                                                
+                                                <div class="detail border-bottom pb-3">
+                                                    <strong>Contact Number:</strong>
+                                                    <span><%=playerData.player_contact%></span>
+                                                </div>
+                                                
+                                                <div class="detail border-bottom pb-3">
+                                                    <strong>CNIC:</strong>
+                                                    <span><%=playerData.player_cnic%></span>
+                                                </div>
+                                                <div class="detail border-bottom pb-3">
+                                                    <strong>CNIC Picture:</strong>
+                                                    <img src="<%=event_details[`playerCnicImg${index}`]%>" class="img-thumbnail img" alt="CNIC Picture" width="40" height="20" onclick="openModal('<%=event_details[`playerCnicImg${index}`]%>')">
+                                                </div>
+                                                <div class="detail border-bottom pb-3">
+                                                    <strong>Player attending the social event?</strong>
+                                                    <span>Yes</span>
+                                                </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <% } %>
+                                </div>
+                            <% } %>
+                            
+                            <!-- Basketball Team -->
+                            <% if (event_details['Basketball']) {%>
+                                <div class=" border-bottom pb-3 mt-3">
+                                    <a class="btn btn-primary" data-bs-toggle="collapse" href="#futsalPlayers" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                        <%=event_details['Basketball'].sport_name %>
+                                    </a>
+
+                                    <% for (let [index,playerData] of event_details['Basketball']['players_data'].entries()) {%>
+                                        <% index = index + 1 %>
+                                        <div class="collapse mt-2" id="futsalPlayers">
+                                            <div class="card card-body border p-3">
+                                                <div class="teamPlayerDetails pb-3">
+                                                    <h6 class="border-bottom text-primary pb-2"><b>Player <%=index%> Details</b></h6>
+                                                <div class="detail border-bottom pb-3">
+                                                    <strong>Is IMS Student?</strong>
+                                                    <span><%=playerData.ims_student%></span>
+                                                </div>
+                                                
+                                        
+                                                <div class="detail border-bottom pb-3">
+                                                    <strong>Name:</strong>
+                                                    <span><%=playerData.player_name%></span>
+                                                </div>
+                                                <div class="detail border-bottom pb-3">
+                                                    <strong>Student ID Card Picture:</strong>
+                                                    <img src="<%=event_details[`basketballplayerID${index}`]%>" class="img-thumbnail img" alt="Student ID Picture" width="40" height="20" onclick="openModal('<%=event_details[`basketballPlayerID${index}`]%>')">
+                                                </div>
+                                                <div class="detail border-bottom pb-3">
+                                                    <strong>Picture:</strong>
+                                                    <img src="<%=event_details[`basketballPlayerImage${index}`]%>" class="img-thumbnail img" alt="Participant Picture" width="40" height="20" onclick="openModal('<%=event_details[`basketballPlayerImage${index}`]%>')">
+                                                </div>
+                                                
+                                                <div class="detail border-bottom pb-3">
+                                                    <strong>Contact Number:</strong>
+                                                    <span><%=playerData.player_contact%></span>
+                                                </div>
+                                                
+                                                <div class="detail border-bottom pb-3">
+                                                    <strong>CNIC:</strong>
+                                                    <span><%=playerData.player_cnic%></span>
+                                                </div>
+                                                <div class="detail border-bottom pb-3">
+                                                    <strong>CNIC Picture:</strong>
+                                                    <img src="<%=event_details[`basketballPlayerCnicImg${index}`]%>" class="img-thumbnail img" alt="CNIC Picture" width="40" height="20" onclick="openModal('<%=event_details[`basketballPlayerCnicImg${index}`]%>')">
+                                                </div>
+                                                <div class="detail border-bottom pb-3">
+                                                    <strong>Player attending the social event?</strong>
+                                                    <span>Yes</span>
+                                                </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <% } %>
+                                </div>
+                            <% } %>
+
+                            <!-- Badminton Team -->
+                            <% if (event_details['Badminton'] && event_details['Badminton']['matchType'] == 'double') {%>
+                                <div class=" border-bottom pb-3 mt-3">
+                                    <a class="btn btn-primary" data-bs-toggle="collapse" href="#badmintonPlayer" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                        Badminton Team 
+                                    </a>
+                                    <div class="collapse mt-2" id="badmintonPlayer">
+                                        <div class="card card-body border p-3">
+                                            <div class="teamPlayerDetails pb-3">
+                                                <h6 class="border-bottom text-primary pb-2"><b>Player 2 Details</b></h6>
+                                            <div class="detail border-bottom pb-3">
+                                                <strong>Is IMS Student?</strong>
+                                                <span><%=event_details['Badminton']['player2_Data']['ims_student'] %></span>
+                                            </div>
+                                            <div class="detail border-bottom pb-3">
+                                                <strong>Name:</strong>
+                                                <span><%=event_details['Badminton']['player2_Data']['player_name'] %></span>
+                                            </div>
+                                            <div class="detail border-bottom pb-3">
+                                                <strong>Student ID Card Picture:</strong>
+                                                <img src="<%=event_details.badmintonSecondPlayerId %>" class="img-thumbnail img" alt="Student ID Picture" width="40" height="20"    onclick="openModal('<%=event_details.badmintonSecondPlayerId %>')">
+                                            </div>
+                                            <div class="detail border-bottom pb-3">
+                                                <strong>Picture:</strong>
+                                                <img src="<%=event_details.badmintonSecondPlayerImage %>" class="img-thumbnail img" alt="Participant Picture" width="40" height="20" onclick="openModal('<%=event_details.badmintonSecondPlayerImage %>')">
+                                            </div>
+                                            
+                                            <div class="detail border-bottom pb-3">
+                                                <strong>Contact Number:</strong>
+                                                <span><%=event_details['Badminton']['player2_Data']['player_contact'] %></span>
+                                            </div>
+                                            
+                                            <div class="detail border-bottom pb-3">
+                                                <strong>CNIC:</strong>
+                                                <span><%=event_details['Badminton']['player2_Data']['player_cnic'] %></span>
+                                            </div>
+                                            <div class="detail border-bottom pb-3">
+                                                <strong>CNIC Picture:</strong>
+                                                <img src="<%=event_details.badmintonSecondPlayerCnicImage%>" class="img-thumbnail img" alt="CNIC Picture" width="40" height="20" onclick="openModal('<%=event_details.badmintonSecondPlayerCnicImage%>')">
+                                            </div>
+                                            <div class="detail border-bottom pb-3">
+                                                <strong>Player attending the social event?</strong>
+                                                <span>Yes</span>
+                                            </div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            <% } %>
+
+                            <div class="detail border-bottom pb-3 mt-3">
+                                <strong>Ambassador</strong>
+                                <span><%=event_details.ambassador_name %></span>
+                            </div>
+                            <div class="detail border-bottom pb-3 mt-3">
+                                <strong>Total Amount</strong>
+                                <span><%=event_details.total_amount%></span>
+                            </div>
+                            <div class="detail border-bottom pb-3">
+                                <strong>Payment Screenshot:</strong>
+                                <img src="<%=event_details.paymentScreenshot%>" class="img-thumbnail img" alt="Payment Screenshot" width="40" height="20" onclick="openModal('<%=event_details.paymentScreenshot%>')">
+                            </div>
+                        <% } %>
                     </div>
                 </div>
             </div>
         </div>
         <!-- Event Details Ends -->
 
+        <!-- Image Modal -->
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <img id="modal-img" class="" alt="Modal Image">
+            </div>
+        </div>
+         <!-- Image Modal Ends -->
 
     </div>
 
