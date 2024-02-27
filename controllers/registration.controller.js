@@ -403,3 +403,15 @@ exports.getRegisteredUsers = async (req, res, next)=>{
         next('Registration controller error')
     }
 }
+
+exports.getRegisteredUsersCount = async () => {
+    try {
+        // Count all registrations
+        const count = await Registration.countDocuments();
+        return count;
+    } catch (err) {
+        console.error("Error fetching registered users count:", err);
+        throw err;
+    }
+};
+
