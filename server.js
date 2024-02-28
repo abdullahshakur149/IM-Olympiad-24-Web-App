@@ -57,9 +57,9 @@ app.use('/venue', venueRoute);
 app.use('/register', registerRoute);
 app.use('/admin-panel', adminPanelRoute);
 app.use('/registered-users', registeredUsersRoute);
-
-
 app.use('/login', loginRoute);
+app.use('/logout', loginRoute);
+
 
 // Error handling
 app.use((err, req, res, next) => {
