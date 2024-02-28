@@ -15,11 +15,15 @@
     <!-- CSS here -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/themify-icons/0.1.2/css/themify-icons.min.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/themify-icons/0.1.2/css/themify-icons.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gijgo@1.9.13/css/gijgo.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flaticon/3.3.0/font/flaticon.css" />
     <link rel="stylesheet" href="css/slicknav.css" />
@@ -29,376 +33,402 @@
 
     <style>
         .loader {
-            border: 16px solid #f3f3f3; /* Light grey */
-            border-top: 16px solid #3498db; /* Blue */
+            border: 16px solid #f3f3f3;
+            /* Light grey */
+            border-top: 16px solid #3498db;
+            /* Blue */
             border-radius: 50%;
             width: 60px;
             height: 60px;
             animation: spin 2s linear infinite;
-          }
-          
-          @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
             }
 
-            
+            100% {
+                transform: rotate(360deg);
+            }
+        }
     </style>
 </head>
+
 <body>
-     <!-- header-start -->
+    <!-- header-start -->
     <%- include('./components/header.ejs') %>
 
-    <!-- header-end -->
- <!-- bradcam_area -->
- <div class="bradcam_area">
-    <div class="single_bradcam  d-flex align-items-center bradcam_bg_1 overlay">
-          <div class="container">
-                <div class="row align-items-center justify-content-center">
-                   <div class="col-xl-12">
-                      <div class="bradcam_text text-center">
-                        <div class="shape_1 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
-                            <img src="img/shape/shape_1.svg" alt="">
+        <!-- header-end -->
+        <!-- bradcam_area -->
+        <div class="bradcam_area">
+            <div class="single_bradcam  d-flex align-items-center bradcam_bg_1 overlay">
+                <div class="container">
+                    <div class="row align-items-center justify-content-center">
+                        <div class="col-xl-12">
+                            <div class="bradcam_text text-center">
+                                <div class="shape_1 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
+                                    <img src="img/shape/shape_1.svg" alt="">
+                                </div>
+                                <div class="shape_2 wow fadeInDown" data-wow-duration="1s" data-wow-delay=".3s">
+                                    <img src="img/shape/shape_2.svg" alt="">
+                                </div>
+                                <h3 class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".3s">Registeration
+                                </h3>
+                            </div>
                         </div>
-                        <div class="shape_2 wow fadeInDown" data-wow-duration="1s" data-wow-delay=".3s">
-                            <img src="img/shape/shape_2.svg" alt="">
-                        </div>
-                            <h3 class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".3s">Registeration</h3>
-                      </div>
-                   </div>
+                    </div>
                 </div>
-          </div>
-       </div>
- </div>
-<!-- bradcam_area end -->
+            </div>
+        </div>
+        <!-- bradcam_area end -->
 
-<div style="text-align: center;" class="container">
-    <div class="countdown-timer mt-2 mx-auto" id="countdownTimer">
-        <p><b><span class="emoji">📅</span> Time Remaining for registration is <span id="countdown"></span> <span class="emoji">⏰</span></b></p>
-    </div>
-</div>
-
-
-
-
-<!-- about_area_start  -->
-<%- include('./components/imStudentRegister.ejs') %>
-
-<!-- about_area_end  -->
-
-<%- include('./components/footer.ejs') %>
+        <div style="text-align: center;" class="container">
+            <div class="countdown-timer">
+                <p class=" mt-2 mx-auto"><b>DeadLine Extended!</b></p>
+            </div>
+            <div class="countdown-timer mt-2 mx-auto" id="countdownTimer">
+                <p><b><span class="emoji">📅</span> Time Remaining for registration is <span id="countdown"></span>
+                        <span class="emoji">⏰</span></b></p>
+            </div>
+        </div>
 
 
 
-    <!-- JS here -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/3.5.0/modernizr.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollIt/1.0.11/jquery.scrollit.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-scrollup/2.4.1/jquery.scrollUp.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gijgo@1.9.13/js/gijgo.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
-    <script src="js/jquery.slicknav.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.4.1/tilt.jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-plugins/1.0.0/plugins.js"></script>
+
+        <!-- about_area_start  -->
+        <%- include('./components/imStudentRegister.ejs') %>
+
+            <!-- about_area_end  -->
+
+            <%- include('./components/footer.ejs') %>
 
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ajaxchimp/1.3.0/jquery.ajaxchimp.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mailchimp-api-v3/3.0.9/mailchimp-api.min.js"></script>
+                <!-- JS here -->
+                <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+                    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+                    crossorigin="anonymous"></script>
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+                    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+                    crossorigin="anonymous"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/3.5.0/modernizr.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
+                <script
+                    src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+                <script
+                    src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
+                <script
+                    src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollIt/1.0.11/jquery.scrollit.min.js"></script>
+                <script
+                    src="https://cdnjs.cloudflare.com/ajax/libs/jquery-scrollup/2.4.1/jquery.scrollUp.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/gijgo@1.9.13/js/gijgo.min.js"></script>
+                <script
+                    src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
+                <script src="js/jquery.slicknav.min.js"></script>
+                <script
+                    src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.4.1/tilt.jquery.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-plugins/1.0.0/plugins.js"></script>
 
-    <script src="/js/main.js"></script>
-    <script>
 
 
-        const form = document.querySelector('#registrationForm');
+                <script
+                    src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ajaxchimp/1.3.0/jquery.ajaxchimp.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js"></script>
+                <script
+                    src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+                <script
+                    src="https://cdnjs.cloudflare.com/ajax/libs/mailchimp-api-v3/3.0.9/mailchimp-api.min.js"></script>
 
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
+                <script src="/js/main.js"></script>
+                <script>
 
-            function validateForm() {
-                var isValid = false;
-                var studentTypeYes = document.getElementById("studentTypeYes");
-                var studentTypeNo = document.getElementById("studentTypeNo");
-                var studentTypeError = document.getElementById("studentTypeError");
 
-                // Validate Student Type
-                if (!studentTypeYes.checked && !studentTypeNo.checked) {
-                    studentTypeError.innerText = "Please select an option.";
-                    studentTypeError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    return false;
-                }
+                    const form = document.querySelector('#registrationForm');
 
-                if (studentTypeYes.checked) {
-                    studentTypeError.innerText = "";
+                    form.addEventListener('submit', (e) => {
+                        e.preventDefault();
 
-                    var studentIdImage = document.getElementById("studentIdImage");
-                    var studentIdError = document.getElementById("studentIdError");
+                        function validateForm() {
+                            var isValid = false;
+                            var studentTypeYes = document.getElementById("studentTypeYes");
+                            var studentTypeNo = document.getElementById("studentTypeNo");
+                            var studentTypeError = document.getElementById("studentTypeError");
 
-                    // Validate Student ID
-                    if (!studentIdImage.value.trim()) {
-                        studentIdError.innerText = "Please upload your student ID card.";
-                        studentIdError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                        return false;
-                    } else {
-                        studentIdError.textContent = "";
+                            // Validate Student Type
+                            if (!studentTypeYes.checked && !studentTypeNo.checked) {
+                                studentTypeError.innerText = "Please select an option.";
+                                studentTypeError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                return false;
+                            }
+
+                            if (studentTypeYes.checked) {
+                                studentTypeError.innerText = "";
+
+                                var studentIdImage = document.getElementById("studentIdImage");
+                                var studentIdError = document.getElementById("studentIdError");
+
+                                // Validate Student ID
+                                if (!studentIdImage.value.trim()) {
+                                    studentIdError.innerText = "Please upload your student ID card.";
+                                    studentIdError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                    return false;
+                                } else {
+                                    studentIdError.textContent = "";
+                                }
+                            }
+
+                            // Validate studentImage
+                            var studentImage = document.getElementById("studentImage");
+                            var studentImageError = document.getElementById("studentImageError");
+                            if (!studentImage.files.length) {
+                                studentImageError.textContent = "Please upload your picture.";
+                                studentImageError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                return false;
+                            } else {
+                                studentImageError.textContent = "";
+                            }
+
+                            // Validate name
+                            var name = document.getElementById("name");
+                            var nameError = document.getElementById("nameError");
+                            if (!name.value.trim()) {
+                                nameError.textContent = "Please enter your name.";
+                                nameError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                return false;
+                            } else {
+                                nameError.textContent = "";
+                            }
+
+                            // Validate FatherName
+                            var FatherName = document.getElementById("FatherName");
+                            var FatherNameError = document.getElementById("FatherNameError");
+                            if (!FatherName.value.trim()) {
+                                FatherNameError.textContent = "Please enter your father's name.";
+                                FatherNameError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                return false;
+                            } else {
+                                FatherNameError.textContent = "";
+                            }
+
+                            // Validate ContactNumber
+                            var ContactNumber = document.getElementById("ContactNumber");
+                            var ContactNumberError = document.getElementById("ContactNumberError");
+                            if (!ContactNumber.value.trim()) {
+                                ContactNumberError.textContent = "Please enter your contact number.";
+                                ContactNumberError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                return false;
+                            } else {
+                                ContactNumberError.textContent = "";
+                            }
+
+                            // Validate email
+                            var email = document.getElementById("email");
+                            var emailError = document.getElementById("emailError");
+                            if (!email.value.trim()) {
+                                emailError.textContent = "Please enter your email.";
+                                emailError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                return false;
+                            } else {
+                                emailError.textContent = "";
+                            }
+
+                            // Validate cnic
+                            var cnic = document.getElementById("cnic");
+                            var cnicError = document.getElementById("cnicError");
+                            if (!cnic.value.trim()) {
+                                cnicError.textContent = "Please enter your CNIC.";
+                                cnicError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                return false;
+                            } else {
+                                cnicError.textContent = "";
+                            }
+
+                            if (studentTypeNo.checked) {
+                                studentTypeError.innerText = "";
+
+                                var cnicImage = document.getElementById("cnicImage");
+                                var cnicImageError = document.getElementById("cnicImageError");
+
+                                // Validate CNIC Image
+                                if (!cnicImage.value.trim()) {
+                                    cnicImageError.innerText = "Please upload your CNIC Picture.";
+                                    cnicImageError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                    return false;
+                                } else {
+                                    cnicImageError.textContent = "";
+                                }
+                            }
+
+
+
+                            // Validate "Register as?" field
+                            var registerAsOptions = document.querySelectorAll('input[name="RegisterAs"]');
+                            var registerAsError = document.getElementById("sportsSelectError");
+                            var registerAsChecked = false;
+
+                            registerAsOptions.forEach(function (option) {
+                                if (option.checked) {
+                                    registerAsChecked = true;
+                                }
+                            });
+
+                            if (!registerAsChecked) {
+                                registerAsError.textContent = "Please select an option.";
+                                registerAsError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                return false;
+                            } else {
+                                registerAsError.textContent = "";
+                            }
+
+
+                            // Payment Screenshot Validation
+                            var paymentScreenshotError = document.getElementById("paymentScreenshotError");
+                            paymentScreenshotError.textContent = "";
+                            var paymentScreenshotInput = document.getElementById("paymentScreenshot");
+
+
+                            if (!paymentScreenshotInput.files || paymentScreenshotInput.files.length === 0) {
+                                paymentScreenshotError.textContent = "Please upload your payment screenshot.";
+                                paymentScreenshotInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                return false;
+                            }
+
+                            // If all validations pass, set isValid to true
+                            isValid = true;
+                            return isValid;
+                        }
+
+
+                        if (validateForm()) {
+                            submitForm();
+                        }
+                    });
+
+                    function submitForm() {
+                        const form = document.querySelector('#registrationForm');
+                        const formData = new FormData(form);
+
+                        // Call function to submit form data
+                        submitFormData(formData);
                     }
-                }
 
-                // Validate studentImage
-                var studentImage = document.getElementById("studentImage");
-                var studentImageError = document.getElementById("studentImageError");
-                if (!studentImage.files.length) {
-                    studentImageError.textContent = "Please upload your picture.";
-                    studentImageError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    return false;
-                } else {
-                    studentImageError.textContent = "";
-                }
+                    function submitFormData(formData) {
+                        startLoader();
+                        fetch('/register/new-registration', {
+                            method: 'POST',
+                            body: formData
+                        })
+                            .then(response => response.json())
+                            .then(response => {
+                                stopLoader();
 
-                // Validate name
-                var name = document.getElementById("name");
-                var nameError = document.getElementById("nameError");
-                if (!name.value.trim()) {
-                    nameError.textContent = "Please enter your name.";
-                    nameError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    return false;
-                } else {
-                    nameError.textContent = "";
-                }
+                                if (response.status == 'error') {
+                                    // Update error message
+                                    document.getElementById('successMessage').className = 'alert alert-danger mb-4';
+                                    document.getElementById('messageHead').textContent = 'Error!';
+                                    document.getElementById('formSubmitMessage').textContent = response.message;
+                                    document.getElementById('successMessage').style.display = 'block';
 
-                // Validate FatherName
-                var FatherName = document.getElementById("FatherName");
-                var FatherNameError = document.getElementById("FatherNameError");
-                if (!FatherName.value.trim()) {
-                    FatherNameError.textContent = "Please enter your father's name.";
-                    FatherNameError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    return false;
-                } else {
-                    FatherNameError.textContent = "";
-                }
+                                } else if (response.status == 'internal-server-error') {
+                                    // Update internal server error message
+                                    document.getElementById('successMessage').className = 'alert alert-danger mb-4';
+                                    document.getElementById('messageHead').textContent = 'Error!';
+                                    document.getElementById('formSubmitMessage').textContent = response.message;
+                                    document.getElementById('successMessage').style.display = 'block';
+                                } else {
+                                    // Update success message
+                                    document.getElementById('messageHead').textContent = 'Success!';
+                                    document.getElementById('formSubmitMessage').textContent = response.message;
+                                    document.getElementById('successMessage').className = 'alert alert-success mb-4';
+                                    document.getElementById('successMessage').style.display = 'block';
 
-                // Validate ContactNumber
-                var ContactNumber = document.getElementById("ContactNumber");
-                var ContactNumberError = document.getElementById("ContactNumberError");
-                if (!ContactNumber.value.trim()) {
-                    ContactNumberError.textContent = "Please enter your contact number.";
-                    ContactNumberError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    return false;
-                } else {
-                    ContactNumberError.textContent = "";
-                }
-
-                // Validate email
-                var email = document.getElementById("email");
-                var emailError = document.getElementById("emailError");
-                if (!email.value.trim()) {
-                    emailError.textContent = "Please enter your email.";
-                    emailError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    return false;
-                } else {
-                    emailError.textContent = "";
-                }
-
-                // Validate cnic
-                var cnic = document.getElementById("cnic");
-                var cnicError = document.getElementById("cnicError");
-                if (!cnic.value.trim()) {
-                    cnicError.textContent = "Please enter your CNIC.";
-                    cnicError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    return false;
-                } else {
-                    cnicError.textContent = "";
-                }
-
-                if (studentTypeNo.checked) {
-                    studentTypeError.innerText = "";
-
-                    var cnicImage = document.getElementById("cnicImage");
-                    var cnicImageError = document.getElementById("cnicImageError");
-
-                    // Validate CNIC Image
-                    if (!cnicImage.value.trim()) {
-                        cnicImageError.innerText = "Please upload your CNIC Picture.";
-                        cnicImageError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                        return false;
-                    } else {
-                        cnicImageError.textContent = "";
+                                    setTimeout(() => {
+                                        window.location.reload();
+                                    }, 2000);
+                                }
+                            })
+                            .catch(error => {
+                                // Handle errors
+                            });
                     }
-                }
 
 
-
-                // Validate "Register as?" field
-                var registerAsOptions = document.querySelectorAll('input[name="RegisterAs"]');
-                var registerAsError = document.getElementById("sportsSelectError");
-                var registerAsChecked = false;
-
-                registerAsOptions.forEach(function (option) {
-                    if (option.checked) {
-                        registerAsChecked = true;
+                    function startLoader() {
+                        document.getElementsByClassName('loader')[0].removeAttribute('hidden', '')
                     }
-                });
 
-                if (!registerAsChecked) {
-                    registerAsError.textContent = "Please select an option.";
-                    registerAsError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    return false;
-                } else {
-                    registerAsError.textContent = "";
-                }
-
-
-                // Payment Screenshot Validation
-                var paymentScreenshotError = document.getElementById("paymentScreenshotError");
-                paymentScreenshotError.textContent = "";
-                var paymentScreenshotInput = document.getElementById("paymentScreenshot");
-
-               
-                if (!paymentScreenshotInput.files || paymentScreenshotInput.files.length === 0) {
-                    paymentScreenshotError.textContent = "Please upload your payment screenshot.";
-                    paymentScreenshotInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    return false; 
-                }
-
-                // If all validations pass, set isValid to true
-                isValid = true;
-                return isValid;
-            }
-
-
-            if (validateForm()) {
-            submitForm();
-            }
-        });
-
-        function submitForm() {
-            const form = document.querySelector('#registrationForm');
-            const formData = new FormData(form);
-            
-            // Call function to submit form data
-            submitFormData(formData);
-        }
-
-        function submitFormData(formData) {
-    startLoader();
-    fetch('/register/new-registration', {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => response.json())
-    .then(response => {
-        stopLoader();
-
-        if (response.status == 'error'){
-            // Update error message
-            document.getElementById('successMessage').className = 'alert alert-danger mb-4';
-            document.getElementById('messageHead').textContent = 'Error!';
-            document.getElementById('formSubmitMessage').textContent = response.message;
-            document.getElementById('successMessage').style.display = 'block';
-            
-        } else if (response.status == 'internal-server-error'){
-            // Update internal server error message
-            document.getElementById('successMessage').className = 'alert alert-danger mb-4';
-            document.getElementById('messageHead').textContent = 'Error!';
-            document.getElementById('formSubmitMessage').textContent = response.message;
-            document.getElementById('successMessage').style.display = 'block';
-        } else {
-            // Update success message
-            document.getElementById('messageHead').textContent = 'Success!';
-            document.getElementById('formSubmitMessage').textContent = response.message;
-            document.getElementById('successMessage').className = 'alert alert-success mb-4';
-            document.getElementById('successMessage').style.display = 'block';
-
-            setTimeout(() => {
-                window.location.reload();
-            }, 2000); 
-        }
-    })
-    .catch(error => {
-        // Handle errors
-    });
-}
-
-        
-        function startLoader(){
-            document.getElementsByClassName('loader')[0].removeAttribute('hidden', '')
-        }
-
-        function stopLoader(){
-            document.getElementsByClassName('loader')[0].setAttribute('hidden', '')
-        }
+                    function stopLoader() {
+                        document.getElementsByClassName('loader')[0].setAttribute('hidden', '')
+                    }
 
 
 
-        var modal = document.getElementById('staticBackdrop');
-  var video = modal.querySelector('.youtube-video');
-  var player;
+                    var modal = document.getElementById('staticBackdrop');
+                    var video = modal.querySelector('.youtube-video');
+                    var player;
 
-  function onYouTubeIframeAPIReady() {
-    player = new YT.Player(video, {
-      events: {
-        'onStateChange': onPlayerStateChange
-      }
-    });
-  }
+                    function onYouTubeIframeAPIReady() {
+                        player = new YT.Player(video, {
+                            events: {
+                                'onStateChange': onPlayerStateChange
+                            }
+                        });
+                    }
 
-  function onPlayerStateChange(event) {
-    if (event.data === YT.PlayerState.PLAYING) {
-      modal.addEventListener('hide.bs.modal', function () {
-        player.pauseVideo();
-      });
-    }
-  }
-    </script>
+                    function onPlayerStateChange(event) {
+                        if (event.data === YT.PlayerState.PLAYING) {
+                            modal.addEventListener('hide.bs.modal', function () {
+                                player.pauseVideo();
+                            });
+                        }
+                    }
+                </script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 
- <script>
-   // Set the deadline date (replace with your desired deadline date)
-const deadline = new Date('February 28, 2024 23:59:59').getTime();
+                <script>
+                    // Set the deadline date (replace with your desired deadline date)
+                    const deadline = new Date('March 1, 2024 23:59:59').getTime();
 
-// Update the countdown every second
-const timerInterval = setInterval(updateCountdown, 1000);
+                    // Update the countdown every second
+                    const timerInterval = setInterval(updateCountdown, 1000);
 
-function updateCountdown() {
-    
-    const now = new Date().getTime();
-    
-    
-    const distance = deadline - now;
+                    function updateCountdown() {
 
-   
-    if (distance < 0) {
-        clearInterval(timerInterval);
-        document.getElementById('countdown').innerHTML = 'Deadline passed';
-    } else {
-        
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                        const now = new Date().getTime();
 
-        
-        document.getElementById('countdown').innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-    }
-}
 
-</script> 
+                        const distance = deadline - now;
+
+
+                        if (distance < 0) {
+                            clearInterval(timerInterval);
+                            document.getElementById('countdown').innerHTML = 'Deadline passed';
+                        } else {
+
+                            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+
+                            document.getElementById('countdown').innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+                        }
+                    }
+
+                </script>
+
 
 
 </body>
+
 </html>
