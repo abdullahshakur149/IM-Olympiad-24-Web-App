@@ -49,7 +49,6 @@ const venueRoute = require('./routes/venue');
 const registerRoute = require('./routes/register')
 const adminPanelRoute = require('./routes/admin-panel')
 const registeredUsersRoute = require('./routes/registered-users')
-const detailedUsersRoute = require('./routes/user-details')
 const loginRoute = require('./routes/login');
 
 
@@ -58,7 +57,6 @@ app.use('/venue', venueRoute);
 app.use('/register', registerRoute);
 app.use('/admin-panel', adminPanelRoute);
 app.use('/registered-users', registeredUsersRoute);
-app.use('/user-detail', detailedUsersRoute);
 
 
 app.use('/login', loginRoute);
