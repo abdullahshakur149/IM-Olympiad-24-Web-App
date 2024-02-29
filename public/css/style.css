@@ -527,7 +527,7 @@ h3 {
   font-size: 20px;
   font-weight: 500;
   border: 0;
-  border: 1px solid transparent;
+  border: 2px solid white;
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   border-radius: 0px;
@@ -1141,7 +1141,7 @@ h3 {
   padding: 12px 46px;
   font-size: 16px;
   font-weight: 400;
-  border: 1px solid transparent;
+  border: 2px solid white;
   color: #fff;
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
