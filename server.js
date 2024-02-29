@@ -47,6 +47,7 @@ app.use(flash()); // for flash messages
 const indexRoute = require('./routes/index');
 const venueRoute = require('./routes/venue');
 const registerRoute = require('./routes/register')
+const galleryRoute = require('./routes/gallery');
 const adminPanelRoute = require('./routes/admin-panel')
 const registeredUsersRoute = require('./routes/registered-users')
 const loginRoute = require('./routes/login');
@@ -54,6 +55,7 @@ const loginRoute = require('./routes/login');
 
 app.use('/', indexRoute);
 app.use('/venue', venueRoute);
+app.use('/gallery', galleryRoute);
 app.use('/register', registerRoute);
 app.use('/admin-panel', adminPanelRoute);
 app.use('/registered-users', registeredUsersRoute);
