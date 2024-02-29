@@ -5855,6 +5855,10 @@ h6 {
 .navbar-nav .nav-item {
   margin: 0 18px;
 }
+
+.nav-link:hover{
+  color: white !important;
+}
 @media (max-width: 768px) {
   .navbar-collapse {
     background-color: white;
