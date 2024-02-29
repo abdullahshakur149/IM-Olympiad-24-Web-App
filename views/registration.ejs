@@ -191,8 +191,24 @@
                             var studentImageError = document.getElementById("studentImageError");
                             if (!studentImage.files.length) {
                                 studentImageError.textContent = "Please upload your picture.";
+                                // Create a link element
+                                var link = document.createElement("a");
+                                link.href = "https://www.iloveimg.com/compress-image";
+                                link.textContent = "Use this link for reducing your image size.";
+
+                                // Create a div element
+                                var div = document.createElement("div");
+                                div.classList.add("mb-3");
+                                div.appendChild(document.createTextNode("Use this link for reducing your image size: "));
+                                div.appendChild(link);
+
+                                // Append the div to studentImageError
+                                studentImageError.appendChild(div);
+
                                 studentImageError.scrollIntoView({ behavior: 'smooth', block: 'center' });
                                 return false;
+
+
                             } else {
                                 studentImageError.textContent = "";
                             }
