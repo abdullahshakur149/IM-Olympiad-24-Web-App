@@ -6,6 +6,7 @@ const session = require('express-session');
 const flash = require('connect-flash');
 const passport = require('passport');
 const MongoStore = require('connect-mongo')
+const viewsCounter = require('./middleware/viewsCounter')
 const app = express();
 
 
@@ -54,6 +55,8 @@ const loginRoute = require('./routes/login');
 const thankyouRoute = require('./routes/thankyou')
 
 
+//custom middlewares
+app.use(viewsCounter);
 
 app.use('/', indexRoute);
 app.use('/venue', venueRoute);

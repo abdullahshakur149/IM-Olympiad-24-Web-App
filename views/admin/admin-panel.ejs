@@ -99,8 +99,11 @@
                 
 
                 <div class="card-body">
-                  <h5 class="card-title">Total visits <span>| 250</span></h5>
-
+                  <% if (total_views) {%>
+                  <h5 class="card-title">Total visits <span>| <%=total_views%></span></h5>
+                  <% } else { %>
+                    <h5 class="card-title">Total visits <span>| 0</span></h5>
+                  <% } %>
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                       <i class="bi bi-people"></i>
