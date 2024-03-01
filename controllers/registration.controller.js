@@ -414,3 +414,17 @@ exports.getRegisteredUsersCount = async () => {
     }
 };
 
+exports.getRegisteredUsersData = async () => {
+    try {
+        // Fetch all registrations
+        const registrations = await Registration.find().select('createdAt');
+
+        // Count all registrations
+        const count = registrations.length;
+
+        return { count, registrations };
+    } catch (err) {
+        console.error("Error fetching registered users data:", err);
+        throw err;
+    }
+};
