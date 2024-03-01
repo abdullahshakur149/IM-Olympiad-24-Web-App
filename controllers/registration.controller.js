@@ -13,7 +13,6 @@ exports.newRegistration = async (req, res, next) => {
 
         let allFiles = req.files;
 
-        // console.log(registrationDetails);
 
         if (!validatePersonalDetails(registrationDetails)) {
             // Remove uploaded files(undo)
