@@ -34,10 +34,12 @@
                                 <strong>Name:</strong>
                                 <span><%=personal_details.name%></span>
                             </div>
+                            <% if (personal_details.is_ims_student === 'yes') {%>
                             <div class="detail border-bottom pb-3">
                                 <strong>Student ID Card Picture:</strong>
                                 <img src="<%=personal_details.studentIdImage%>" class="img-thumbnail img" alt="Student ID Picture" width="40" height="20" onclick="openModal('<%=personal_details.studentIdImage%>')">
                             </div>
+                            <% } %>
                             <div class="detail border-bottom pb-3">
                                 <strong>Picture:</strong>
                                 <img src="<%=personal_details.studentImage%>" class="img-thumbnail img" alt="Participant Picture" width="40" height="20" onclick="openModal('<%=personal_details.studentImage%>')">
@@ -58,10 +60,12 @@
                                 <strong>CNIC:</strong>
                                 <span><%=personal_details.cnic%></span>
                             </div>
+                            <% if (personal_details.is_ims_student === 'no') {%>
                             <div class="detail ">
                                 <strong>CNIC Picture:</strong>
                                 <img src="<%=personal_details.cnicImage%>" class="img-thumbnail img" alt="CNIC Picture" width="40" height="20" onclick="openModal('<%=personal_details.cnicImage%>')">
                             </div>
+                            <% } %>
                         <% } %>
                     </div>
                 </div>
@@ -96,6 +100,35 @@
                                             
                                 </div>
                             </div>
+
+                            <% if (event_details['BoardGames']) {%>
+                            <div class="detail border-bottom pb-3">
+                                <strong>Selected Sports in Board Games</strong>
+                                <div class="selected-sports">
+                                    <% if (typeof event_details.selected_sports != undefined && event_details.selected_sports.length > 0) {%>
+                                        <% for (let sport of event_details.selected_sports) {%>
+                                            <div class="sport-tag"><%=sport%></div>
+                                        <% } %>
+                                    <% } %>
+                                            
+                                </div>
+                            </div>
+                            <% } %>
+                            
+
+                            <% if (event_details['EGaming']) {%>
+                                <div class="detail border-bottom pb-3">
+                                    <strong>Selected Sports in EGaming</strong>
+                                    <div class="selected-sports">
+                                        <% if (typeof event_details.selected_sports != undefined && event_details.selected_sports.length > 0) {%>
+                                            <% for (let sport of event_details.selected_sports) {%>
+                                                <div class="sport-tag"><%=sport%></div>
+                                            <% } %>
+                                        <% } %>
+                                                
+                                    </div>
+                                </div>
+                                <% } %>
 
                             <!-- Futsal Team -->
                             <% if (event_details['Futsal']) {%>
