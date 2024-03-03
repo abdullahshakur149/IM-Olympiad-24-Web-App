@@ -412,36 +412,33 @@
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 
                 <script>
-                    // Set the deadline date (replace with your desired deadline date)
-                    const deadline = new Date('March 1, 2024 23:59:59').getTime();
-
+                    // Set the deadline date to Monday at 11:59 PM
+                    const deadline = new Date();
+                    deadline.setDate(deadline.getDate() + (1 + 7 - deadline.getDay()) % 7); // Move to next Monday
+                    deadline.setHours(23, 59, 59, 999); // Set time to 11:59:59 PM
+                    const deadlineTimestamp = deadline.getTime();
+                
                     // Update the countdown every second
                     const timerInterval = setInterval(updateCountdown, 1000);
-
+                
                     function updateCountdown() {
-
                         const now = new Date().getTime();
-
-
-                        const distance = deadline - now;
-
-
+                        const distance = deadlineTimestamp - now;
+                
                         if (distance < 0) {
                             clearInterval(timerInterval);
                             document.getElementById('countdown').innerHTML = 'Deadline passed';
                         } else {
-
                             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
                             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
                             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-
+                
                             document.getElementById('countdown').innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
                         }
                     }
-
                 </script>
+                
 
 
 
