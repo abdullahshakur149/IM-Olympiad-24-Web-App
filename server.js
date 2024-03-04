@@ -55,16 +55,8 @@ const loginRoute = require('./routes/login');
 const thankyouRoute = require('./routes/thankyou')
 
 
-app.use('/admin-panel', adminPanelRoute);
-app.use('/registered-users', registeredUsersRoute);
-app.use('/login', loginRoute);
-app.use('/logout', loginRoute);
-
 //custom middlewares
-if(process.env.NODE_ENV === 'production'){
-  console.log('works');
-  app.use(viewsCounter);
-}
+app.use(viewsCounter);
 
 app.use('/', indexRoute);
 app.use('/venue', venueRoute);
