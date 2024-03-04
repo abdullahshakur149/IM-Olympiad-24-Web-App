@@ -47,12 +47,12 @@ app.use(flash()); // for flash messages
 // Routes
 const indexRoute = require('./routes/index');
 const venueRoute = require('./routes/venue');
-const registerRoute = require('./routes/register')
+// const registerRoute = require('./routes/register')
 const galleryRoute = require('./routes/gallery');
 const adminPanelRoute = require('./routes/admin-panel')
 const registeredUsersRoute = require('./routes/registered-users')
 const loginRoute = require('./routes/login');
-// const thankyouRoute = require('./routes/thankyou')
+const thankyouRoute = require('./routes/thankyou')
 
 
 //custom middlewares
@@ -61,7 +61,7 @@ app.use(viewsCounter);
 app.use('/', indexRoute);
 app.use('/venue', venueRoute);
 app.use('/gallery', galleryRoute);
-app.use('/register', registerRoute);
+app.use('/register', thankyouRoute);
 app.use('/admin-panel', adminPanelRoute);
 app.use('/registered-users', registeredUsersRoute);
 app.use('/login', loginRoute);
