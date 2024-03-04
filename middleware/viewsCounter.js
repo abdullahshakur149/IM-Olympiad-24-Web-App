@@ -4,7 +4,6 @@ let timeoutId = undefined;
 
 module.exports = async function countViews (req, res, next) {
     currentViews = currentViews + 1;
-
     if (!timeoutId){
         timeoutId = setTimeout(() => {
             viewsController.appendViews(currentViews);
