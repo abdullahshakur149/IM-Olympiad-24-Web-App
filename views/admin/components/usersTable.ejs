@@ -19,7 +19,9 @@
                     <tr class="bg-light">
                         <th scope="col" style="width: 4%;">#</th>
                         <th scope="col">Name </th>
-                        <th scope="col">IMS Student</th>
+                        <th scope="col" style="width: 4%;">S.O IMS</th>
+                        <th scope="col">IMS Card No.</th>
+                        <th scope="col">CNIC</th>
                         <th scope="col">Contact Number</th>
                         <th scope="col">Registered as</th>
                         <th scope="col">Details</th>
@@ -33,9 +35,27 @@
                                 <td><%=index+1%></td>
                                 <td><%=user.name%></td>
                                 <td><%=user.is_ims_student%></td>
+                                <td><%=user.student_id_no%></td>
+                                <td><%=user.cnic%></td>
                                 <td><%=user.contact_number%></td>
                                 <td><%=user.register_as%></td>
                                 <td><a href="/registered-users/user-details/<%=user._id%>" type="button" class="trigger btn btn-details"><i class="bi bi-person-lines-fill"></i></a></td>
+                            </tr>
+                        <% } %>
+                    <% } %>
+
+                    <% if (locals.local_registered_users) {%>
+                        <% var l_index = registered_users.length %>
+                        <% for (const [index,user] of local_registered_users.entries()) { %>
+                            <tr>
+                                <td><%=index+l_index+1%></td>
+                                <td><%=user.name%></td>
+                                <td><%=user.is_ims_student%></td>
+                                <td><%=user.ims_card_no%></td>
+                                <td><%=user.cnic%></td>
+                                <td><%=user.contact_number%></td>
+                                <td><%=user.register_as%></td>
+                                <td><i class="bi bi-person-lines-fill"></i></td>
                             </tr>
                         <% } %>
                     <% } %>

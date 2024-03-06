@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {getRegisteredUsers} = require('../controllers/registration.controller');
+const {getRegisteredUsers, getLocalRegisteredUsers} = require('../controllers/registration.controller');
 const {getRegisteredUserDetail, getImage} = require('../controllers/registeredUsers.controller')
 const path = require('path')
 const webAuth = require('../config/webAuth');
@@ -10,7 +10,7 @@ router.use(webAuth.checkAuthenticated);
 
 
 // Route for rendering registered users page
-router.get('/', getRegisteredUsers, (req, res, next) => {
+router.get('/', getRegisteredUsers, getLocalRegisteredUsers, (req, res, next) => {
     res.render('admin/registeredUsers', {});
 });
 

@@ -1,4 +1,5 @@
 const Registration = require("../models/registrationModel");
+const LocalRegistration = require("../models/localRegistration.model");
 const multer = require('multer');
 const fs = require('fs');
 // const { sendRegistrationEmail } = require('../config/mailersend');
@@ -428,3 +429,20 @@ exports.getRegisteredUsersData = async () => {
         throw err;
     }
 };
+
+exports.getLocalRegisteredUsers = async (req, res, next)=>{
+    try {
+
+        const registeredUsers = await LocalRegistration.find();
+
+        if (registeredUsers.length > 0){
+            res.locals.local_registered_users = registeredUsers;
+        }
+
+        next();
+
+    } catch (err) {
+        console.log(err);
+        next('Registration controller error')
+    }
+}
